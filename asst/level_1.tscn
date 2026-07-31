@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://dpg4x278gxuut"]
 
 [ext_resource type="PackedScene" uid="uid://0ywo4oy85qn2" path="res://scence/player.tscn" id="1_p2kaa"]
-[ext_resource type="Texture2D" uid="uid://br17uitpmclyd" path="res://Pixel Woods Asset Pack/Pixel Woods Asset Pack/Backgrounds/BG_2/Woods 1.png" id="3_3swuy"]
-[ext_resource type="Texture2D" uid="uid://biwwdtjhfsa2u" path="res://Pixel Woods Asset Pack/Pixel Woods Asset Pack/Tileset/Pixel_Woods_Tileset.png" id="3_kvc7t"]
-[ext_resource type="Texture2D" uid="uid://cvjxybg3svthg" path="res://Pixel Woods Asset Pack/Pixel Woods Asset Pack/Backgrounds/BG_2/Fog.png" id="4_3swuy"]
+[ext_resource type="Texture2D" uid="uid://br17uitpmclyd" path="res://script/Pixel Woods Asset Pack/Pixel Woods Asset Pack/Backgrounds/BG_2/Woods 1.png" id="3_3swuy"]
+[ext_resource type="Texture2D" uid="uid://biwwdtjhfsa2u" path="res://script/Pixel Woods Asset Pack/Pixel Woods Asset Pack/Tileset/Pixel_Woods_Tileset.png" id="3_kvc7t"]
+[ext_resource type="Texture2D" uid="uid://cvjxybg3svthg" path="res://script/Pixel Woods Asset Pack/Pixel Woods Asset Pack/Backgrounds/BG_2/Fog.png" id="4_3swuy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3swuy"]
 texture = ExtResource("3_kvc7t")
@@ -276,7 +276,7 @@ texture = ExtResource("3_3swuy")
 [node name="player" parent="." unique_id=123168238 instance=ExtResource("1_p2kaa")]
 position = Vector2(182, 574)
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=276724247]
+[node name="Camera2D2" type="Camera2D" parent="player" unique_id=276724247]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1416511459]
 texture_filter = 1

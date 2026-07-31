@@ -20,6 +20,10 @@ config/icon="res://asst/icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[internationalization]
+
+rendering/force_right_to_left_layout_direction=true
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
