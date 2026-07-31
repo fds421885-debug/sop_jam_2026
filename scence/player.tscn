@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b2hdjdo3raokx" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤٠٤١.png" id="5_sgooa"]
 [ext_resource type="Texture2D" uid="uid://233chbrgu1id" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤١٠٥.png" id="6_do3ar"]
 [ext_resource type="Texture2D" uid="uid://bb5fvkwvbrl0d" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤١٣١.png" id="7_i4t4w"]
+[ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="9_nv7mq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
 size = Vector2(127, 125)
@@ -115,6 +116,7 @@ scale = Vector2(1.8925664, 1.5192571)
 
 [node name="Label" type="Label" parent="CanvasLayer/ChoiceScreen/ButtonsContainer" unique_id=949152064]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("9_nv7mq")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/ChoiceScreen/ButtonsContainer" unique_id=1617433870]
 layout_mode = 2
