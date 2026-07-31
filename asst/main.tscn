@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://igoefsb87quv"]
+
+[ext_resource type="Script" uid="uid://dg64qb0yrt6jk" path="res://asst/main.gd" id="1_7essg"]
+[ext_resource type="Script" uid="uid://k675erhwp42j" path="res://asst/h_slider.gd" id="2_pqvm3"]
+[ext_resource type="AudioStream" uid="uid://v1dbgdby441y" path="res://asst/song-s47rr6qA6gbHF2uZz6WY.mp3" id="3_shc2a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhfbf"]
+bg_color = Color(0.4537487, 0.45374864, 0.45374894, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.20392157)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bd3hy"]
+color = Color(0.933207, 0.933207, 0.9332069, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_sb8i5"]
+color = Color(0.18615368, 0.18338603, 0.5896762, 1)
+thickness = 6
+
+[node name="main" type="Control" unique_id=926544938]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7essg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1689964078]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -110.5
+offset_right = 249.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=903490851]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vhfbf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vhfbf")
+text = "start game"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=472238142]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vhfbf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vhfbf")
+text = "Options"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1307822727]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vhfbf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vhfbf")
+text = "Exit"
+
+[node name="Panel" type="Panel" parent="." unique_id=214804217]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -171.5
+offset_right = 259.0
+offset_bottom = 171.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=2051260641]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 55.5
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button4" type="Button" parent="Panel/Label" unique_id=228636666]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 245.5
+offset_bottom = 287.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vhfbf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vhfbf")
+text = "Back"
+
+[node name="HSlider" type="HSlider" parent="Panel" unique_id=921942294]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 164.5
+offset_right = 415.0
+offset_bottom = 180.5
+theme_override_styles/slider = SubResource("StyleBoxLine_bd3hy")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_sb8i5")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_sb8i5")
+min_value = 50.0
+value = 50.0
+script = ExtResource("2_pqvm3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=910051707]
+stream = ExtResource("3_shc2a")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Panel/Label/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="value_changed" from="Panel/HSlider" to="Panel/HSlider" method="_on_value_changed"]

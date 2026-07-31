@@ -13,12 +13,16 @@ config_version=5
 config/name="sop_jam_2026"
 run/main_scene="uid://dsvrgv1fyru4c"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://asst/icon.svg"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[internationalization]
+
+rendering/force_right_to_left_layout_direction=true
 
 [physics]
 
