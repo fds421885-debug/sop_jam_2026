@@ -5,19 +5,25 @@ extends CharacterBody2D
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-# إعدادات التوازن والقدرات الخاصة
-@export_group("Ability Custom Settings")
-@export var max_uses_before_critical: int = 4 
+# إعدادات الحركة والقدرات
 @export var double_jump_boost_multiplier: float = 0.2 
 @export var dash_speed: float = 1200.0
-@export var slow_mo_duration: float = 10.0 
-@export var slow_mo_gravity_scale: float = 0.2 
-@export var wall_slide_gravity_factor: float = 0.1 # تحكم في سرعة الالتصاق بالجدار (قللها أو زودها من هنا)
+@export var wall_slide_gravity_factor: float = 0.1 
 
-# ربط الأزرار من الـ Inspector
-@export_group("UI Buttons")
-@export var btn_1: Button
-@export var btn_2: Button
+# نسبة تباطؤ الزمن (كل ما قللت الرقم، كل ما صار أبطأ، مثلاً 0.5 يعني نصف السرعة)
+@export var slow_mo_factor: float = 0.4 
+
+# تحكم منفصل في وقت كل قدرة (بالثواني)
+@export_group("Abilities Timers")
+@export var time_double_jump: float = 15.0
+@export var time_glide: float = 12.0
+@export var time_dash: float = 10.0
+@export var time_wall_slide: float = 15.0
+@export var time_shock_wave: float = 10.0
+@export var time_slow_mo: float = 8.0
+
+# وقت الانتقال أو اختيار القدرة العشوائية (الروليت)
+@export var random_selection_duration: float = 3.0 
 
 var all_abilities: Array[String] = [
 	"double_jump", 
@@ -29,26 +35,26 @@ var all_abilities: Array[String] = [
 ]
 
 var current_ability: String = "double_jump"
-var ability_level: int = 1
-var ability_uses: int = 0
-var instability: float = 0.0
+var ability_timer: float = 0.0 
+var max_ability_time: float = 15.0 
 
 var can_double_jump: bool = true
 var is_gliding: bool = false
 var is_dashing: bool = false
 var is_slow_mo_active: bool = false
 var last_facing_dir: float = 1.0
+var is_selecting_random: bool = false 
 
-# مسارات الواجهة والعقد
+# مسارات الواجهة
 @onready var instability_bar: ProgressBar = $CanvasLayer/Control/ProgressBar
 @onready var ability_label: Label = $CanvasLayer/Control/AbilityLabel
 @onready var ability_icon: TextureRect = $CanvasLayer/Control/AbilityIcon
-@onready var choice_screen: Control = $CanvasLayer/ChoiceScreen
 
-# عقد درع الانعكاس والنصلين
+# عقدة درع الحماية المحيط
 @onready var shockwave_area: Area2D = $ShockwaveArea
-@onready var shockwave_sprite: Sprite2D = $ShockwaveArea/Sprite2D
-@onready var shockwave_collision: CollisionShape2D = $ShockwaveArea/CollisionShape2D
+
+# مرجع الكاميرا (افترضنا أنها موجودة كعقدة فرعية Camera2D تحت اللاعب)
+@onready var camera: Camera2D = $Camera2D
 
 # الأيقونات
 @export var icon_double_jump: Texture2D
@@ -58,21 +64,11 @@ var last_facing_dir: float = 1.0
 @export var icon_shock_wave: Texture2D
 @export var icon_slow_mo: Texture2D
 
-var ability_assigned_to_btn1: String = ""
-var ability_assigned_to_btn2: String = ""
-
 func _ready() -> void:
 	if instability_bar:
 		instability_bar.min_value = 0
 		instability_bar.max_value = 100
-		instability_bar.value = 0
-	
-	if choice_screen:
-		choice_screen.visible = false
-		choice_screen.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-	
-	if btn_1: btn_1.pressed.connect(_on_btn_1_clicked)
-	if btn_2: btn_2.pressed.connect(_on_btn_2_clicked)
+		instability_bar.value = 100
 	
 	if shockwave_area:
 		shockwave_area.monitoring = false
@@ -80,23 +76,26 @@ func _ready() -> void:
 		if not shockwave_area.body_entered.is_connected(_on_shockwave_body_entered):
 			shockwave_area.body_entered.connect(_on_shockwave_body_entered)
 	
+	set_ability_timer_duration(current_ability)
+	ability_timer = max_ability_time
 	update_ui()
 
 func _physics_process(delta: float) -> void:
-	if is_slow_mo_active:
-		var fill_speed = 100.0 / slow_mo_duration 
-		instability += fill_speed * delta
-		update_ui()
-		
-		if instability >= 100.0:
-			instability = 100.0
-			is_slow_mo_active = false
-			trigger_critical_point()
-			return
+	if is_selecting_random:
+		return
 
-	if current_ability == "slow_mo" and not is_slow_mo_active and not choice_screen.visible:
+	var time_modifier = slow_mo_factor if is_slow_mo_active else 1.0
+	ability_timer -= delta * time_modifier
+	
+	if ability_timer <= 0:
+		start_random_ability_sequence()
+		return
+
+	update_ui()
+
+	if current_ability == "slow_mo":
 		if Input.is_action_just_pressed("slow_mo") or Input.is_key_pressed(KEY_Q):
-			activate_slow_motion()
+			is_slow_mo_active = !is_slow_mo_active
 
 	if current_ability == "dash" and not is_dashing:
 		if Input.is_action_just_pressed("dash") or Input.is_key_pressed(KEY_SHIFT):
@@ -111,17 +110,12 @@ func _physics_process(delta: float) -> void:
 		last_facing_dir = direction
 
 	var current_gravity = gravity
-	if is_slow_mo_active:
-		current_gravity *= slow_mo_gravity_scale
 	
 	if not is_on_floor():
 		if is_gliding:
 			current_gravity *= 0.3
-			register_continuous_use(delta * 5.0) 
 		elif current_ability == "wall_slide" and is_on_wall() and velocity.y > 0:
-			# استخدام المتغير المعرّف للتحكم في سرعة النزول على الجدار
 			current_gravity *= wall_slide_gravity_factor
-			register_continuous_use(delta * 3.0) 
 			
 		velocity.y += current_gravity * delta
 	else:
@@ -131,7 +125,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = jump_velocity
-			velocity.y -= float(ability_level - 1) * 10.0
 		else:
 			if current_ability != "dash" and current_ability != "wall_slide":
 				handle_air_abilities()
@@ -139,20 +132,33 @@ func _physics_process(delta: float) -> void:
 	if current_ability == "shock_wave" and Input.is_key_pressed(KEY_E):
 		activate_shock_wave()
 
+	var current_speed = speed * (slow_mo_factor if is_slow_mo_active else 1.0)
 	if direction:
-		var current_speed = speed * (0.6 if is_slow_mo_active else 1.0)
 		velocity.x = direction * current_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
+	if is_slow_mo_active:
+		velocity.y *= slow_mo_factor * 0.5
+
 	move_and_slide()
+
+func set_ability_timer_duration(ab_name: String) -> void:
+	match ab_name:
+		"double_jump": max_ability_time = time_double_jump
+		"glide": max_ability_time = time_glide
+		"dash": max_ability_time = time_dash
+		"wall_slide": max_ability_time = time_wall_slide
+		"shock_wave": max_ability_time = time_shock_wave
+		"slow_mo": max_ability_time = time_slow_mo
+		_: max_ability_time = 15.0
 
 func handle_air_abilities() -> void:
 	if current_ability == "double_jump" and can_double_jump:
-		var boosted_jump = jump_velocity * (1.0 + (float(ability_level) * double_jump_boost_multiplier))
+		var boosted_jump = jump_velocity * (1.0 + double_jump_boost_multiplier)
+		if is_slow_mo_active: boosted_jump *= slow_mo_factor 
 		velocity.y = boosted_jump
 		can_double_jump = false
-		register_ability_use()
 	elif current_ability == "glide":
 		is_gliding = true
 
@@ -164,138 +170,128 @@ func start_hollow_knight_dash() -> void:
 	elif Input.is_action_pressed("ui_right"): dash_dir = 1.0
 		
 	last_facing_dir = dash_dir
-	velocity.x = dash_speed * dash_dir
+	var current_dash_speed = dash_speed * (slow_mo_factor if is_slow_mo_active else 1.0)
+	velocity.x = current_dash_speed * dash_dir
 	velocity.y = 0 
-	register_ability_use()
-	await get_tree().create_timer(0.15).timeout
+	
+	var timer_wait = 0.15 / (slow_mo_factor if is_slow_mo_active else 1.0)
+	await get_tree().create_timer(timer_wait).timeout
 	is_dashing = false
 
 func activate_shock_wave() -> void:
 	if shockwave_area and shockwave_area.monitoring:
 		return
 		
-	print("🛡️⚔️ Shockwave Blades Released!")
-	
 	if shockwave_area:
-		# جعل مساحة النصل تظهر وتتجه حسب مكان وجهة اللاعب الأخيرة
-		shockwave_area.position.x = last_facing_dir * 50.0 
+		shockwave_area.position = Vector2.ZERO 
 		shockwave_area.monitoring = true
 		shockwave_area.visible = true
 		
-		await get_tree().create_timer(0.2).timeout
+		var timer_wait = 0.3 / (slow_mo_factor if is_slow_mo_active else 1.0)
+		await get_tree().create_timer(timer_wait).timeout
 		
 		if shockwave_area:
 			shockwave_area.monitoring = false
 			shockwave_area.visible = false
-			
-	register_ability_use()
 
 func _on_shockwave_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") or body.has_method("die"):
-		print("💀 Enemy destroyed by Shockwave Blades!")
 		body.queue_free()
 
-func activate_slow_motion() -> void:
-	is_slow_mo_active = true
-
-func register_ability_use() -> void:
-	if is_slow_mo_active: return 
+func start_random_ability_sequence() -> void:
+	is_selecting_random = true
+	is_slow_mo_active = false
+	is_gliding = false
 	
-	ability_uses += 1
-	ability_level = int(float(ability_uses) / 2.0) + 1
-	
-	var usage_step = 100.0 / float(max_uses_before_critical)
-	instability += usage_step
-	
-	update_ui()
-	
-	if instability >= 100.0:
-		trigger_critical_point()
-
-func register_continuous_use(amount: float) -> void:
-	if is_slow_mo_active: return
-	
-	instability += amount
-	update_ui()
-	if instability >= 100.0:
-		trigger_critical_point()
-
-func update_ui() -> void:
-	if instability_bar:
-		instability_bar.value = instability
-		
 	if ability_label:
-		var name_text = ""
-		match current_ability:
-			"double_jump": name_text = "قفزة مزدوجة [Space]"
-			"glide": name_text = "انزلاق هوائي [Space]"
-			"dash": name_text = "داش سريع [Shift]"
-			"wall_slide": name_text = "التصاق جداري"
-			"shock_wave": name_text = "درع الانعكاس والنصلين [زر E]"
-			"slow_mo": name_text = "تباطؤ الزمن [زر Q] (نشط)" if is_slow_mo_active else "تباطؤ الزمن [زر Q]"
-			_: name_text = current_ability
-		
-		ability_label.text = name_text + " | مستوى " + str(ability_level)
-
-	if ability_icon:
-		match current_ability:
-			"double_jump": ability_icon.texture = icon_double_jump
-			"glide": ability_icon.texture = icon_glide
-			"dash": ability_icon.texture = icon_dash
-			"wall_slide": ability_icon.texture = icon_wall_slide
-			"shock_wave": ability_icon.texture = icon_shock_wave
-			"slow_mo": ability_icon.texture = icon_slow_mo
-
-func trigger_critical_point() -> void:
-	print("💥 CRITICAL POINT! القدرة انهارت تماماً!")
+		ability_label.text = "سيتم اختيار قدرة عشوائية..."
 	
-	var remaining_abilities = []
+	var step_time = random_selection_duration / 6.0
+	for i in range(6):
+		if ability_icon:
+			var random_preview = all_abilities[randi() % all_abilities.size()]
+			ability_icon.texture = get_ability_icon(random_preview)
+		await get_tree().create_timer(step_time).timeout
+	
+	var available_choices = []
 	for ab in all_abilities:
 		if ab != current_ability:
-			remaining_abilities.append(ab)
+			available_choices.append(ab)
 	
-	remaining_abilities.shuffle()
+	available_choices.shuffle()
+	var chosen_ability = available_choices[0]
 	
-	if remaining_abilities.size() >= 2:
-		ability_assigned_to_btn1 = remaining_abilities[0]
-		ability_assigned_to_btn2 = remaining_abilities[1]
-		
-		if btn_1: btn_1.text = get_ability_display_name(ability_assigned_to_btn1)
-		if btn_2: btn_2.text = get_ability_display_name(ability_assigned_to_btn2)
-
-	if choice_screen:
-		choice_screen.visible = true
-		
-	get_tree().paused = true
-
-func get_ability_display_name(ab_name: String) -> String:
-	match ab_name:
-		"double_jump": return "اختر: قفزة مزدوجة"
-		"glide": return "اختر: انزلاق هوائي"
-		"dash": return "اختر: داش سريع"
-		"wall_slide": return "اختر: التصاق جداري"
-		"shock_wave": return "اختر: درع الانعكاس والنصلين"
-		"slow_mo": return "اختر: تباطؤ الزمن"
-		_: return "اختر: " + ab_name
-
-func _on_btn_1_clicked() -> void:
-	select_new_ability(ability_assigned_to_btn1)
-
-func _on_btn_2_clicked() -> void:
-	select_new_ability(ability_assigned_to_btn2)
+	select_new_ability(chosen_ability)
 
 func select_new_ability(new_ability_name: String) -> void:
-	get_tree().paused = false
-	
+	is_selecting_random = false
 	current_ability = new_ability_name
-	instability = 0.0
-	ability_uses = 0
-	ability_level = 1
+	
+	set_ability_timer_duration(current_ability)
+	ability_timer = max_ability_time 
+	
 	is_gliding = false
 	is_dashing = false
 	is_slow_mo_active = false
 	
-	if choice_screen:
-		choice_screen.visible = false
+	# تشغيل هزة الكاميرا القوية عند استقرار القدرة الجديدة
+	shake_camera(0.4, 15.0)
 	
 	update_ui()
+
+# دالة هزة الكاميرا (duration: المدة بالثانية، intensity: قوة الهزة بالبكسل)
+func shake_camera(duration: float, intensity: float) -> void:
+	if not camera:
+		return
+	
+	var original_offset = camera.offset
+	var elapsed_time = 0.0
+	
+	while elapsed_time < duration:
+		if not camera: 
+			break
+		camera.offset = original_offset + Vector2(randf_range(-intensity, intensity), randf_range(-intensity, intensity))
+		elapsed_time += get_process_delta_time()
+		await get_tree().process_frame
+	
+	if camera:
+		camera.offset = original_offset
+
+func get_ability_icon(ab_name: String) -> Texture2D:
+	match ab_name:
+		"double_jump": return icon_double_jump
+		"glide": return icon_glide
+		"dash": return icon_dash
+		"wall_slide": return icon_wall_slide
+		"shock_wave": return icon_shock_wave
+		"slow_mo": return icon_slow_mo
+	return null
+
+func update_ui() -> void:
+	if is_selecting_random: 
+		return
+	
+	if instability_bar:
+		var progress_percent = (ability_timer / max_ability_time) * 100.0
+		instability_bar.value = progress_percent
+		
+		if ability_timer <= 3.0:
+			instability_bar.modulate = Color(1, 0, 0) 
+		else:
+			instability_bar.modulate = Color(1, 1, 1) 
+		
+	if ability_label:
+		var name_text = ""
+		match current_ability:
+			"double_jump": name_text = "قفزة مزدوجة"
+			"glide": name_text = "انزلاق هوائي"
+			"dash": name_text = "داش سريع [Shift]"
+			"wall_slide": name_text = "التصاق جداري"
+			"shock_wave": name_text = "درع الحماية المحيط [زر E]"
+			"slow_mo": name_text = "تباطؤ الزمن [زر Q] (نشط)" if is_slow_mo_active else "تباطؤ الزمن [زر Q]"
+			_: name_text = current_ability
+		
+		ability_label.text = name_text + " | باقي: " + str(int(ability_timer)) + "ث"
+
+	if ability_icon:
+		ability_icon.texture = get_ability_icon(current_ability)
