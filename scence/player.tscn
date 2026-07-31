@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ci8uk63xmwjx1" path="res://script/player.gd" id="1_mjc1j"]
 [ext_resource type="Texture2D" uid="uid://dhxme4qgbpijm" path="res://icon.svg" id="1_uwcw8"]
-[ext_resource type="Texture2D" uid="uid://curggi6yxgvwc" path="res://Screenshot_٢٠٢٦-٠٧-١٠-١٢-٤٩-٤٠-٢٣٢_com.google.android.googlequicksearchbox-edit.jpg" id="3_3j5vv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
 size = Vector2(127, 125)
@@ -25,7 +24,6 @@ double_jump_boost_multiplier = 0.4
 btn_1 = NodePath("CanvasLayer/ChoiceScreen/ButtonsContainer/Btn1")
 btn_2 = NodePath("CanvasLayer/ChoiceScreen/ButtonsContainer/Btn2")
 icon_double_jump = ExtResource("1_uwcw8")
-icon_glide = ExtResource("3_3j5vv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=781926273]
 position = Vector2(1.5, -0.5)
