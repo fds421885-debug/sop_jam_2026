@@ -17,13 +17,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc6d"]
+size = Vector2(127, 121)
+
 [node name="player" type="CharacterBody2D" unique_id=123168238 node_paths=PackedStringArray("btn_1", "btn_2")]
 script = ExtResource("1_mjc1j")
-max_uses_before_critical = 6
+max_uses_before_critical = 2
 double_jump_boost_multiplier = 0.4
 btn_1 = NodePath("CanvasLayer/ChoiceScreen/ButtonsContainer/Btn1")
 btn_2 = NodePath("CanvasLayer/ChoiceScreen/ButtonsContainer/Btn2")
 icon_double_jump = ExtResource("1_uwcw8")
+icon_shock_wave = ExtResource("1_uwcw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=781926273]
 position = Vector2(1.5, -0.5)
@@ -69,6 +73,7 @@ offset_left = -162.0
 offset_top = 94.0
 offset_right = -142.0
 offset_bottom = 114.0
+stretch_mode = 3
 
 [node name="ChoiceScreen" type="Control" parent="CanvasLayer" unique_id=1521094035]
 layout_mode = 3
@@ -99,3 +104,12 @@ layout_mode = 2
 
 [node name="Btn2" type="Button" parent="CanvasLayer/ChoiceScreen/ButtonsContainer" unique_id=1282214830]
 layout_mode = 2
+
+[node name="ShockwaveArea" type="Area2D" parent="." unique_id=1729424464]
+
+[node name="Sprite2D" type="Sprite2D" parent="ShockwaveArea" unique_id=1511558234]
+texture = ExtResource("1_uwcw8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShockwaveArea" unique_id=2061618320]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_gyc6d")

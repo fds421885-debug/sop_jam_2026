@@ -15,6 +15,11 @@ position = Vector2(2, 627)
 position = Vector2(-107, -2.5)
 shape = SubResource("RectangleShape2D_g7b7a")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=479810201]
+position = Vector2(1284, -1074)
+rotation = 1.5630542
+shape = SubResource("RectangleShape2D_g7b7a")
+
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=2106419101]
 scale = Vector2(23.371445, -0.11815551)
 texture = ExtResource("1_xpewt")
