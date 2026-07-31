@@ -53,6 +53,9 @@ var is_selecting_random: bool = false
 # عقدة درع الحماية المحيط
 @onready var shockwave_area: Area2D = $ShockwaveArea
 
+# مرجع الكاميرا (افترضنا أنها موجودة كعقدة فرعية Camera2D تحت اللاعب)
+@onready var camera: Camera2D = $Camera2D
+
 # الأيقونات
 @export var icon_double_jump: Texture2D
 @export var icon_glide: Texture2D
@@ -81,7 +84,6 @@ func _physics_process(delta: float) -> void:
 	if is_selecting_random:
 		return
 
-	# حساب العداد الحقيقي (لو تباطؤ الزمن شغال، العداد ينزل ببطء عشان يعطيك وقت أكثر للقدرة)
 	var time_modifier = slow_mo_factor if is_slow_mo_active else 1.0
 	ability_timer -= delta * time_modifier
 	
@@ -91,7 +93,6 @@ func _physics_process(delta: float) -> void:
 
 	update_ui()
 
-	# تفعيل أو إلغاء تباطؤ الزمن بضغط زر Q لو القدرة الحالية هي slow_mo
 	if current_ability == "slow_mo":
 		if Input.is_action_just_pressed("slow_mo") or Input.is_key_pressed(KEY_Q):
 			is_slow_mo_active = !is_slow_mo_active
@@ -131,16 +132,14 @@ func _physics_process(delta: float) -> void:
 	if current_ability == "shock_wave" and Input.is_key_pressed(KEY_E):
 		activate_shock_wave()
 
-	# تطبيق السرعة مع أخذ تباطؤ الزمن في الاعتبار (حركة اللاعب تصير بطيئة وثقيلة ورهيبة)
 	var current_speed = speed * (slow_mo_factor if is_slow_mo_active else 1.0)
 	if direction:
 		velocity.x = direction * current_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
-	# لو تباطؤ الزمن شغال، حتى حركة الجاذبية والسرعة العمودية تتأثر عشان تحس بالبطء الحقيقي
 	if is_slow_mo_active:
-		velocity.y *= slow_mo_factor * 0.5 # تخفيف سرعة السقوط أثناء التباطؤ
+		velocity.y *= slow_mo_factor * 0.5
 
 	move_and_slide()
 
@@ -157,7 +156,7 @@ func set_ability_timer_duration(ab_name: String) -> void:
 func handle_air_abilities() -> void:
 	if current_ability == "double_jump" and can_double_jump:
 		var boosted_jump = jump_velocity * (1.0 + double_jump_boost_multiplier)
-		if is_slow_mo_active: boosted_jump *= slow_mo_factor # تكييف القفزة مع البطء
+		if is_slow_mo_active: boosted_jump *= slow_mo_factor 
 		velocity.y = boosted_jump
 		can_double_jump = false
 	elif current_ability == "glide":
@@ -234,7 +233,29 @@ func select_new_ability(new_ability_name: String) -> void:
 	is_gliding = false
 	is_dashing = false
 	is_slow_mo_active = false
+	
+	# تشغيل هزة الكاميرا القوية عند استقرار القدرة الجديدة
+	shake_camera(0.4, 15.0)
+	
 	update_ui()
+
+# دالة هزة الكاميرا (duration: المدة بالثانية، intensity: قوة الهزة بالبكسل)
+func shake_camera(duration: float, intensity: float) -> void:
+	if not camera:
+		return
+	
+	var original_offset = camera.offset
+	var elapsed_time = 0.0
+	
+	while elapsed_time < duration:
+		if not camera: 
+			break
+		camera.offset = original_offset + Vector2(randf_range(-intensity, intensity), randf_range(-intensity, intensity))
+		elapsed_time += get_process_delta_time()
+		await get_tree().process_frame
+	
+	if camera:
+		camera.offset = original_offset
 
 func get_ability_icon(ab_name: String) -> Texture2D:
 	match ab_name:
