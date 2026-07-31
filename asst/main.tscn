@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b18t6d4orp660"]
 
 [ext_resource type="Script" uid="uid://dg64qb0yrt6jk" path="res://asst/main.gd" id="1_7essg"]
+[ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="2_43uh5"]
 [ext_resource type="Script" uid="uid://k675erhwp42j" path="res://asst/h_slider.gd" id="2_pqvm3"]
 [ext_resource type="AudioStream" uid="uid://v1dbgdby441y" path="res://asst/song-s47rr6qA6gbHF2uZz6WY.mp3" id="3_shc2a"]
 [ext_resource type="AudioStream" uid="uid://nfud5hmsosp3" path="res://asst/mixkit-mouse-click-close-1113.wav" id="4_uniqm"]
@@ -52,6 +53,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_43uh5")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_vhfbf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
@@ -63,6 +65,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_43uh5")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_vhfbf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
@@ -74,6 +77,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_43uh5")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_vhfbf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
@@ -100,6 +104,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 55.5
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_43uh5")
 theme_override_font_sizes/font_size = 30
 text = "Options"
 horizontal_alignment = 1

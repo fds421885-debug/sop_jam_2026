@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://br17uitpmclyd" path="res://script/Pixel Woods Asset Pack/Pixel Woods Asset Pack/Backgrounds/BG_2/Woods 1.png" id="3_3swuy"]
 [ext_resource type="Texture2D" uid="uid://biwwdtjhfsa2u" path="res://script/Pixel Woods Asset Pack/Pixel Woods Asset Pack/Tileset/Pixel_Woods_Tileset.png" id="3_kvc7t"]
 [ext_resource type="Texture2D" uid="uid://cvjxybg3svthg" path="res://script/Pixel Woods Asset Pack/Pixel Woods Asset Pack/Backgrounds/BG_2/Fog.png" id="4_3swuy"]
+[ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="5_4w8p6"]
 [ext_resource type="Script" uid="uid://sxdobs3ilaeb" path="res://asst/area_2d.gd" id="5_egeix"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3swuy"]
@@ -323,6 +324,7 @@ offset_left = -415.0
 offset_top = 653.0
 offset_right = -99.0
 offset_bottom = 708.0
+theme_override_fonts/font = ExtResource("5_4w8p6")
 theme_override_font_sizes/font_size = 39
 text = "أختيارك سبب عبورك"
 horizontal_alignment = 1
