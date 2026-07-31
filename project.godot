@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="sop_jam_2026"
-run/main_scene="uid://dsvrgv1fyru4c"
+run/main_scene="uid://igoefsb87quv"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://asst/icon.svg"
 

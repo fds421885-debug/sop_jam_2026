@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ci8uk63xmwjx1" path="res://script/player.gd" id="1_mjc1j"]
 [ext_resource type="Texture2D" uid="uid://dhxme4qgbpijm" path="res://asst/icon.svg" id="1_uwcw8"]
+[ext_resource type="Texture2D" uid="uid://fvyk6n4phlvb" path="res://IMG_٢٠٢٦٠٧٣١_١٨٣٩١١.png" id="2_3j5vv"]
+[ext_resource type="Texture2D" uid="uid://cwyeck3equfjt" path="res://IMG_٢٠٢٦٠٧٣١_١٨٣٩٥٧.png" id="3_0ue2o"]
+[ext_resource type="Texture2D" uid="uid://cp0ekgnn581hy" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤٠٢٥.png" id="4_nv7mq"]
+[ext_resource type="Texture2D" uid="uid://b2hdjdo3raokx" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤٠٤١.png" id="5_sgooa"]
+[ext_resource type="Texture2D" uid="uid://233chbrgu1id" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤١٠٥.png" id="6_do3ar"]
+[ext_resource type="Texture2D" uid="uid://bb5fvkwvbrl0d" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤١٣١.png" id="7_i4t4w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
 size = Vector2(127, 125)
@@ -17,17 +23,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc6d"]
-size = Vector2(127, 121)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ue2o"]
+radius = 85.74672
 
-[node name="player" type="CharacterBody2D" unique_id=123168238 node_paths=PackedStringArray("btn_1", "btn_2")]
+[node name="player" type="CharacterBody2D" unique_id=123168238]
 script = ExtResource("1_mjc1j")
-max_uses_before_critical = 2
 double_jump_boost_multiplier = 0.4
-btn_1 = NodePath("CanvasLayer/ChoiceScreen/ButtonsContainer/Btn1")
-btn_2 = NodePath("CanvasLayer/ChoiceScreen/ButtonsContainer/Btn2")
-icon_double_jump = ExtResource("1_uwcw8")
-icon_shock_wave = ExtResource("1_uwcw8")
+time_double_jump = 8.0
+time_glide = 8.0
+time_dash = 8.0
+time_wall_slide = 8.0
+time_shock_wave = 8.0
+random_selection_duration = 1.5
+icon_double_jump = ExtResource("2_3j5vv")
+icon_glide = ExtResource("3_0ue2o")
+icon_dash = ExtResource("4_nv7mq")
+icon_wall_slide = ExtResource("5_sgooa")
+icon_shock_wave = ExtResource("6_do3ar")
+icon_slow_mo = ExtResource("7_i4t4w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=781926273]
 position = Vector2(1.5, -0.5)
@@ -55,10 +68,10 @@ offset_bottom = 62.0
 
 [node name="AbilityLabel" type="Label" parent="CanvasLayer/Control" unique_id=1152696835]
 layout_mode = 0
-offset_left = -193.0
-offset_top = 14.0
-offset_right = -153.0
-offset_bottom = 37.0
+offset_left = -296.0
+offset_top = 9.0
+offset_right = -256.0
+offset_bottom = 32.0
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=2047546231]
 layout_mode = 0
@@ -69,11 +82,13 @@ offset_bottom = 82.0
 
 [node name="AbilityIcon" type="TextureRect" parent="CanvasLayer/Control" unique_id=1137201045]
 layout_mode = 0
-offset_left = -162.0
-offset_top = 94.0
-offset_right = -142.0
-offset_bottom = 114.0
-stretch_mode = 3
+offset_left = 9.999992
+offset_top = 93.99999
+offset_right = 29.999992
+offset_bottom = 113.99999
+scale = Vector2(3.6406226, 3.5114946)
+expand_mode = 5
+stretch_mode = 6
 
 [node name="ChoiceScreen" type="Control" parent="CanvasLayer" unique_id=1521094035]
 layout_mode = 3
@@ -99,17 +114,8 @@ layout_mode = 2
 layout_mode = 2
 color = Color(0.49145234, 1.0874466, 0.9732144, 0.4745098)
 
-[node name="Btn1" type="Button" parent="CanvasLayer/ChoiceScreen/ButtonsContainer" unique_id=545403579]
-layout_mode = 2
-
-[node name="Btn2" type="Button" parent="CanvasLayer/ChoiceScreen/ButtonsContainer" unique_id=1282214830]
-layout_mode = 2
-
 [node name="ShockwaveArea" type="Area2D" parent="." unique_id=1729424464]
-
-[node name="Sprite2D" type="Sprite2D" parent="ShockwaveArea" unique_id=1511558234]
-texture = ExtResource("1_uwcw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockwaveArea" unique_id=2061618320]
 position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_gyc6d")
+shape = SubResource("CircleShape2D_0ue2o")
