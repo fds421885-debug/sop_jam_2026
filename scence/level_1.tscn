@@ -30,3 +30,7 @@ position = Vector2(83, 129)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=637732366]
 position = Vector2(559, 388)
 texture = ExtResource("1_xpewt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=937299756]
+position = Vector2(53, 341)
+texture = ExtResource("1_xpewt")
