@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dg64qb0yrt6jk" path="res://asst/main.gd" id="1_7essg"]
 [ext_resource type="Script" uid="uid://k675erhwp42j" path="res://asst/h_slider.gd" id="2_pqvm3"]
 [ext_resource type="AudioStream" uid="uid://v1dbgdby441y" path="res://asst/song-s47rr6qA6gbHF2uZz6WY.mp3" id="3_shc2a"]
+[ext_resource type="AudioStream" uid="uid://nfud5hmsosp3" path="res://asst/mixkit-mouse-click-close-1113.wav" id="4_uniqm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhfbf"]
 bg_color = Color(0.4537487, 0.45374864, 0.45374894, 1)
@@ -140,6 +141,10 @@ script = ExtResource("2_pqvm3")
 stream = ExtResource("3_shc2a")
 autoplay = true
 parameters/looping = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1676646987]
+stream = ExtResource("4_uniqm")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
