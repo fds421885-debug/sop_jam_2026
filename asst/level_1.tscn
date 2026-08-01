@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cvjxybg3svthg" path="res://script/Pixel Woods Asset Pack/Pixel Woods Asset Pack/Backgrounds/BG_2/Fog.png" id="4_3swuy"]
 [ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="5_4w8p6"]
 [ext_resource type="Script" uid="uid://sxdobs3ilaeb" path="res://asst/area_2d.gd" id="5_egeix"]
+[ext_resource type="AudioStream" uid="uid://iphusof7jgvq" path="res://song-zwZJIBHBxPpjMx8Lyjka.mp3" id="7_w6xao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3swuy"]
 texture = ExtResource("3_kvc7t")
@@ -336,5 +337,10 @@ script = ExtResource("5_egeix")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=127432579]
 position = Vector2(1149.125, 762)
 shape = SubResource("RectangleShape2D_11nh2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=247444099]
+stream = ExtResource("7_w6xao")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
