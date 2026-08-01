@@ -336,7 +336,7 @@ func _apply_gravity(delta: float) -> void:
 func _handle_jump_input() -> void:
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
 		jump_buffer_timer = jump_buffer_time
-
+		$AudioStreamPlayer.play()
 	if jump_buffer_timer <= 0:
 		return
 

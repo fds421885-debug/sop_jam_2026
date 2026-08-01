@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://0jbkomwwbisy" path="res://asset/Palm Tree Island/Sprites/Background/Big Clouds.png" id="3_f2txt"]
 [ext_resource type="Texture2D" uid="uid://vtijqoogkhob" path="res://asset/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="4_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://0ywo4oy85qn2" path="res://scence/player.tscn" id="5_f2txt"]
+[ext_resource type="AudioStream" uid="uid://d2c0u48ym5u6e" path="res://asst/song-zwZJIBHBxPpjMx8Lyjka.mp3" id="6_1ainy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2txt"]
 texture = ExtResource("4_0b4ue")
@@ -870,3 +871,8 @@ tile_set = SubResource("TileSet_5d2yy")
 
 [node name="player" parent="." unique_id=123168238 instance=ExtResource("5_f2txt")]
 position = Vector2(114, 575)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=326237726]
+stream = ExtResource("6_1ainy")
+autoplay = true
+parameters/looping = true
