@@ -6,7 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cvjxybg3svthg" path="res://script/Pixel Woods Asset Pack/Pixel Woods Asset Pack/Backgrounds/BG_2/Fog.png" id="4_3swuy"]
 [ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="5_4w8p6"]
 [ext_resource type="Script" uid="uid://sxdobs3ilaeb" path="res://asst/area_2d.gd" id="5_egeix"]
+<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://iphusof7jgvq" path="res://song-zwZJIBHBxPpjMx8Lyjka.mp3" id="7_w6xao"]
+=======
+[ext_resource type="PackedScene" uid="uid://fklxymo8krgj" path="res://scence/zone.tscn" id="7_w6xao"]
+>>>>>>> 9810b5e296196e3fdf40de4296b899629f588fea
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3swuy"]
 texture = ExtResource("3_kvc7t")
@@ -257,7 +261,7 @@ sources/0 = SubResource("TileSetAtlasSource_3swuy")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11nh2"]
 size = Vector2(4702.25, 43)
 
-[node name="level_1" type="Node2D" unique_id=1072630316]
+[node name="test" type="Node2D" unique_id=1072630316]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1612697331]
 texture_filter = 1
@@ -304,6 +308,7 @@ texture = ExtResource("3_3swuy")
 
 [node name="player" parent="." unique_id=123168238 instance=ExtResource("1_p2kaa")]
 position = Vector2(-1072, 561)
+icon_wall_slide = null
 
 [node name="Camera2D2" type="Camera2D" parent="player" unique_id=276724247]
 
@@ -338,9 +343,18 @@ script = ExtResource("5_egeix")
 position = Vector2(1149.125, 762)
 shape = SubResource("RectangleShape2D_11nh2")
 
+<<<<<<< HEAD
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=247444099]
 stream = ExtResource("7_w6xao")
 autoplay = true
 parameters/looping = true
+=======
+[node name="zone" parent="." unique_id=1833006299 instance=ExtResource("7_w6xao")]
+position = Vector2(-854, 541)
+
+[node name="zone2" parent="." unique_id=1079081108 instance=ExtResource("7_w6xao")]
+position = Vector2(-197, 536)
+forced_ability = "dash"
+>>>>>>> 9810b5e296196e3fdf40de4296b899629f588fea
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -1,14 +1,32 @@
 [gd_scene format=3 uid="uid://0ywo4oy85qn2"]
 
 [ext_resource type="Script" uid="uid://ci8uk63xmwjx1" path="res://script/player.gd" id="1_mjc1j"]
-[ext_resource type="Texture2D" uid="uid://dhxme4qgbpijm" path="res://asst/icon.svg" id="1_uwcw8"]
-[ext_resource type="Texture2D" uid="uid://fvyk6n4phlvb" path="res://IMG_٢٠٢٦٠٧٣١_١٨٣٩١١.png" id="2_3j5vv"]
-[ext_resource type="Texture2D" uid="uid://cwyeck3equfjt" path="res://IMG_٢٠٢٦٠٧٣١_١٨٣٩٥٧.png" id="3_0ue2o"]
-[ext_resource type="Texture2D" uid="uid://cp0ekgnn581hy" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤٠٢٥.png" id="4_nv7mq"]
-[ext_resource type="Texture2D" uid="uid://b2hdjdo3raokx" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤٠٤١.png" id="5_sgooa"]
-[ext_resource type="Texture2D" uid="uid://233chbrgu1id" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤١٠٥.png" id="6_do3ar"]
-[ext_resource type="Texture2D" uid="uid://bb5fvkwvbrl0d" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤١٣١.png" id="7_i4t4w"]
+[ext_resource type="Texture2D" uid="uid://bep6r2p0xry2" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٣٩١١.png" id="2_nv7mq"]
+[ext_resource type="Texture2D" uid="uid://my4ua812kgis" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٣٩٥٧.png" id="3_nv7mq"]
+[ext_resource type="Texture2D" uid="uid://tw6wod6c3nnp" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤٠٢٥.png" id="4_sgooa"]
+[ext_resource type="Texture2D" uid="uid://bc8w7ch5s2f6i" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤١٠٥.png" id="6_do3ar"]
+[ext_resource type="Texture2D" uid="uid://cbo42mcfc5jko" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤١٣١.png" id="7_i4t4w"]
+[ext_resource type="Texture2D" uid="uid://blu68twa6bfi1" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="8_54rd1"]
+[ext_resource type="Texture2D" uid="uid://bvtrob8ka3vg3" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="8_l746g"]
+[ext_resource type="Texture2D" uid="uid://cgqfu18tma3uw" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="9_4fqwk"]
+[ext_resource type="Texture2D" uid="uid://cy3ontinpik86" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 01.png" id="9_5te8i"]
 [ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="9_nv7mq"]
+[ext_resource type="Texture2D" uid="uid://dsbstmeeegucn" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="10_h10no"]
+[ext_resource type="Texture2D" uid="uid://dd71xq0b3l8qt" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 01.png" id="11_qlre4"]
+[ext_resource type="Texture2D" uid="uid://bxesc1wihbcnb" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="11_u2rhm"]
+[ext_resource type="Texture2D" uid="uid://cqx6oelyli84b" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="12_4dows"]
+[ext_resource type="Texture2D" uid="uid://cbanir3wflug8" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 02.png" id="12_ij421"]
+[ext_resource type="Texture2D" uid="uid://dakp2offwy5wk" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 01.png" id="13_123km"]
+[ext_resource type="Texture2D" uid="uid://bftnjd0s3far8" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 03.png" id="13_b0rre"]
+[ext_resource type="Texture2D" uid="uid://r73g3785ifgl" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 02.png" id="14_qh0e5"]
+[ext_resource type="Texture2D" uid="uid://dev11bqjyv6md" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 04.png" id="14_su8px"]
+[ext_resource type="Texture2D" uid="uid://dr7xx5342hcva" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 03.png" id="15_vwy8y"]
+[ext_resource type="Texture2D" uid="uid://bln7gbynoteoe" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 01.png" id="16_cgc3x"]
+[ext_resource type="Texture2D" uid="uid://3o8s4rxep8sj" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 02.png" id="17_q4p3r"]
+[ext_resource type="Texture2D" uid="uid://dokhe7qccthag" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 03.png" id="18_dim33"]
+[ext_resource type="Texture2D" uid="uid://d2wwad14gxcy0" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="19_o0jir"]
+[ext_resource type="Texture2D" uid="uid://bwg8lyhpnikwg" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="20_l746g"]
+[ext_resource type="Texture2D" uid="uid://ctuc1hogi7l0x" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="21_5te8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
 size = Vector2(127, 125)
@@ -17,11 +35,93 @@ size = Vector2(127, 125)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_uwcw8")
+"texture": ExtResource("8_l746g")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_5te8i")
+}],
+"loop": 0,
+"name": &"ground",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_qlre4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ij421")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_b0rre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_su8px")
+}],
+"loop": 0,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_54rd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4fqwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h10no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u2rhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4dows")
 }],
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_123km")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qh0e5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vwy8y")
+}],
+"loop": 0,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_cgc3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_q4p3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dim33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_o0jir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_l746g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5te8i")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 7.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ue2o"]
@@ -29,23 +129,23 @@ radius = 85.74672
 
 [node name="player" type="CharacterBody2D" unique_id=123168238]
 script = ExtResource("1_mjc1j")
-speed = null
-jump_velocity = null
 double_jump_boost_multiplier = 0.4
-dash_speed = null
-wall_slide_gravity_factor = null
-slow_mo_factor = null
 time_double_jump = 8.0
 time_glide = 8.0
 time_dash = 8.0
 time_wall_slide = 8.0
 time_shock_wave = 8.0
-time_slow_mo = null
 random_selection_duration = 1.5
-icon_double_jump = ExtResource("2_3j5vv")
-icon_glide = ExtResource("3_0ue2o")
-icon_dash = ExtResource("4_nv7mq")
-icon_wall_slide = ExtResource("5_sgooa")
+animated_sprite_path = NodePath("AnimatedSprite2D")
+anim_idle = "idle"
+anim_run = "run"
+anim_jump = "jump"
+anim_fall = "fall"
+anim_land = "ground"
+anim_death = "idle"
+icon_double_jump = ExtResource("2_nv7mq")
+icon_glide = ExtResource("3_nv7mq")
+icon_dash = ExtResource("4_sgooa")
 icon_shock_wave = ExtResource("6_do3ar")
 icon_slow_mo = ExtResource("7_i4t4w")
 
@@ -54,6 +154,9 @@ position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_g7b7a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1736156332]
+texture_filter = 1
+position = Vector2(-1.0000002, 4)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_gyc6d")
 animation = &"idle"
 
@@ -127,3 +230,5 @@ color = Color(0.49145234, 1.0874466, 0.9732144, 0.4745098)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockwaveArea" unique_id=2061618320]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("CircleShape2D_0ue2o")
+
+[node name="Sprite2D" type="Sprite2D" parent="ShockwaveArea" unique_id=253499436]
