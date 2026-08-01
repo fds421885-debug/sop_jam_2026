@@ -7,7 +7,7 @@ extends Control
 
 func _on_button_pressed() -> void:
 	$AudioStreamPlayer2.play()
-	get_tree().change_scene_to_file("res://asst/level_1.tscn")
+	get_tree().change_scene_to_file("res://level.tscn")
 
 
 func _ready() -> void:

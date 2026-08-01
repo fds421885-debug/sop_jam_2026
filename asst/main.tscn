@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dg64qb0yrt6jk" path="res://asst/main.gd" id="1_7essg"]
 [ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="2_43uh5"]
 [ext_resource type="Script" uid="uid://k675erhwp42j" path="res://asst/h_slider.gd" id="2_pqvm3"]
+[ext_resource type="Texture2D" uid="uid://bpf06kgk3s6rp" path="res://scence/bbg main menu.png" id="2_x3jum"]
 [ext_resource type="AudioStream" uid="uid://v1dbgdby441y" path="res://asst/song-s47rr6qA6gbHF2uZz6WY.mp3" id="3_shc2a"]
 [ext_resource type="AudioStream" uid="uid://nfud5hmsosp3" path="res://asst/mixkit-mouse-click-close-1113.wav" id="4_uniqm"]
 
@@ -33,6 +34,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7essg")
 
+[node name="BbgMainMenu" type="Sprite2D" parent="." unique_id=1989911283]
+position = Vector2(574, 324)
+scale = Vector2(0.68421054, 0.6907544)
+texture = ExtResource("2_x3jum")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1689964078]
 layout_mode = 1
 anchors_preset = 8
@@ -41,9 +47,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -249.0
-offset_top = -110.5
+offset_top = -8.0
 offset_right = 249.0
-offset_bottom = 110.5
+offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
@@ -92,9 +98,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -259.0
-offset_top = -171.5
+offset_top = -69.0
 offset_right = 259.0
-offset_bottom = 171.5
+offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
 
