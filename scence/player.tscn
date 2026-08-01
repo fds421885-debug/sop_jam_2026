@@ -155,8 +155,8 @@ shape = SubResource("RectangleShape2D_g7b7a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1736156332]
 texture_filter = 1
-position = Vector2(-1.0000002, 4)
-scale = Vector2(5, 5)
+position = Vector2(-2, 15)
+scale = Vector2(4.21875, 4.4)
 sprite_frames = SubResource("SpriteFrames_gyc6d")
 animation = &"idle"
 
