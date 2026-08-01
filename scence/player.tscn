@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://d2wwad14gxcy0" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="19_o0jir"]
 [ext_resource type="Texture2D" uid="uid://bwg8lyhpnikwg" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="20_l746g"]
 [ext_resource type="Texture2D" uid="uid://ctuc1hogi7l0x" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="21_5te8i"]
+[ext_resource type="AudioStream" uid="uid://dwvbxx7rcns7e" path="res://asst/edr-8-bit-jump-001-171817.mp3" id="28_o0jir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
 size = Vector2(127, 125)
@@ -155,8 +156,8 @@ shape = SubResource("RectangleShape2D_g7b7a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1736156332]
 texture_filter = 1
-position = Vector2(-1.0000002, 4)
-scale = Vector2(5, 5)
+position = Vector2(-2, 15)
+scale = Vector2(4.21875, 4.4)
 sprite_frames = SubResource("SpriteFrames_gyc6d")
 animation = &"idle"
 
@@ -232,3 +233,7 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("CircleShape2D_0ue2o")
 
 [node name="Sprite2D" type="Sprite2D" parent="ShockwaveArea" unique_id=253499436]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1148071208]
+stream = ExtResource("28_o0jir")
+volume_db = -14.865
