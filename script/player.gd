@@ -41,6 +41,11 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var time_slow_mo: float = 8.0
 @export var random_selection_duration: float = 3.0
 
+@export_group("Ability Selection Feel")
+## بدل تجميد اللاعب بالكامل أثناء عرض الروليت، تتباطأ الحركة والجاذبية بهذه
+## النسبة (1.0 = بلا تأثير أي حركة طبيعية، كل ما اقتربت من 0 كل ما كانت أبطأ)
+@export_range(0.01, 1.0) var selection_slowmo_factor: float = 0.2
+
 # -------------------- نظام الإدراك البيئي (Environment Sensing) --------------------
 @export_group("Environment Sensing")
 @export var enemy_detection_radius: float = 350.0
@@ -178,6 +183,7 @@ func _physics_process(delta: float) -> void:
 			force_grant_double_jump_ability()
 
 	if is_selecting_random:
+		_process_selection_slowmo(delta)
 		return
 
 	_update_timers(delta)
@@ -279,6 +285,27 @@ func _apply_horizontal_movement(direction: float) -> void:
 		velocity.x = direction * current_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+
+
+## يُستدعى بدل التجميد الكامل أثناء عرض الروليت (is_selecting_random) — بدل ما
+## يتوقف اللاعب فجأة، تستمر الجاذبية والحركة الأفقية بالعمل لكن بتباطؤ زمني
+## حقيقي (لا حركة بصرية وهمية) بحيث يبدو المشهد سينمائياً بدل التجميد المفاجئ
+func _process_selection_slowmo(delta: float) -> void:
+	var slow_delta := delta * selection_slowmo_factor
+
+	if not is_on_floor():
+		velocity.y += gravity * slow_delta
+	else:
+		velocity.y = 0.0
+
+	var direction := Input.get_axis("ui_left", "ui_right")
+	var slow_speed: float = speed * selection_slowmo_factor
+	if direction:
+		velocity.x = direction * slow_speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, slow_speed)
+
+	move_and_slide()
 
 
 func set_ability_timer_duration(ab_name: String) -> void:

@@ -339,6 +339,6 @@ position = Vector2(1149.125, 762)
 shape = SubResource("RectangleShape2D_11nh2")
 
 [node name="zone" parent="." unique_id=1833006299 instance=ExtResource("7_w6xao")]
-position = Vector2(-836, 585)
+position = Vector2(-854, 541)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

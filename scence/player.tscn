@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ci8uk63xmwjx1" path="res://script/player.gd" id="1_mjc1j"]
 [ext_resource type="Texture2D" uid="uid://dhxme4qgbpijm" path="res://asst/icon.svg" id="1_uwcw8"]
-[ext_resource type="Texture2D" uid="uid://fvyk6n4phlvb" path="res://IMG_٢٠٢٦٠٧٣١_١٨٣٩١١.png" id="2_3j5vv"]
-[ext_resource type="Texture2D" uid="uid://cwyeck3equfjt" path="res://IMG_٢٠٢٦٠٧٣١_١٨٣٩٥٧.png" id="3_0ue2o"]
-[ext_resource type="Texture2D" uid="uid://cp0ekgnn581hy" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤٠٢٥.png" id="4_nv7mq"]
-[ext_resource type="Texture2D" uid="uid://b2hdjdo3raokx" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤٠٤١.png" id="5_sgooa"]
-[ext_resource type="Texture2D" uid="uid://233chbrgu1id" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤١٠٥.png" id="6_do3ar"]
-[ext_resource type="Texture2D" uid="uid://bb5fvkwvbrl0d" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤١٣١.png" id="7_i4t4w"]
+[ext_resource type="Texture2D" uid="uid://bep6r2p0xry2" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٣٩١١.png" id="2_nv7mq"]
+[ext_resource type="Texture2D" uid="uid://my4ua812kgis" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٣٩٥٧.png" id="3_nv7mq"]
+[ext_resource type="Texture2D" uid="uid://tw6wod6c3nnp" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤٠٢٥.png" id="4_sgooa"]
+[ext_resource type="Texture2D" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤٠٤١.png" id="5_sgooa"]
+[ext_resource type="Texture2D" uid="uid://bc8w7ch5s2f6i" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤١٠٥.png" id="6_do3ar"]
+[ext_resource type="Texture2D" uid="uid://cbo42mcfc5jko" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤١٣١.png" id="7_i4t4w"]
 [ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="9_nv7mq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
@@ -36,9 +36,9 @@ time_dash = 8.0
 time_wall_slide = 8.0
 time_shock_wave = 8.0
 random_selection_duration = 1.5
-icon_double_jump = ExtResource("2_3j5vv")
-icon_glide = ExtResource("3_0ue2o")
-icon_dash = ExtResource("4_nv7mq")
+icon_double_jump = ExtResource("2_nv7mq")
+icon_glide = ExtResource("3_nv7mq")
+icon_dash = ExtResource("4_sgooa")
 icon_wall_slide = ExtResource("5_sgooa")
 icon_shock_wave = ExtResource("6_do3ar")
 icon_slow_mo = ExtResource("7_i4t4w")
