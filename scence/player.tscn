@@ -237,3 +237,5 @@ shape = SubResource("CircleShape2D_0ue2o")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1148071208]
 stream = ExtResource("28_o0jir")
 volume_db = -14.865
+
+[connection signal="body_entered" from="ShockwaveArea" to="." method="_on_shockwave_area_body_entered"]

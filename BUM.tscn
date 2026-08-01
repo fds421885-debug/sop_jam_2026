@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dt620ttnd362y"]
+
+[ext_resource type="Script" uid="uid://chxchlbeki352" path="res://bum2.gd" id="1_wyq6q"]
+[ext_resource type="PackedScene" uid="uid://88fewjd2q2p4" path="res://BULLET.tscn" id="2_8cdnh"]
+[ext_resource type="Texture2D" uid="uid://cwt3of3t5mgxd" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire/1.png" id="2_wyq6q"]
+
+[node name="Area2D" type="Node2D" unique_id=1247827241]
+script = ExtResource("1_wyq6q")
+bullet_scene = ExtResource("2_8cdnh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=306829884]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_wyq6q")
+
+[node name="FirePoint" type="Marker2D" parent="." unique_id=1721436818]
+position = Vector2(-26, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=999834727]
+autostart = true
