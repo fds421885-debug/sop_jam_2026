@@ -34,10 +34,66 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7essg")
 
-[node name="BbgMainMenu" type="Sprite2D" parent="." unique_id=1989911283]
-position = Vector2(574, 324)
-scale = Vector2(0.68421054, 0.6907544)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1417658459]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -6.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_x3jum")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=993924383]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -6.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x3jum")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect" unique_id=954024988]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -6.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x3jum")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect/TextureRect" unique_id=126285960]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -6.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x3jum")
+expand_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=910051707]
+stream = ExtResource("3_shc2a")
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1676646987]
+stream = ExtResource("4_uniqm")
+autoplay = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1689964078]
 layout_mode = 1
@@ -46,9 +102,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -249.0
+offset_left = -267.0
 offset_top = -8.0
-offset_right = 249.0
+offset_right = 231.0
 offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -97,9 +153,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -259.0
+offset_left = -277.0
 offset_top = -69.0
-offset_right = 259.0
+offset_right = 241.0
 offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -148,15 +204,6 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_sb8i5")
 min_value = 50.0
 value = 50.0
 script = ExtResource("2_pqvm3")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=910051707]
-stream = ExtResource("3_shc2a")
-autoplay = true
-parameters/looping = true
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1676646987]
-stream = ExtResource("4_uniqm")
-autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
