@@ -1,3 +1,4 @@
+@tool
 extends CharacterBody2D
 
 ## ============================================================
@@ -13,6 +14,10 @@ extends CharacterBody2D
 ##    متوافقاً مع أي كود آخر في مشروعك (AI Game Forge) يقرأ هذه القيمة
 ## 5) لفرض قدرة معينة داخل منطقة محددة بالمستوى، أضف عقدة تستخدم سكريبت
 ##    AbilityZone.gd (مرفق في ملف منفصل) — لا حاجة لأي كود إضافي في اللاعب
+## 6) للأنيميشن: اختر عقدة AnimatedSprite2D من حقل Animated Sprite Path في
+##    مجموعة Animation — بعدها ستتحول حقول الأنيميشن تلقائياً لقوائم منسدلة
+##    تعرض أسماء الأنيميشنز الموجودة فعلياً داخل SpriteFrames الخاص بتلك العقدة
+##    (يتطلب Godot 4.3+)
 
 # -------------------- الحركة الأساسية --------------------
 @export_group("Movement")
@@ -83,6 +88,24 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 ## يتم منح قدرة القفزة المزدوجة فوراً — حتى لو كانت هذه القدرة نفسها مستخدمة قبل قليل
 @export var forced_jump_cooldown_duration: float = 0.25
 
+# -------------------- إعدادات الأنيميشن --------------------
+@export_group("Animation")
+## اختر عقدة AnimatedSprite2D — بمجرد اختيارها ستظهر أسماء أنيميشناتها
+## كقوائم منسدلة في الحقول الستة أدناه بدل الكتابة اليدوية
+@export var animated_sprite_path: NodePath:
+	set(value):
+		animated_sprite_path = value
+		notify_property_list_changed()
+
+@export var anim_idle: String = ""
+@export var anim_run: String = ""
+@export var anim_jump: String = ""
+@export var anim_fall: String = ""
+@export var anim_land: String = ""   ## تأكد من إطفاء خانة Loop له في الـ SpriteFrames Editor
+@export var anim_death: String = ""
+
+const _ANIM_FIELDS := ["anim_idle", "anim_run", "anim_jump", "anim_fall", "anim_land", "anim_death"]
+
 # -------------------- تعريف القدرات (تبقى نصوص للتوافق) --------------------
 const ABILITY_DOUBLE_JUMP := "double_jump"
 const ABILITY_GLIDE := "glide"
@@ -126,6 +149,11 @@ var _forced_jump_cooldown: float = 0.0
 var _sequence_id: int = 0  # يُستخدم لإلغاء تسلسل الروليت إن حدثت قفزة إجبارية عاجلة
 var _active_ability_zones: Array = []  # مكدس مناطق فرض القدرات التي يقف اللاعب داخلها حالياً
 
+# -------------------- حالة الأنيميشن --------------------
+var _was_on_floor: bool = true
+var _is_landing: bool = false
+var _is_dead: bool = false
+
 # -------------------- إشارات (لفصل الواجهة/الصوت عن منطق اللعبة) --------------------
 signal ability_changed(new_ability)
 signal ability_timer_critical
@@ -136,6 +164,7 @@ signal ability_timer_critical
 @onready var ability_icon: TextureRect = $CanvasLayer/Control/AbilityIcon
 @onready var shockwave_area: Area2D = $ShockwaveArea
 @onready var camera: Camera2D = $Camera2D
+@onready var animated_sprite: AnimatedSprite2D = get_node_or_null(animated_sprite_path)
 
 @export var icon_double_jump: Texture2D
 @export var icon_glide: Texture2D
@@ -147,7 +176,43 @@ signal ability_timer_critical
 var ability_icons: Dictionary = {}
 
 
+## ============================================================
+##  دعم محرر Godot — توليد القوائم المنسدلة لأسماء الأنيميشن ديناميكياً
+## ============================================================
+
+## يُستدعى تلقائياً من المحرر لكل خاصية مُصدَّرة قبل عرضها في الـ Inspector.
+## نستخدمه لتحويل حقول الأنيميشن الستة من نص حر إلى قائمة منسدلة (Enum)
+## تعرض فقط الأسماء الموجودة فعلياً داخل SpriteFrames الخاص بالعقدة المختارة
+func _validate_property(property: Dictionary) -> void:
+	if property.name in _ANIM_FIELDS:
+		var names := _get_available_animation_names()
+		if names.size() > 0:
+			property.hint = PROPERTY_HINT_ENUM
+			property.hint_string = ",".join(names)
+		else:
+			# لا توجد عقدة/SpriteFrames مختارة بعد — يبقى كحقل نص عادي
+			property.hint = PROPERTY_HINT_NONE
+			property.hint_string = ""
+
+
+## يجلب أسماء الأنيميشنز من SpriteFrames الخاص بالعقدة المحددة في animated_sprite_path
+func _get_available_animation_names() -> PackedStringArray:
+	if animated_sprite_path.is_empty():
+		return PackedStringArray()
+
+	var sprite := get_node_or_null(animated_sprite_path) as AnimatedSprite2D
+	if sprite == null or sprite.sprite_frames == null:
+		return PackedStringArray()
+
+	return sprite.sprite_frames.get_animation_names()
+
+
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return  # لا تشغّل أي منطق لعب داخل المحرر — فقط دعم الـ Inspector أعلاه يعمل هناك
+
+	animated_sprite = get_node_or_null(animated_sprite_path)
+
 	ability_icons = {
 		ABILITY_DOUBLE_JUMP: icon_double_jump,
 		ABILITY_GLIDE: icon_glide,
@@ -174,6 +239,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+
+	_update_animation()
+
 	_forced_jump_cooldown = max(0.0, _forced_jump_cooldown - delta)
 
 	# فحص عاجل: هل هناك عائق عالٍ لا يمكن الوصول إليه إلا بقفزة مزدوجة؟
@@ -727,3 +797,64 @@ func update_ui() -> void:
 
 	if ability_icon:
 		ability_icon.texture = ability_icons.get(current_ability)
+
+
+# ============================================================
+#  نظام الأنيميشن — يعتمد فقط على حالة الحركة الفعلية للاعب
+# ============================================================
+
+func _update_animation() -> void:
+	if not animated_sprite or _is_dead:
+		return
+
+	# فليب الأنيميشن حسب اتجاه النظر
+	if last_facing_dir != 0:
+		animated_sprite.flip_h = last_facing_dir < 0
+
+	# اكتشاف لحظة الهبوط: انتقال من هواء → أرض
+	if is_on_floor() and not _was_on_floor:
+		_play_land_animation()
+	_was_on_floor = is_on_floor()
+
+	if _is_landing:
+		return  # ننتظر انتهاء أنيميشن الهبوط قبل أي تبديل آخر
+
+	if not is_on_floor():
+		_play_animation(anim_jump if velocity.y < 0 else anim_fall)
+	else:
+		var moving: bool = abs(velocity.x) > 10.0
+		_play_animation(anim_run if moving else anim_idle)
+
+
+func _play_animation(anim_name: String) -> void:
+	if anim_name == "" or not animated_sprite or not animated_sprite.sprite_frames:
+		return
+	if not animated_sprite.sprite_frames.has_animation(anim_name):
+		return  # تجاهل بصمت لو الاسم غير موجود بدل ما يكسر اللعبة
+	if animated_sprite.animation != anim_name:
+		animated_sprite.play(anim_name)
+
+
+func _play_land_animation() -> void:
+	if anim_land == "" or not animated_sprite or not animated_sprite.sprite_frames:
+		return
+	if not animated_sprite.sprite_frames.has_animation(anim_land):
+		return
+	_is_landing = true
+	animated_sprite.play(anim_land)
+	if not animated_sprite.animation_finished.is_connected(_on_land_animation_finished):
+		animated_sprite.animation_finished.connect(_on_land_animation_finished, CONNECT_ONE_SHOT)
+
+
+func _on_land_animation_finished() -> void:
+	_is_landing = false
+
+
+## نادِ هذه الدالة من أي مكان (عدو، فخ، سقوط قاتل...) لتشغيل أنيميشن الموت
+func die() -> void:
+	if _is_dead:
+		return
+	_is_dead = true
+	set_physics_process(false)
+	if animated_sprite:
+		_play_animation(anim_death)
