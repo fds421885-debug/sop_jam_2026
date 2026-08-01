@@ -257,7 +257,7 @@ sources/0 = SubResource("TileSetAtlasSource_3swuy")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11nh2"]
 size = Vector2(4702.25, 43)
 
-[node name="level_1" type="Node2D" unique_id=1072630316]
+[node name="test" type="Node2D" unique_id=1072630316]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1612697331]
 texture_filter = 1
@@ -304,6 +304,7 @@ texture = ExtResource("3_3swuy")
 
 [node name="player" parent="." unique_id=123168238 instance=ExtResource("1_p2kaa")]
 position = Vector2(-1072, 561)
+icon_wall_slide = null
 
 [node name="Camera2D2" type="Camera2D" parent="player" unique_id=276724247]
 
@@ -340,5 +341,9 @@ shape = SubResource("RectangleShape2D_11nh2")
 
 [node name="zone" parent="." unique_id=1833006299 instance=ExtResource("7_w6xao")]
 position = Vector2(-854, 541)
+
+[node name="zone2" parent="." unique_id=1079081108 instance=ExtResource("7_w6xao")]
+position = Vector2(-197, 536)
+forced_ability = "dash"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
