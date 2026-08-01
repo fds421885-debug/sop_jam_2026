@@ -29,18 +29,12 @@ radius = 85.74672
 
 [node name="player" type="CharacterBody2D" unique_id=123168238]
 script = ExtResource("1_mjc1j")
-speed = null
-jump_velocity = null
 double_jump_boost_multiplier = 0.4
-dash_speed = null
-wall_slide_gravity_factor = null
-slow_mo_factor = null
 time_double_jump = 8.0
 time_glide = 8.0
 time_dash = 8.0
 time_wall_slide = 8.0
 time_shock_wave = 8.0
-time_slow_mo = null
 random_selection_duration = 1.5
 icon_double_jump = ExtResource("2_3j5vv")
 icon_glide = ExtResource("3_0ue2o")
