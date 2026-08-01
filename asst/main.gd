@@ -5,7 +5,7 @@ extends Control
 @onready var panel: Panel = $Panel
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scence/level_1.tscn")
+	get_tree().change_scene_to_file('res://asst/level_1.tscn')
 	
 
 

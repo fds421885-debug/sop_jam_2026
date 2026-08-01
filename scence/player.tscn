@@ -125,3 +125,5 @@ color = Color(0.49145234, 1.0874466, 0.9732144, 0.4745098)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockwaveArea" unique_id=2061618320]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("CircleShape2D_0ue2o")
+
+[node name="Sprite2D" type="Sprite2D" parent="ShockwaveArea" unique_id=253499436]
