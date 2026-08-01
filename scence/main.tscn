@@ -1,9 +1,84 @@
 [gd_scene format=3 uid="uid://igoefsb87quv"]
 
 [ext_resource type="Script" uid="uid://dg64qb0yrt6jk" path="res://asst/main.gd" id="1_7essg"]
+[ext_resource type="Texture2D" uid="uid://b3lhsoo8jqg7b" path="res://asset/Palm Tree Island/Sprites/Background/BG Image.png" id="2_47hqa"]
 [ext_resource type="Script" uid="uid://k675erhwp42j" path="res://asst/h_slider.gd" id="2_pqvm3"]
+[ext_resource type="Texture2D" uid="uid://cp8hnsg5gjbqj" path="res://asset/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="3_0jigb"]
+[ext_resource type="Texture2D" uid="uid://bid74qmdv034h" path="res://asset/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="3_bk32q"]
+[ext_resource type="Texture2D" uid="uid://dn2wq2nhhbr7i" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 01.png" id="3_nvhh0"]
 [ext_resource type="AudioStream" uid="uid://v1dbgdby441y" path="res://asst/song-s47rr6qA6gbHF2uZz6WY.mp3" id="3_shc2a"]
+[ext_resource type="Texture2D" uid="uid://duqsb74cgati5" path="res://asset/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="4_4rajj"]
+[ext_resource type="Texture2D" uid="uid://bdy5nn2syj7rw" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 02.png" id="4_kbk2e"]
+[ext_resource type="Texture2D" uid="uid://dgbn7je6bcpw0" path="res://asset/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="4_r5xw6"]
 [ext_resource type="AudioStream" uid="uid://nfud5hmsosp3" path="res://asst/mixkit-mouse-click-close-1113.wav" id="4_uniqm"]
+[ext_resource type="Texture2D" uid="uid://5ermdcoyxtyi" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 03.png" id="5_0jigb"]
+[ext_resource type="Texture2D" uid="uid://de3bgwus0xt0e" path="res://asset/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="5_b580w"]
+[ext_resource type="Texture2D" uid="uid://cfuwks66p25xp" path="res://asset/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" id="6_hh3jc"]
+[ext_resource type="Texture2D" uid="uid://bmp8x3jiwpff1" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 04.png" id="6_r5xw6"]
+[ext_resource type="Texture2D" uid="uid://23fkftx2fcjg" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 01.png" id="7_rsn77"]
+[ext_resource type="Texture2D" uid="uid://tjfbbkj1f85r" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 02.png" id="8_r7hom"]
+[ext_resource type="Texture2D" uid="uid://cgyu088s4tjm5" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 03.png" id="9_mvfly"]
+[ext_resource type="Texture2D" uid="uid://dncsq5bg0arci" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 04.png" id="10_st2mh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyc6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nvhh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kbk2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0jigb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_r5xw6")
+}],
+"loop": 1,
+"name": &"palm",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qx4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_rsn77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r7hom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mvfly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_st2mh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7b7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bk32q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4rajj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b580w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hh3jc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhfbf"]
 bg_color = Color(0.4537487, 0.45374864, 0.45374894, 1)
@@ -23,7 +98,69 @@ thickness = 6
 color = Color(0.18615368, 0.18338603, 0.5896762, 1)
 thickness = 6
 
-[node name="main" type="Control" unique_id=926544938]
+[sub_resource type="Animation" id="Animation_rsn77"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Parallax2D/Node2D/Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1126, 131)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Parallax2D/Node2D/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1678, 76)]
+}
+
+[sub_resource type="Animation" id="Animation_r7hom"]
+resource_name = "cloud"
+length = 35.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Parallax2D/Node2D/Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1335, 160.00002), Vector2(-310, 116)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Parallax2D/Node2D/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 32.010002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1678, 76), Vector2(-204, 57)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mvfly"]
+_data = {
+&"RESET": SubResource("Animation_rsn77"),
+&"cloud": SubResource("Animation_r7hom")
+}
+
+[node name="main" type="Control" unique_id=926544938 node_paths=PackedStringArray("BOX", "panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,9 +168,71 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7essg")
+BOX = NodePath("CanvasLayer/VBoxContainer")
+panel = NodePath("CanvasLayer/Panel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1689964078]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=992301372]
+
+[node name="Parallax2D" type="Parallax2D" parent="CanvasLayer" unique_id=679266207]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Parallax2D" unique_id=801012136]
+texture_filter = 1
+position = Vector2(573.99994, 317.00003)
+scale = Vector2(3.0468748, 5.359375)
+texture = ExtResource("2_47hqa")
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Parallax2D" unique_id=1816269985]
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Parallax2D/Node2D" unique_id=1985549453]
+texture_filter = 1
+position = Vector2(1126, 131)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_0jigb")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Parallax2D/Node2D" unique_id=1759108952]
+texture_filter = 1
+position = Vector2(1678, 76)
+scale = Vector2(3, 3)
+texture = ExtResource("4_r5xw6")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Parallax2D" unique_id=468347594]
+texture_filter = 1
+position = Vector2(103.99999, 140.99998)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_gyc6d")
+animation = &"palm"
+frame_progress = 0.057560284
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Parallax2D" unique_id=863703479]
+texture_filter = 1
+position = Vector2(94, 318)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_gyc6d")
+animation = &"palm"
+frame_progress = 0.16400604
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="CanvasLayer/Parallax2D" unique_id=672340935]
+texture_filter = 1
+position = Vector2(1050, 143)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_6qx4q")
+frame_progress = 0.8958536
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="CanvasLayer/Parallax2D" unique_id=1071024003]
+texture_filter = 1
+position = Vector2(1071, 292)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_6qx4q")
+frame_progress = 0.32151732
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Parallax2D" unique_id=1082143418]
+texture_filter = 1
+position = Vector2(563.00006, 520)
+scale = Vector2(7.258825, 17.799997)
+sprite_frames = SubResource("SpriteFrames_g7b7a")
+frame_progress = 0.17667429
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=453012225]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -47,7 +246,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=903490851]
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1248153599]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -58,7 +257,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vhfbf")
 text = "start game"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=472238142]
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=791049664]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -69,7 +268,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vhfbf")
 text = "Options"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1307822727]
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=727878076]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -80,8 +279,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vhfbf")
 text = "Exit"
 
-[node name="Panel" type="Panel" parent="." unique_id=214804217]
-layout_mode = 1
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1912060594]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -94,7 +292,7 @@ offset_bottom = 171.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel" unique_id=2051260641]
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=1225404047]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -105,7 +303,7 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button4" type="Button" parent="Panel/Label" unique_id=228636666]
+[node name="Button4" type="Button" parent="CanvasLayer/Panel/Label" unique_id=1589991446]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 12
@@ -124,7 +322,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vhfbf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vhfbf")
 text = "Back"
 
-[node name="HSlider" type="HSlider" parent="Panel" unique_id=921942294]
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Panel" unique_id=1904719224]
 layout_mode = 0
 offset_left = 82.0
 offset_top = 164.5
@@ -137,6 +335,9 @@ min_value = 50.0
 value = 50.0
 script = ExtResource("2_pqvm3")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=813344804]
+libraries/ = SubResource("AnimationLibrary_mvfly")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=910051707]
 stream = ExtResource("3_shc2a")
 autoplay = true
@@ -146,8 +347,8 @@ parameters/looping = true
 stream = ExtResource("4_uniqm")
 autoplay = true
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="Panel/Label/Button4" to="." method="_on_button_4_pressed"]
-[connection signal="value_changed" from="Panel/HSlider" to="Panel/HSlider" method="_on_value_changed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Label/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider" to="CanvasLayer/Panel/HSlider" method="_on_value_changed"]
