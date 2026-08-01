@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://vtijqoogkhob" path="res://asset/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="4_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://0ywo4oy85qn2" path="res://scence/player.tscn" id="5_f2txt"]
 [ext_resource type="AudioStream" uid="uid://d2c0u48ym5u6e" path="res://asst/song-zwZJIBHBxPpjMx8Lyjka.mp3" id="6_1ainy"]
+[ext_resource type="PackedScene" uid="uid://dt620ttnd362y" path="res://BUM.tscn" id="7_n6hdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2txt"]
 texture = ExtResource("4_0b4ue")
@@ -864,6 +865,98 @@ position = Vector2(1022.5, 25)
 scale = Vector2(0.58258927, 1)
 texture = ExtResource("3_f2txt")
 
+[node name="Node2" type="Node" parent="." unique_id=1940647923]
+
+[node name="SmallCloud1" type="Sprite2D" parent="Node2" unique_id=1157543403]
+position = Vector2(2254, 22.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud2" type="Sprite2D" parent="Node2" unique_id=1464596392]
+position = Vector2(2183, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud3" type="Sprite2D" parent="Node2" unique_id=265017483]
+position = Vector2(2131, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud4" type="Sprite2D" parent="Node2" unique_id=631496037]
+position = Vector2(2063, 22.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud5" type="Sprite2D" parent="Node2" unique_id=329074881]
+position = Vector2(1992, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud6" type="Sprite2D" parent="Node2" unique_id=1157766363]
+position = Vector2(1940, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud7" type="Sprite2D" parent="Node2" unique_id=927936778]
+position = Vector2(1868, 22.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud8" type="Sprite2D" parent="Node2" unique_id=2081514124]
+position = Vector2(1797, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud9" type="Sprite2D" parent="Node2" unique_id=125154093]
+position = Vector2(1745, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud10" type="Sprite2D" parent="Node2" unique_id=1537860299]
+position = Vector2(1672, 22.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud11" type="Sprite2D" parent="Node2" unique_id=819963911]
+position = Vector2(1601, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud12" type="Sprite2D" parent="Node2" unique_id=1217716486]
+position = Vector2(1549, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud13" type="Sprite2D" parent="Node2" unique_id=140139597]
+position = Vector2(1483, 22.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud14" type="Sprite2D" parent="Node2" unique_id=119054360]
+position = Vector2(1412, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud15" type="Sprite2D" parent="Node2" unique_id=1466380537]
+position = Vector2(1360, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud16" type="Sprite2D" parent="Node2" unique_id=2032302988]
+position = Vector2(1303, 22.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud17" type="Sprite2D" parent="Node2" unique_id=1626228432]
+position = Vector2(1232, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="SmallCloud18" type="Sprite2D" parent="Node2" unique_id=2035474198]
+position = Vector2(1180, 25.5)
+texture = ExtResource("2_0b4ue")
+
+[node name="BigClouds" type="Sprite2D" parent="Node2" unique_id=1699744181]
+position = Vector2(1378, 26.5)
+texture = ExtResource("3_f2txt")
+
+[node name="BigClouds2" type="Sprite2D" parent="Node2" unique_id=405303657]
+position = Vector2(1825, 25.5)
+texture = ExtResource("3_f2txt")
+
+[node name="BigClouds3" type="Sprite2D" parent="Node2" unique_id=584513184]
+position = Vector2(2177.5, 25.5)
+scale = Vector2(0.58258927, 1)
+texture = ExtResource("3_f2txt")
+
+[node name="BigClouds4" type="Sprite2D" parent="Node2" unique_id=209864469]
+position = Vector2(2367, 26)
+scale = Vector2(0.58258927, 1)
+texture = ExtResource("3_f2txt")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2107327780]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAABABQAAAADAAIAAAACABQAAAAEAAIAAAADABQAAAAFAAIAAAAEABQAAAAGAAIAAAAFABQAAAAHAAIAAAAGABQAAAACAAIAAAAHABQAAAADAAIAAAAIABQAAAAEAAIAAAAJABQAAAAFAAIAAAAKABQAAAAGAAIAAAALABQAAAAHAAIAAAAMABQAAAACAAIAAAANABQAAAADAAIAAAAOABQAAAAEAAIAAAAPABQAAAAFAAIAAAAQABQAAAAGAAIAAAARABQAAAAHAAIAAAASABQAAAACAAIAAAATABQAAAADAAIAAAAUABQAAAAEAAIAAAAVABQAAAAFAAIAAAAWABQAAAAGAAIAAAAXABQAAAAHAAIAAAAYABQAAAACAAIAAAAZABQAAAADAAIAAAAaABQAAAAEAAIAAAAbABQAAAAFAAIAAAAcABQAAAAGAAIAAAAdABQAAAAHAAIAAAAeABQAAAACAAIAAAAfABQAAAADAAIAAAAgABQAAAAEAAIAAAAhABQAAAAFAAIAAAAiABQAAAAGAAIAAAAjABQAAAAHAAIAAAAAABQAAAACAAIAAAAkABQAAAACAAIAAAAlABQAAAADAAIAAAAmABQAAAAEAAIAAAAnABQAAAAFAAIAAAAoABQAAAAGAAIAAAApABQAAAAHAAIAAAAqABQAAAACAAIAAAArABQAAAADAAIAAAAsABQAAAAEAAIAAAAtABQAAAAFAAIAAAAuABQAAAAGAAIAAAAvABQAAAAHAAIAAAAwABQAAAACAAIAAAAxABQAAAADAAIAAAAyABQAAAAEAAIAAAAzABQAAAAFAAIAAAA0ABQAAAAGAAIAAAA1ABQAAAAHAAIAAAA2ABQAAAACAAIAAAA3ABQAAAADAAIAAAA4ABQAAAAEAAIAAAA5ABQAAAAFAAIAAAA6ABQAAAAGAAIAAAA7ABQAAAAHAAIAAAA8ABQAAAACAAIAAAA9ABQAAAADAAIAAAA+ABQAAAAEAAIAAAA/ABQAAAAFAAIAAABAABQAAAAGAAIAAABBABQAAAAHAAIAAABCABQAAAACAAIAAABDABQAAAADAAIAAABEABQAAAAEAAIAAABFABQAAAAFAAIAAABGABQAAAAGAAIAAABHABQAAAAHAAIAAABIABQAAAACAAIAAABJABQAAAADAAIAAABKABQAAAAEAAIAAABLABQAAAAFAAIAAABMABQAAAAGAAIAAABNABQAAAAHAAIAAAAAABUAAAACAAcAAAABABUAAAADAAcAAAACABUAAAAEAAcAAAADABUAAAAFAAcAAAAEABUAAAAGAAcAAAAFABUAAAAHAAcAAAAGABUAAAACAAcAAAAHABUAAAADAAcAAAAIABUAAAAEAAcAAAAJABUAAAAFAAcAAAAKABUAAAAGAAcAAAALABUAAAAHAAcAAAAMABUAAAACAAcAAAANABUAAAADAAcAAAAOABUAAAAEAAcAAAAPABUAAAAFAAcAAAAQABUAAAAGAAcAAAARABUAAAAHAAcAAAASABUAAAACAAcAAAATABUAAAADAAcAAAAUABUAAAAEAAcAAAAVABUAAAAFAAcAAAAWABUAAAAGAAcAAAAXABUAAAAHAAcAAAAYABUAAAACAAcAAAAZABUAAAADAAcAAAAaABUAAAAEAAcAAAAbABUAAAAFAAcAAAAcABUAAAAGAAcAAAAdABUAAAAHAAcAAAAeABUAAAACAAcAAAAfABUAAAADAAcAAAAgABUAAAAEAAcAAAAhABUAAAAFAAcAAAAiABUAAAAGAAcAAAAjABUAAAAHAAcAAAAkABUAAAACAAcAAAAlABUAAAADAAcAAAAmABUAAAAEAAcAAAAnABUAAAAFAAcAAAAoABUAAAAGAAcAAAApABUAAAAHAAcAAAAqABUAAAACAAcAAAArABUAAAADAAcAAAAsABUAAAAEAAcAAAAtABUAAAAFAAcAAAAuABUAAAAGAAcAAAAvABUAAAAHAAcAAAAwABUAAAACAAcAAAAxABUAAAADAAcAAAAyABUAAAAEAAcAAAAzABUAAAAFAAcAAAA0ABUAAAAGAAcAAAA1ABUAAAAHAAcAAAA2ABUAAAACAAcAAAA3ABUAAAADAAcAAAA4ABUAAAAEAAcAAAA5ABUAAAAFAAcAAAA6ABUAAAAGAAcAAAA7ABUAAAAHAAcAAAA8ABUAAAACAAcAAAA9ABUAAAADAAcAAAA+ABUAAAAEAAcAAAA/ABUAAAAFAAcAAABAABUAAAAGAAcAAABBABUAAAAHAAcAAABCABUAAAACAAcAAABDABUAAAADAAcAAABEABUAAAAEAAcAAABFABUAAAAFAAcAAABGABUAAAAGAAcAAABHABUAAAAHAAcAAABIABUAAAACAAcAAABJABUAAAADAAcAAABKABUAAAAEAAcAAABLABUAAAAFAAcAAABMABUAAAAGAAcAAABNABUAAAAHAAcAAAA=")
@@ -876,3 +969,6 @@ position = Vector2(114, 575)
 stream = ExtResource("6_1ainy")
 autoplay = true
 parameters/looping = true
+
+[node name="Area2D" parent="." unique_id=1247827241 instance=ExtResource("7_n6hdu")]
+position = Vector2(1322, 613)

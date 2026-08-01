@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://88fewjd2q2p4"]
+
+[ext_resource type="Texture2D" uid="uid://bb5odd8vn3028" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Ball Idle/1.png" id="1_gnce2"]
+[ext_resource type="Script" uid="uid://de46ftj5imxm4" path="res://bullet.gd" id="1_l141k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11nh2"]
+radius = 15.524175
+
+[node name="Area2D" type="Area2D" unique_id=1431662667]
+script = ExtResource("1_l141k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=112865264]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_gnce2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1261259493]
+shape = SubResource("CircleShape2D_11nh2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
