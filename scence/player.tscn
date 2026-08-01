@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bep6r2p0xry2" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٣٩١١.png" id="2_nv7mq"]
 [ext_resource type="Texture2D" uid="uid://my4ua812kgis" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٣٩٥٧.png" id="3_nv7mq"]
 [ext_resource type="Texture2D" uid="uid://tw6wod6c3nnp" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤٠٢٥.png" id="4_sgooa"]
-[ext_resource type="Texture2D" path="res://IMG_٢٠٢٦٠٧٣١_١٨٤٠٤١.png" id="5_sgooa"]
 [ext_resource type="Texture2D" uid="uid://bc8w7ch5s2f6i" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤١٠٥.png" id="6_do3ar"]
 [ext_resource type="Texture2D" uid="uid://cbo42mcfc5jko" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤١٣١.png" id="7_i4t4w"]
 [ext_resource type="Texture2D" uid="uid://blu68twa6bfi1" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="8_54rd1"]
@@ -13,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cy3ontinpik86" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 01.png" id="9_5te8i"]
 [ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="9_nv7mq"]
 [ext_resource type="Texture2D" uid="uid://dsbstmeeegucn" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="10_h10no"]
-[ext_resource type="Texture2D" uid="uid://btyayiyri6nlk" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 02.png" id="10_y8vfk"]
 [ext_resource type="Texture2D" uid="uid://dd71xq0b3l8qt" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 01.png" id="11_qlre4"]
 [ext_resource type="Texture2D" uid="uid://bxesc1wihbcnb" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="11_u2rhm"]
 [ext_resource type="Texture2D" uid="uid://cqx6oelyli84b" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="12_4dows"]
@@ -46,9 +44,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("9_5te8i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_y8vfk")
 }],
 "loop": 0,
 "name": &"ground",
@@ -87,7 +82,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_4dows")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -124,7 +119,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_5te8i")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"run",
 "speed": 7.0
 }]
@@ -151,7 +146,6 @@ anim_death = "idle"
 icon_double_jump = ExtResource("2_nv7mq")
 icon_glide = ExtResource("3_nv7mq")
 icon_dash = ExtResource("4_sgooa")
-icon_wall_slide = ExtResource("5_sgooa")
 icon_shock_wave = ExtResource("6_do3ar")
 icon_slow_mo = ExtResource("7_i4t4w")
 
