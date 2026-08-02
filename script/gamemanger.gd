@@ -1,39 +1,60 @@
 extends Node
 
 ## ============================================================
-## GameManager بسيط — للاختبار السريع فقط
-## ============================================================
-## ضعه كعقدة Node منفصلة بجذر المشهد، واسحب مرجع العدو (أو أكثر من
-## عدو) لمصفوفة enemies من الـ Inspector. يستمع لإشارة player_caught
-## من كل عدو، ويطبع رسالة + يعيد ضبط اللاعب والعدو بعد تأخير بسيط،
-## عشان تقدر تختبر المطاردة بشكل مستمر بدون ما "يعلق" أول لمسة.
-##
-## للإصدار النهائي من لعبتك: استبدل _on_player_caught بمنطق الـ Game
-## Over الفعلي عندك (عرض UI، إيقاف اللعبة، تسجيل النقاط، إلخ)
+## GameManager (مع حماية get_tree)
 ## ============================================================
 
-@export var enemies: Array[Node] = []          ## اسحب هنا كل عقد ChaserEnemy بالمشهد
-@export var player: Node2D                      ## اسحب عقدة اللاعب
-@export var player_spawn_position: Vector2       ## موقع بداية اللاعب لإعادة الضبط
-@export var respawn_delay: float = 1.0           ## ثواني قبل إعادة الضبط بعد اللمس
+@export_category("Enemies & Player")
+@export var enemies: Array[Node] = []          
+@export var player: Node2D                      
+@export var player_spawn_position: Vector2       
+@export var respawn_delay: float = 1.0           
+
+@export_category("UI & Game Over")
+@export var game_over_screen: Node              
 
 
 func _ready() -> void:
+	if get_tree():
+		get_tree().paused = false
+
+	if game_over_screen:
+		game_over_screen.hide()
+
 	for enemy in enemies:
 		if enemy and enemy.has_signal("player_caught"):
 			enemy.player_caught.connect(_on_player_caught.bind(enemy))
 
 
 func _on_player_caught(enemy: Node) -> void:
-	print("[GameManager] تم الإمساك باللاعب! Game Over مؤقت — سيُعاد الضبط بعد ", respawn_delay, " ثانية")
+	print("[GameManager] تم الإمساك باللاعب! Game Over")
 
-	# ---- هنا مكان منطق الـ Game Over الحقيقي عندك ----
-	# مثال: $UI/GameOverScreen.show()
-	# مثال: get_tree().paused = true
-	# ---------------------------------------------------
+	_show_game_over_animated()
 
-	await get_tree().create_timer(respawn_delay).timeout
-	_respawn(enemy)
+	if get_tree():
+		get_tree().paused = true
+
+
+func _show_game_over_animated() -> void:
+	if not game_over_screen:
+		return
+
+	game_over_screen.show()
+
+	var anim_target: Node = game_over_screen
+	if not ("scale" in anim_target) and anim_target.get_child_count() > 0:
+		anim_target = anim_target.get_child(0)
+
+	if "scale" in anim_target:
+		if "pivot_offset" in anim_target and "size" in anim_target:
+			anim_target.pivot_offset = anim_target.size / 2.0
+
+		anim_target.scale = Vector2.ZERO
+
+		var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+		tween.tween_property(anim_target, "scale", Vector2.ONE, 0.45)\
+			.set_trans(Tween.TRANS_BACK)\
+			.set_ease(Tween.EASE_OUT)
 
 
 func _respawn(enemy: Node) -> void:

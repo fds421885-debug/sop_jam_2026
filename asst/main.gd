@@ -7,11 +7,12 @@ extends Control
 
 func _on_button_pressed() -> void:
 	$AudioStreamPlayer2.play()
-	get_tree().change_scene_to_file("res://level.tscn")
+	get_tree().change_scene_to_file("res://scence/test.tscn")
 
 
 func _ready() -> void:
 	panel.visible = false
+	get_tree().paused = false
 	BOX.visible = true
 	$CanvasLayer/Parallax2D/AnimatedSprite2D2.play("palm")
 	$CanvasLayer/Parallax2D/AnimatedSprite2D3.play("palm")
