@@ -140,7 +140,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_487it")
 theme_override_font_sizes/font_size = 30
-text = "ألعب مره أخره"
+text = "play again"
 flat = true
 
 [node name="button2" type="Node2D" parent="panal" unique_id=888308010]

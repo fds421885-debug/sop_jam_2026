@@ -23,7 +23,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4p1x"]
 radius = 48.0
-height = 126.0
+height = 117.31082
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_57f41"]
 animations = [{
@@ -118,8 +118,8 @@ catch_area_path = NodePath("CatchArea")
 anim_run = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=162465532]
-position = Vector2(3, -7)
-scale = Vector2(0.91703516, 0.93707085)
+position = Vector2(3, 8.999999)
+scale = Vector2(0.78755236, 0.7671926)
 shape = SubResource("CapsuleShape2D_h4p1x")
 
 [node name="Facing" type="Node2D" parent="." unique_id=1377763847]
@@ -133,8 +133,10 @@ animation = &"idle"
 [node name="CatchArea" type="Area2D" parent="." unique_id=1280271602]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatchArea" unique_id=1357856498]
-position = Vector2(3, -7)
+position = Vector2(2.0000002, 5.999999)
+scale = Vector2(0.8969016, 0.83193135)
 shape = SubResource("CapsuleShape2D_h4p1x")
+one_way_collision = true
 
 [node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1595987708]
 
