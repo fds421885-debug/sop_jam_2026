@@ -773,6 +773,9 @@ texture = ExtResource("4_44vxd")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_f2txt")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11nh2"]
+size = Vector2(2486, 46)
+
 [node name="level" type="Node2D" unique_id=412741358]
 
 [node name="gamemanger" type="Node2D" parent="." unique_id=1632544238 node_paths=PackedStringArray("enemies", "player", "game_over_screen")]
@@ -984,6 +987,7 @@ stream = ExtResource("6_55r3x")
 autoplay = true
 parameters/looping = true
 
+<<<<<<< Updated upstream:scence/test.tscn
 [node name="ChaserEnemy" parent="." unique_id=731127459 instance=ExtResource("7_0vsnm")]
 position = Vector2(701, 571)
 
@@ -1019,3 +1023,14 @@ position = Vector2(2695, -84)
 process_mode = 3
 physics_interpolation_mode = 1
 auto_translate_mode = 1
+=======
+[node name="Area2D" parent="." unique_id=1247827241 instance=ExtResource("7_n6hdu")]
+position = Vector2(1349, 624)
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1980429497]
+position = Vector2(0, 742)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=88088339]
+position = Vector2(1242, 3)
+shape = SubResource("RectangleShape2D_11nh2")
+>>>>>>> Stashed changes:level.tscn

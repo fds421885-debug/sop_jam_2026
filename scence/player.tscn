@@ -141,7 +141,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ue2o"]
-radius = 85.74672
+radius = 70.14628
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7b7a"]
 animations = [{
@@ -247,7 +247,6 @@ anim_jump = "jump"
 anim_fall = "fall"
 anim_land = "ground"
 anim_death = "idle"
-anim_land_fallback_timeout = null
 run_effect_path = NodePath("run")
 run_effect_anim = "run"
 jump_effect_anim = "jump"

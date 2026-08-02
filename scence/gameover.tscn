@@ -114,24 +114,33 @@ position = Vector2(70, 22)
 scale = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="panal/button/botton" unique_id=438299105]
-position = Vector2(-13, 0)
+position = Vector2(-17.833336, 0)
+scale = Vector2(1.6904765, 1)
 texture = ExtResource("7_8jxp6")
 
 [node name="Sprite2D2" type="Sprite2D" parent="panal/button/botton" unique_id=1153166825]
 texture = ExtResource("8_wfn4q")
 
 [node name="Sprite2D3" type="Sprite2D" parent="panal/button/botton" unique_id=804100912]
-position = Vector2(14, 0)
+position = Vector2(24.5, 0)
+scale = Vector2(2.5, 1)
 texture = ExtResource("9_fxx4m")
 
 [node name="play" type="Button" parent="panal/button" unique_id=1525814473]
-offset_left = -121.0
-offset_top = -1.0
-offset_right = -17.0
-offset_bottom = 35.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_487it")
 theme_override_font_sizes/font_size = 30
-text = "play"
+text = "ألعب مره أخره"
 flat = true
 
 [node name="button2" type="Node2D" parent="panal" unique_id=888308010]
@@ -164,3 +173,5 @@ theme_override_fonts/font = ExtResource("3_487it")
 theme_override_font_sizes/font_size = 30
 text = "exit"
 flat = true
+
+[connection signal="pressed" from="panal/button/play" to="." method="_on_play_pressed"]

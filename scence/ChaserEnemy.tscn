@@ -134,7 +134,7 @@ animation = &"idle"
 [node name="CatchArea" type="Area2D" parent="." unique_id=1280271602]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatchArea" unique_id=328600038]
-position = Vector2(3, 6.5)
+position = Vector2(8, 4)
 shape = SubResource("RectangleShape2D_gyc6d")
 
 [node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1595987708]

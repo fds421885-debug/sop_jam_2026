@@ -1,6 +1,7 @@
 @tool
 class_name AutoScrollCamera
 extends Camera2D
+@onready var gameover: CanvasLayer = $"../gameover"
 
 ## ============================================================
 ## كاميرا تمشي بثبات (Auto-Scroll Camera) — تدفع اللاعب للأمام دائماً
@@ -130,7 +131,7 @@ func _find_player() -> void:
 			print("[AutoScrollCamera] player found: ", player.name)
 		else:
 			print("[AutoScrollCamera] WARNING: لا يوجد عقدة بمجموعة 'player' ولا player_path صحيح.")
-
+			gameover.visible = true
 
 ## يقرأ موقع عقد الحدود الأربعة مرة وحدة عند البداية. كل محور (أفقي/رأسي)
 ## مستقل: لو وحدة بس من عقدتَي المحور موجودة، ما يُطبَّق حد على ذاك
@@ -160,7 +161,6 @@ func _read_bounds() -> void:
 			print("[AutoScrollCamera] حد رأسي: من ", _bounds_min.y, " إلى ", _bounds_max.y)
 		else:
 			print("[AutoScrollCamera] لا يوجد حد رأسي (bounds_top_path / bounds_bottom_path) — تتبع بلا سقف رأسي.")
-
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -270,6 +270,7 @@ func _trigger_loss() -> void:
 	if debug_log:
 		print("[AutoScrollCamera] اللاعب اتخلف عن الكاميرا — خسارة فورية.")
 	player_left_behind.emit()
+	gameover.visible = true
 
 
 ## نادِها من GameManager بعد إعادة اللاعب لبداية جديدة (Respawn / مرحلة جديدة)

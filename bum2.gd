@@ -5,9 +5,11 @@ extends Node2D
 @onready var fire_point: Marker2D = $FirePoint
 
 func _ready():
-	$Timer.timeout.connect(shoot)
+	$Timer.timeout.connect(_on_area_2d_body_shape_entered)
 
-func shoot():
+
+
+func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	var bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)
 

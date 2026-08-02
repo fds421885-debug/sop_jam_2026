@@ -209,6 +209,7 @@ position = Vector2(103.99999, 140.99998)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_gyc6d")
 animation = &"palm"
+autoplay = "palm"
 frame_progress = 0.057560284
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Parallax2D" unique_id=863703479]
@@ -217,13 +218,14 @@ position = Vector2(94, 318)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_gyc6d")
 animation = &"palm"
-frame_progress = 0.16400604
+autoplay = "palm"
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="CanvasLayer/Parallax2D" unique_id=672340935]
 texture_filter = 1
 position = Vector2(1050, 143)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_6qx4q")
+autoplay = "default"
 frame_progress = 0.8958536
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="CanvasLayer/Parallax2D" unique_id=1071024003]
@@ -231,6 +233,7 @@ texture_filter = 1
 position = Vector2(1071, 292)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_6qx4q")
+autoplay = "default"
 frame_progress = 0.32151732
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Parallax2D" unique_id=1082143418]
@@ -238,6 +241,7 @@ texture_filter = 1
 position = Vector2(563.00006, 520)
 scale = Vector2(7.258825, 17.799997)
 sprite_frames = SubResource("SpriteFrames_g7b7a")
+autoplay = "default"
 frame_progress = 0.17667429
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=453012225]

@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://88fewjd2q2p4" path="res://BULLET.tscn" id="2_8cdnh"]
 [ext_resource type="Texture2D" uid="uid://cwt3of3t5mgxd" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire/1.png" id="2_wyq6q"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_11nh2"]
+radius = 766.14685
+
 [node name="Area2D" type="Node2D" unique_id=1247827241]
 script = ExtResource("1_wyq6q")
 bullet_scene = ExtResource("2_8cdnh")
@@ -18,3 +21,10 @@ position = Vector2(-26, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=999834727]
 autostart = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=356133254]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=362382362]
+shape = SubResource("CircleShape2D_11nh2")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

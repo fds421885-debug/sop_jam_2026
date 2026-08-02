@@ -26,9 +26,9 @@ func _on_play_pressed():
 	if get_tree():
 		get_tree().paused = false
 		if play_scene:
-			get_tree().change_scene_to_file(play_scene)
+			get_tree().change_scene_to_file("res://scence/test_fixed.tscn")
 		else:
-			get_tree().reload_current_scene()
+			get_tree().change_scene_to_file("res://scence/test_fixed.tscn")
 
 
 func _on_exit_pressed():
