@@ -18,6 +18,10 @@ extends CharacterBody2D
 ##    مجموعة Animation — بعدها ستتحول حقول الأنيميشن تلقائياً لقوائم منسدلة
 ##    تعرض أسماء الأنيميشنز الموجودة فعلياً داخل SpriteFrames الخاص بتلك العقدة
 ##    (يتطلب Godot 4.3+)
+## 7) للافكتات (غبار جري/قفز/هبوط/داش): كل افكت هو عقدة AnimatedSprite2D منفصلة
+##    برسوماتك الخاصة — اختر عقدتها من مجموعة Visual Effects، وبعدها اختر
+##    اسم الأنيميشن المطلوب تشغيله من القائمة المنسدلة التي تظهر تلقائياً.
+##    الافكتات الأربعة تنعكس تلقائياً (رسمة + موقعها الأفقي) حسب اتجاه اللاعب
 
 # -------------------- الحركة الأساسية --------------------
 @export_group("Movement")
@@ -42,7 +46,6 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var time_glide: float = 12.0
 @export var time_dash: float = 10.0
 @export var time_wall_slide: float = 15.0
-@export var time_shock_wave: float = 10.0
 @export var time_slow_mo: float = 8.0
 @export var random_selection_duration: float = 3.0
 
@@ -64,10 +67,8 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export_flags_2d_physics var environment_scan_mask: int = 1
 
 @export_group("Smart Weight Multipliers")
-@export var w_enemy_shock_wave: float = 6.0
 @export var w_enemy_dash: float = 3.0
 @export var w_enemy_slow_mo: float = 4.0
-@export var w_enemy_surrounded_shock_wave: float = 5.0
 @export var w_wall_slide_on_wall: float = 8.0
 @export var w_airborne_double_jump: float = 4.0
 @export var w_airborne_glide: float = 4.0
@@ -77,7 +78,6 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var w_low_ceiling_penalty: float = 5.0
 @export var w_fast_fall_glide: float = 7.0
 @export var w_fast_fall_wall_slide: float = 4.0
-@export var w_hazard_shock_wave: float = 5.0
 @export var w_hazard_dash: float = 4.0
 @export var w_narrow_space_wall_slide: float = 3.0
 @export var repetition_penalty_per_recent_use: float = 2.5
@@ -103,20 +103,70 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var anim_fall: String = ""
 @export var anim_land: String = ""   ## تأكد من إطفاء خانة Loop له في الـ SpriteFrames Editor
 @export var anim_death: String = ""
+@export var anim_land_fallback_timeout: float = 0.8  ## حماية: لو أنيميشن الهبوط ما انتهى (مثلاً Loop شغال بالغلط)، نرجع تلقائياً بعد هالمدة
 
 const _ANIM_FIELDS := ["anim_idle", "anim_run", "anim_jump", "anim_fall", "anim_land", "anim_death"]
+
+# -------------------- إعدادات الافكتات البصرية (Visual Effects) --------------------
+@export_group("Visual Effects")
+## عقدة AnimatedSprite2D لافكت غبار الجري (يعمل بشكل مستمر أثناء الجري)
+@export var run_effect_path: NodePath:
+	set(value):
+		run_effect_path = value
+		notify_property_list_changed()
+## اسم الأنيميشن داخل عقدة غبار الجري — يظهر كقائمة منسدلة بعد اختيار العقدة أعلاه
+@export var run_effect_anim: String = ""
+
+## عقدة AnimatedSprite2D لافكت انفجار غبار القفزة (يشتغل مرة واحدة عند القفز)
+@export var jump_effect_path: NodePath:
+	set(value):
+		jump_effect_path = value
+		notify_property_list_changed()
+@export var jump_effect_anim: String = ""
+
+## عقدة AnimatedSprite2D لافكت انفجار غبار الهبوط (يشتغل مرة واحدة عند لمس الأرض)
+@export var land_effect_path: NodePath:
+	set(value):
+		land_effect_path = value
+		notify_property_list_changed()
+@export var land_effect_anim: String = ""
+
+## عقدة AnimatedSprite2D لافكت انفجار غبار الداش (يشتغل مرة واحدة عند بدء الداش)
+@export var dash_effect_path: NodePath:
+	set(value):
+		dash_effect_path = value
+		notify_property_list_changed()
+@export var dash_effect_anim: String = ""
+
+## يربط كل حقل اسم أنيميشن بحقل مسار العقدة المرتبط فيه، لاستخدامه داخل _validate_property
+const _EFFECT_ANIM_TO_PATH_FIELD := {
+	"run_effect_anim": "run_effect_path",
+	"jump_effect_anim": "jump_effect_path",
+	"land_effect_anim": "land_effect_path",
+	"dash_effect_anim": "dash_effect_path",
+}
+
+@onready var run_effect_sprite: AnimatedSprite2D = get_node_or_null(run_effect_path)
+@onready var jump_effect_sprite: AnimatedSprite2D = get_node_or_null(jump_effect_path)
+@onready var land_effect_sprite: AnimatedSprite2D = get_node_or_null(land_effect_path)
+@onready var dash_effect_sprite: AnimatedSprite2D = get_node_or_null(dash_effect_path)
+
+## المواقع المحلية الأصلية (X) لكل افكت — تُستخدم لعكس موقعها مع اتجاه اللاعب
+var _run_effect_base_x: float = 0.0
+var _jump_effect_base_x: float = 0.0
+var _land_effect_base_x: float = 0.0
+var _dash_effect_base_x: float = 0.0
 
 # -------------------- تعريف القدرات (تبقى نصوص للتوافق) --------------------
 const ABILITY_DOUBLE_JUMP := "double_jump"
 const ABILITY_GLIDE := "glide"
 const ABILITY_DASH := "dash"
 const ABILITY_WALL_SLIDE := "wall_slide"
-const ABILITY_SHOCK_WAVE := "shock_wave"
 const ABILITY_SLOW_MO := "slow_mo"
 
 var all_abilities: Array[String] = [
 	ABILITY_DOUBLE_JUMP, ABILITY_GLIDE, ABILITY_DASH,
-	ABILITY_WALL_SLIDE, ABILITY_SHOCK_WAVE, ABILITY_SLOW_MO,
+	ABILITY_WALL_SLIDE, ABILITY_SLOW_MO,
 ]
 
 const ABILITY_DISPLAY_NAMES := {
@@ -124,7 +174,6 @@ const ABILITY_DISPLAY_NAMES := {
 	ABILITY_GLIDE: "انزلاق هوائي",
 	ABILITY_DASH: "داش سريع [Shift]",
 	ABILITY_WALL_SLIDE: "التصاق جداري",
-	ABILITY_SHOCK_WAVE: "درع الحماية المحيط [زر E]",
 	ABILITY_SLOW_MO: "تباطؤ الزمن [زر Q]",
 }
 
@@ -153,6 +202,7 @@ var _active_ability_zones: Array = []  # مكدس مناطق فرض القدرا
 var _was_on_floor: bool = true
 var _is_landing: bool = false
 var _is_dead: bool = false
+var _land_fallback_timer: float = 0.0
 
 # -------------------- إشارات (لفصل الواجهة/الصوت عن منطق اللعبة) --------------------
 signal ability_changed(new_ability)
@@ -162,7 +212,6 @@ signal ability_timer_critical
 @onready var instability_bar: ProgressBar = $CanvasLayer/Control/ProgressBar
 @onready var ability_label: Label = $CanvasLayer/Control/AbilityLabel
 @onready var ability_icon: TextureRect = $CanvasLayer/Control/AbilityIcon
-@onready var shockwave_area: Area2D = $ShockwaveArea
 @onready var camera: Camera2D = $Camera2D
 @onready var animated_sprite: AnimatedSprite2D = get_node_or_null(animated_sprite_path)
 
@@ -170,7 +219,6 @@ signal ability_timer_critical
 @export var icon_glide: Texture2D
 @export var icon_dash: Texture2D
 @export var icon_wall_slide: Texture2D
-@export var icon_shock_wave: Texture2D
 @export var icon_slow_mo: Texture2D
 
 var ability_icons: Dictionary = {}
@@ -181,26 +229,33 @@ var ability_icons: Dictionary = {}
 ## ============================================================
 
 ## يُستدعى تلقائياً من المحرر لكل خاصية مُصدَّرة قبل عرضها في الـ Inspector.
-## نستخدمه لتحويل حقول الأنيميشن الستة من نص حر إلى قائمة منسدلة (Enum)
-## تعرض فقط الأسماء الموجودة فعلياً داخل SpriteFrames الخاص بالعقدة المختارة
+## نستخدمه لتحويل حقول أسماء الأنيميشن (أنيميشن اللاعب + أنيميشن الافكتات)
+## من نص حر إلى قائمة منسدلة تعرض فقط الأسماء الموجودة فعلياً في العقدة المرتبطة
 func _validate_property(property: Dictionary) -> void:
 	if property.name in _ANIM_FIELDS:
-		var names := _get_available_animation_names()
-		if names.size() > 0:
-			property.hint = PROPERTY_HINT_ENUM
-			property.hint_string = ",".join(names)
-		else:
-			# لا توجد عقدة/SpriteFrames مختارة بعد — يبقى كحقل نص عادي
-			property.hint = PROPERTY_HINT_NONE
-			property.hint_string = ""
+		_apply_enum_hint(property, _get_animation_names_for_path(animated_sprite_path))
+	elif _EFFECT_ANIM_TO_PATH_FIELD.has(property.name):
+		var path_field: String = _EFFECT_ANIM_TO_PATH_FIELD[property.name]
+		var node_path: NodePath = get(path_field)
+		_apply_enum_hint(property, _get_animation_names_for_path(node_path))
 
 
-## يجلب أسماء الأنيميشنز من SpriteFrames الخاص بالعقدة المحددة في animated_sprite_path
-func _get_available_animation_names() -> PackedStringArray:
-	if animated_sprite_path.is_empty():
+## يضبط الخاصية لتصبح قائمة منسدلة بالأسماء المُعطاة، أو تبقى حقل نص عادي لو القائمة فارغة
+func _apply_enum_hint(property: Dictionary, names: PackedStringArray) -> void:
+	if names.size() > 0:
+		property.hint = PROPERTY_HINT_ENUM
+		property.hint_string = ",".join(names)
+	else:
+		property.hint = PROPERTY_HINT_NONE
+		property.hint_string = ""
+
+
+## يجلب أسماء الأنيميشنز الموجودة داخل SpriteFrames الخاص بأي عقدة AnimatedSprite2D عبر مسارها
+func _get_animation_names_for_path(node_path: NodePath) -> PackedStringArray:
+	if node_path.is_empty():
 		return PackedStringArray()
 
-	var sprite := get_node_or_null(animated_sprite_path) as AnimatedSprite2D
+	var sprite := get_node_or_null(node_path) as AnimatedSprite2D
 	if sprite == null or sprite.sprite_frames == null:
 		return PackedStringArray()
 
@@ -212,13 +267,29 @@ func _ready() -> void:
 		return  # لا تشغّل أي منطق لعب داخل المحرر — فقط دعم الـ Inspector أعلاه يعمل هناك
 
 	animated_sprite = get_node_or_null(animated_sprite_path)
+	run_effect_sprite = get_node_or_null(run_effect_path)
+	jump_effect_sprite = get_node_or_null(jump_effect_path)
+	land_effect_sprite = get_node_or_null(land_effect_path)
+	dash_effect_sprite = get_node_or_null(dash_effect_path)
+
+	if run_effect_sprite:
+		run_effect_sprite.visible = false
+		_run_effect_base_x = run_effect_sprite.position.x
+	if jump_effect_sprite:
+		jump_effect_sprite.visible = false
+		_jump_effect_base_x = jump_effect_sprite.position.x
+	if land_effect_sprite:
+		land_effect_sprite.visible = false
+		_land_effect_base_x = land_effect_sprite.position.x
+	if dash_effect_sprite:
+		dash_effect_sprite.visible = false
+		_dash_effect_base_x = dash_effect_sprite.position.x
 
 	ability_icons = {
 		ABILITY_DOUBLE_JUMP: icon_double_jump,
 		ABILITY_GLIDE: icon_glide,
 		ABILITY_DASH: icon_dash,
 		ABILITY_WALL_SLIDE: icon_wall_slide,
-		ABILITY_SHOCK_WAVE: icon_shock_wave,
 		ABILITY_SLOW_MO: icon_slow_mo,
 	}
 
@@ -226,12 +297,6 @@ func _ready() -> void:
 		instability_bar.min_value = 0
 		instability_bar.max_value = 100
 		instability_bar.value = 100
-
-	if shockwave_area:
-		shockwave_area.monitoring = false
-		shockwave_area.visible = false
-		if not shockwave_area.body_entered.is_connected(_on_shockwave_body_entered):
-			shockwave_area.body_entered.connect(_on_shockwave_body_entered)
 
 	set_ability_timer_duration(current_ability)
 	ability_timer = max_ability_time
@@ -243,6 +308,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	_update_animation()
+	_update_run_effect()
 
 	_forced_jump_cooldown = max(0.0, _forced_jump_cooldown - delta)
 
@@ -284,9 +350,6 @@ func _physics_process(delta: float) -> void:
 
 	_apply_gravity(delta)
 	_handle_jump_input()
-
-	if current_ability == ABILITY_SHOCK_WAVE and Input.is_key_pressed(KEY_E):
-		activate_shock_wave()
 
 	_apply_horizontal_movement(direction)
 
@@ -344,9 +407,11 @@ func _handle_jump_input() -> void:
 		velocity.y = jump_velocity
 		jump_buffer_timer = 0.0
 		coyote_timer = 0.0
+		_play_jump_effect()
 	elif current_ability != ABILITY_DASH and current_ability != ABILITY_WALL_SLIDE:
 		handle_air_abilities()
 		jump_buffer_timer = 0.0
+		_play_jump_effect()
 
 
 func _apply_horizontal_movement(direction: float) -> void:
@@ -384,7 +449,6 @@ func set_ability_timer_duration(ab_name: String) -> void:
 		ABILITY_GLIDE: max_ability_time = time_glide
 		ABILITY_DASH: max_ability_time = time_dash
 		ABILITY_WALL_SLIDE: max_ability_time = time_wall_slide
-		ABILITY_SHOCK_WAVE: max_ability_time = time_shock_wave
 		ABILITY_SLOW_MO: max_ability_time = time_slow_mo
 		_: max_ability_time = 15.0
 
@@ -411,6 +475,8 @@ func start_hollow_knight_dash() -> void:
 		dash_dir = 1.0
 
 	last_facing_dir = dash_dir
+	_play_dash_effect()
+
 	var current_dash_speed: float = dash_speed * (slow_mo_factor if is_slow_mo_active else 1.0)
 	velocity.x = current_dash_speed * dash_dir
 	velocity.y = 0
@@ -418,28 +484,6 @@ func start_hollow_knight_dash() -> void:
 	var timer_wait: float = dash_duration / (slow_mo_factor if is_slow_mo_active else 1.0)
 	await get_tree().create_timer(timer_wait).timeout
 	is_dashing = false
-
-
-func activate_shock_wave() -> void:
-	if shockwave_area and shockwave_area.monitoring:
-		return
-
-	if shockwave_area:
-		shockwave_area.position = Vector2.ZERO
-		shockwave_area.monitoring = true
-		shockwave_area.visible = true
-
-		var timer_wait: float = 0.3 / (slow_mo_factor if is_slow_mo_active else 1.0)
-		await get_tree().create_timer(timer_wait).timeout
-
-		if shockwave_area:
-			shockwave_area.monitoring = false
-			shockwave_area.visible = false
-
-
-func _on_shockwave_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy") or body.has_method("die"):
-		body.queue_free()
 
 
 # ============================================================
@@ -636,11 +680,8 @@ func get_smart_ability_weights(env: Dictionary) -> Dictionary:
 
 	# 1) وجود أعداء قريبين
 	if env["enemies_nearby"] > 0:
-		weights[ABILITY_SHOCK_WAVE] += w_enemy_shock_wave
 		weights[ABILITY_DASH] += w_enemy_dash
 		weights[ABILITY_SLOW_MO] += w_enemy_slow_mo
-		if env["surrounded_by_enemies"]:
-			weights[ABILITY_SHOCK_WAVE] += w_enemy_surrounded_shock_wave
 
 	# 2) ملامسة جدار حالياً
 	if env["on_wall"]:
@@ -668,7 +709,6 @@ func get_smart_ability_weights(env: Dictionary) -> Dictionary:
 
 	# 7) وجود خطر بيئي قريب (أشواك/حمم)
 	if env["hazard_nearby"]:
-		weights[ABILITY_SHOCK_WAVE] += w_hazard_shock_wave
 		weights[ABILITY_DASH] += w_hazard_dash
 
 	# 8) مساحة ضيقة بين جدارين
@@ -814,10 +854,15 @@ func _update_animation() -> void:
 	# اكتشاف لحظة الهبوط: انتقال من هواء → أرض
 	if is_on_floor() and not _was_on_floor:
 		_play_land_animation()
+		_play_land_effect()
 	_was_on_floor = is_on_floor()
 
 	if _is_landing:
-		return  # ننتظر انتهاء أنيميشن الهبوط قبل أي تبديل آخر
+		_land_fallback_timer -= get_physics_process_delta_time()
+		if _land_fallback_timer <= 0.0:
+			_is_landing = false  # حماية: إجبار الخروج لو الإشارة ما انطلقت لأي سبب
+		else:
+			return
 
 	if not is_on_floor():
 		_play_animation(anim_jump if velocity.y < 0 else anim_fall)
@@ -841,6 +886,7 @@ func _play_land_animation() -> void:
 	if not animated_sprite.sprite_frames.has_animation(anim_land):
 		return
 	_is_landing = true
+	_land_fallback_timer = anim_land_fallback_timeout
 	animated_sprite.play(anim_land)
 	if not animated_sprite.animation_finished.is_connected(_on_land_animation_finished):
 		animated_sprite.animation_finished.connect(_on_land_animation_finished, CONNECT_ONE_SHOT)
@@ -858,3 +904,86 @@ func die() -> void:
 	set_physics_process(false)
 	if animated_sprite:
 		_play_animation(anim_death)
+
+
+# ============================================================
+#  نظام الافكتات البصرية — غبار الجري (مستمر) + انفجار القفز/الهبوط/الداش (لمرة واحدة)
+#  كل الافكتات تنعكس تلقائياً (رسمة + موقع أفقي) حسب اتجاه اللاعب
+# ============================================================
+
+## يعكس الافكت (رسمة + موقعه الأفقي) حسب اتجاه نظر اللاعب الحالي
+func _apply_effect_facing(sprite: AnimatedSprite2D, base_x: float) -> void:
+	if not sprite:
+		return
+	sprite.flip_h = last_facing_dir < 0
+	sprite.position.x = base_x * last_facing_dir
+
+
+## يشغّل/يوقف افكت غبار الجري باستمرار حسب حالة اللاعب كل فريم
+func _update_run_effect() -> void:
+	if not run_effect_sprite or run_effect_anim == "":
+		return
+	if not run_effect_sprite.sprite_frames or not run_effect_sprite.sprite_frames.has_animation(run_effect_anim):
+		return
+
+	var moving: bool = is_on_floor() and abs(velocity.x) > 10.0 and not is_dashing
+	if moving:
+		_apply_effect_facing(run_effect_sprite, _run_effect_base_x)
+		run_effect_sprite.visible = true
+		if run_effect_sprite.animation != run_effect_anim or not run_effect_sprite.is_playing():
+			run_effect_sprite.play(run_effect_anim)
+	else:
+		run_effect_sprite.visible = false
+		run_effect_sprite.stop()
+
+
+## يطلق افكت غبار القفزة مرة واحدة — يُستدعى من نقطة تنفيذ القفزة الفعلية
+func _play_jump_effect() -> void:
+	_apply_effect_facing(jump_effect_sprite, _jump_effect_base_x)
+	_play_burst_effect(jump_effect_sprite, jump_effect_anim, _on_jump_effect_finished)
+
+
+## يطلق افكت غبار الهبوط مرة واحدة — يُستدعى من نقطة اكتشاف لمس الأرض
+func _play_land_effect() -> void:
+	_apply_effect_facing(land_effect_sprite, _land_effect_base_x)
+	_play_burst_effect(land_effect_sprite, land_effect_anim, _on_land_effect_finished)
+
+
+## يطلق افكت غبار الداش مرة واحدة — يُستدعى من نقطة بدء الداش الفعلية
+func _play_dash_effect() -> void:
+	_apply_effect_facing(dash_effect_sprite, _dash_effect_base_x)
+	_play_burst_effect(dash_effect_sprite, dash_effect_anim, _on_dash_effect_finished)
+
+
+## نواة مشتركة لتشغيل أي افكت "لمرة واحدة" ثم إخفاءه تلقائياً عند الانتهاء
+func _play_burst_effect(sprite: AnimatedSprite2D, anim_name: String, finished_callback: Callable) -> void:
+	if not sprite or anim_name == "":
+		return
+	if not sprite.sprite_frames or not sprite.sprite_frames.has_animation(anim_name):
+		return
+
+	if sprite.animation_finished.is_connected(finished_callback):
+		sprite.animation_finished.disconnect(finished_callback)
+
+	sprite.visible = true
+	sprite.frame = 0
+	sprite.play(anim_name)
+	sprite.animation_finished.connect(finished_callback, CONNECT_ONE_SHOT)
+
+
+func _on_jump_effect_finished() -> void:
+	if jump_effect_sprite:
+		jump_effect_sprite.visible = false
+		jump_effect_sprite.stop()
+
+
+func _on_land_effect_finished() -> void:
+	if land_effect_sprite:
+		land_effect_sprite.visible = false
+		land_effect_sprite.stop()
+
+
+func _on_dash_effect_finished() -> void:
+	if dash_effect_sprite:
+		dash_effect_sprite.visible = false
+		dash_effect_sprite.stop()

@@ -19,6 +19,10 @@ config/icon="res://asst/icon.svg"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+player=""
+
 [input]
 
 ui_accept={

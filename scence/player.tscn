@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bep6r2p0xry2" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٣٩١١.png" id="2_nv7mq"]
 [ext_resource type="Texture2D" uid="uid://my4ua812kgis" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٣٩٥٧.png" id="3_nv7mq"]
 [ext_resource type="Texture2D" uid="uid://tw6wod6c3nnp" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤٠٢٥.png" id="4_sgooa"]
-[ext_resource type="Texture2D" uid="uid://bc8w7ch5s2f6i" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤١٠٥.png" id="6_do3ar"]
 [ext_resource type="Texture2D" uid="uid://cbo42mcfc5jko" path="res://icon/IMG_٢٠٢٦٠٧٣١_١٨٤١٣١.png" id="7_i4t4w"]
 [ext_resource type="Texture2D" uid="uid://blu68twa6bfi1" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="8_54rd1"]
 [ext_resource type="Texture2D" uid="uid://bvtrob8ka3vg3" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="8_l746g"]
@@ -28,6 +27,22 @@
 [ext_resource type="Texture2D" uid="uid://bwg8lyhpnikwg" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="20_l746g"]
 [ext_resource type="Texture2D" uid="uid://ctuc1hogi7l0x" path="res://asset/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="21_5te8i"]
 [ext_resource type="AudioStream" uid="uid://dwvbxx7rcns7e" path="res://asst/edr-8-bit-jump-001-171817.mp3" id="28_o0jir"]
+[ext_resource type="Texture2D" uid="uid://dcum5t568w6ns" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Run 01.png" id="29_8u7t1"]
+[ext_resource type="Texture2D" uid="uid://c312dih2widqf" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Run 02.png" id="30_7b0sq"]
+[ext_resource type="Texture2D" uid="uid://b5cymy15nfw8a" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Run 03.png" id="31_gan2p"]
+[ext_resource type="Texture2D" uid="uid://vdhl0qlb5p0e" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Run 04.png" id="32_vrwop"]
+[ext_resource type="Texture2D" uid="uid://piq7pw7q38sn" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Run 05.png" id="33_qtma4"]
+[ext_resource type="Texture2D" uid="uid://0isf45cs2l4n" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Jump 01.png" id="34_ituu4"]
+[ext_resource type="Texture2D" uid="uid://dxic6tre8oror" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Jump 02.png" id="35_b2jug"]
+[ext_resource type="Texture2D" uid="uid://dvcsk1t0l5ijf" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Jump 03.png" id="36_tlygl"]
+[ext_resource type="Texture2D" uid="uid://cmcu8wdy0xpni" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Jump 04.png" id="37_aee2f"]
+[ext_resource type="Texture2D" uid="uid://b7egipwm7swvr" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Jump 05.png" id="38_flybu"]
+[ext_resource type="Texture2D" uid="uid://btv5q0jhgu8qu" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Jump 06.png" id="39_mjpp6"]
+[ext_resource type="Texture2D" uid="uid://qxl4feuv1ws4" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Fall 01.png" id="40_ituu4"]
+[ext_resource type="Texture2D" uid="uid://ctoop6gfdq83j" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Fall 02.png" id="41_b2jug"]
+[ext_resource type="Texture2D" uid="uid://cgyrxygk2ldgx" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Fall 03.png" id="42_tlygl"]
+[ext_resource type="Texture2D" uid="uid://cji3p5t4rilr4" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Fall 04.png" id="43_aee2f"]
+[ext_resource type="Texture2D" uid="uid://cb5nftmiqy6me" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Fall 05.png" id="44_flybu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
 size = Vector2(127, 125)
@@ -128,14 +143,102 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ue2o"]
 radius = 85.74672
 
-[node name="player" type="CharacterBody2D" unique_id=123168238]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7b7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_8u7t1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_7b0sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_gan2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_vrwop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_qtma4")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mjpp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_ituu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_b2jug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_tlygl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_aee2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_flybu")
+}],
+"loop": 0,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_ituu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_b2jug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_tlygl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_aee2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_flybu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_mjpp6")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_8u7t1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_7b0sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_gan2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_vrwop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_qtma4")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 7.0
+}]
+
+[node name="player" type="CharacterBody2D" unique_id=123168238 groups=["player"]]
 script = ExtResource("1_mjc1j")
 double_jump_boost_multiplier = 0.4
 time_double_jump = 8.0
 time_glide = 8.0
 time_dash = 8.0
 time_wall_slide = 8.0
-time_shock_wave = 8.0
 random_selection_duration = 1.5
 animated_sprite_path = NodePath("AnimatedSprite2D")
 anim_idle = "idle"
@@ -144,10 +247,16 @@ anim_jump = "jump"
 anim_fall = "fall"
 anim_land = "ground"
 anim_death = "idle"
+anim_land_fallback_timeout = null
+run_effect_path = NodePath("run")
+run_effect_anim = "run"
+jump_effect_anim = "jump"
+land_effect_path = NodePath("fall")
+land_effect_anim = "fall"
+dash_effect_anim = "jump"
 icon_double_jump = ExtResource("2_nv7mq")
 icon_glide = ExtResource("3_nv7mq")
 icon_dash = ExtResource("4_sgooa")
-icon_shock_wave = ExtResource("6_do3ar")
 icon_slow_mo = ExtResource("7_i4t4w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=781926273]
@@ -160,12 +269,6 @@ position = Vector2(-2, 15)
 scale = Vector2(4.21875, 4.4)
 sprite_frames = SubResource("SpriteFrames_gyc6d")
 animation = &"idle"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1891019650]
-position = Vector2(224, -83)
-zoom = Vector2(1.3, 1.3)
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1116387592]
 
@@ -237,5 +340,23 @@ shape = SubResource("CircleShape2D_0ue2o")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1148071208]
 stream = ExtResource("28_o0jir")
 volume_db = -14.865
+
+[node name="run" type="AnimatedSprite2D" parent="." unique_id=1442935712]
+texture_filter = 1
+position = Vector2(-27, 37)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g7b7a")
+animation = &"run"
+frame = 2
+frame_progress = 0.14584553
+
+[node name="fall" type="AnimatedSprite2D" parent="." unique_id=613620426]
+texture_filter = 1
+position = Vector2(-4, 43)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_mjpp6")
+animation = &"fall"
+frame = 4
+frame_progress = 1.0
 
 [connection signal="body_entered" from="ShockwaveArea" to="." method="_on_shockwave_area_body_entered"]

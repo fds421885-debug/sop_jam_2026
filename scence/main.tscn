@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bhqvj2ft1tv1k" path="res://asset/Wood and Paper UI/Sprites/Prefabs/6.png" id="18_st2mh"]
 [ext_resource type="Texture2D" uid="uid://ctw1vc7g6oeyr" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/2.png" id="19_st2mh"]
 [ext_resource type="Texture2D" uid="uid://b1qmqayj5soto" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/3.png" id="20_fpse3"]
+[ext_resource type="Texture2D" uid="uid://dnqq574dhet5c" path="res://asset/Wood and Paper UI/Sprites/Sliders/2.png" id="22_00185"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gyc6d"]
 animations = [{
@@ -98,11 +99,11 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_bd3hy"]
-color = Color(0.933207, 0.933207, 0.9332069, 1)
-thickness = 6
+color = Color(0.8395614, 0.6412931, 0.0844414, 1)
+thickness = 5
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_sb8i5"]
-color = Color(0.18615368, 0.18338603, 0.5896762, 1)
+color = Color(4.3317677e-06, 0.6447706, 0.58730835, 1)
 thickness = 6
 
 [sub_resource type="Animation" id="Animation_rsn77"]
@@ -401,7 +402,6 @@ text = "Exit"
 flat = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1912060594]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -502,6 +502,8 @@ offset_left = 144.0
 offset_top = 197.0
 offset_right = 477.0
 offset_bottom = 213.0
+theme_override_icons/grabber = ExtResource("22_00185")
+theme_override_icons/grabber_highlight = ExtResource("22_00185")
 theme_override_styles/slider = SubResource("StyleBoxLine_bd3hy")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_sb8i5")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_sb8i5")
