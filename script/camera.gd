@@ -271,6 +271,7 @@ func _trigger_loss() -> void:
 		print("[AutoScrollCamera] اللاعب اتخلف عن الكاميرا — خسارة فورية.")
 	player_left_behind.emit()
 	gameover.visible = true
+	get_tree().paused = true
 
 
 ## نادِها من GameManager بعد إعادة اللاعب لبداية جديدة (Respawn / مرحلة جديدة)

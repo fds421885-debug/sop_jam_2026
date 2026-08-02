@@ -44,9 +44,6 @@
 [ext_resource type="Texture2D" uid="uid://cji3p5t4rilr4" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Fall 04.png" id="43_aee2f"]
 [ext_resource type="Texture2D" uid="uid://cb5nftmiqy6me" path="res://asset/Captain Clown Nose/Sprites/Dust Particles/Fall 05.png" id="44_flybu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
-size = Vector2(127, 125)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_gyc6d"]
 animations = [{
 "frames": [{
@@ -140,8 +137,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0ue2o"]
-radius = 70.14628
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2peku"]
+radius = 48.5
+height = 147.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7b7a"]
 animations = [{
@@ -258,10 +256,6 @@ icon_glide = ExtResource("3_nv7mq")
 icon_dash = ExtResource("4_sgooa")
 icon_slow_mo = ExtResource("7_i4t4w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=781926273]
-position = Vector2(1.5, -0.5)
-shape = SubResource("RectangleShape2D_g7b7a")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1736156332]
 texture_filter = 1
 position = Vector2(-2, 15)
@@ -332,7 +326,7 @@ color = Color(0.49145234, 1.0874466, 0.9732144, 0.4745098)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockwaveArea" unique_id=2061618320]
 position = Vector2(-0.5, 0.5)
-shape = SubResource("CircleShape2D_0ue2o")
+shape = SubResource("CapsuleShape2D_2peku")
 
 [node name="Sprite2D" type="Sprite2D" parent="ShockwaveArea" unique_id=253499436]
 
@@ -357,5 +351,9 @@ sprite_frames = SubResource("SpriteFrames_mjpp6")
 animation = &"fall"
 frame = 4
 frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1011932830]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("CapsuleShape2D_2peku")
 
 [connection signal="body_entered" from="ShockwaveArea" to="." method="_on_shockwave_area_body_entered"]

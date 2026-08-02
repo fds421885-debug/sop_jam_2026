@@ -21,8 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://cimge7c4t7rqv" path="res://asset/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 05.png" id="19_u0krd"]
 [ext_resource type="Texture2D" uid="uid://bq2ts4cmpruf6" path="res://asset/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 06.png" id="20_1ioq6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
-size = Vector2(80, 85)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4p1x"]
+radius = 48.0
+height = 126.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_57f41"]
 animations = [{
@@ -109,9 +110,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc6d"]
-size = Vector2(82, 85)
-
 [node name="ChaserEnemy" type="CharacterBody2D" unique_id=731127459]
 script = ExtResource("1_57f41")
 animated_sprite_path = NodePath("Facing/AnimatedSprite2D")
@@ -119,9 +117,9 @@ facing_pivot_path = NodePath("Facing")
 catch_area_path = NodePath("CatchArea")
 anim_run = "run"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1954930276]
-position = Vector2(3, 7.5)
-shape = SubResource("RectangleShape2D_g7b7a")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=162465532]
+position = Vector2(3, -7)
+shape = SubResource("CapsuleShape2D_h4p1x")
 
 [node name="Facing" type="Node2D" parent="." unique_id=1377763847]
 
@@ -133,9 +131,9 @@ animation = &"idle"
 
 [node name="CatchArea" type="Area2D" parent="." unique_id=1280271602]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchArea" unique_id=328600038]
-position = Vector2(8, 4)
-shape = SubResource("RectangleShape2D_gyc6d")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchArea" unique_id=1357856498]
+position = Vector2(3, -7)
+shape = SubResource("CapsuleShape2D_h4p1x")
 
 [node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1595987708]
 
