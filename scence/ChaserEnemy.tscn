@@ -119,6 +119,7 @@ anim_run = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=162465532]
 position = Vector2(3, -7)
+scale = Vector2(0.91703516, 0.93707085)
 shape = SubResource("CapsuleShape2D_h4p1x")
 
 [node name="Facing" type="Node2D" parent="." unique_id=1377763847]
