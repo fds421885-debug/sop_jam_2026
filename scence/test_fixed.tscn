@@ -804,7 +804,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="ChaserEnemy" parent="." unique_id=731127459 instance=ExtResource("7_0vsnm")]
-position = Vector2(40, 590)
+position = Vector2(518, 566)
 
 [node name="CAMERA" parent="." unique_id=361108998 instance=ExtResource("9_724b8")]
 
