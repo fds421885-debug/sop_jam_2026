@@ -778,7 +778,7 @@ process_mode = 3
 physics_interpolation_mode = 1
 auto_translate_mode = 1
 script = ExtResource("8_4agsv")
-enemies = [NodePath("../ChaserEnemy")]
+enemies = [NodePath("")]
 player = NodePath("../player")
 game_over_screen = NodePath("../gameover")
 
@@ -802,9 +802,6 @@ position = Vector2(217, 573)
 stream = ExtResource("6_55r3x")
 autoplay = true
 parameters/looping = true
-
-[node name="ChaserEnemy" parent="." unique_id=731127459 instance=ExtResource("7_0vsnm")]
-position = Vector2(40, 590)
 
 [node name="CAMERA" parent="." unique_id=361108998 instance=ExtResource("9_724b8")]
 
@@ -839,3 +836,6 @@ process_mode = 3
 physics_interpolation_mode = 1
 auto_translate_mode = 1
 visible = false
+
+[node name="ChaserEnemy" parent="." unique_id=731127459 instance=ExtResource("7_0vsnm")]
+position = Vector2(1361, 583)
