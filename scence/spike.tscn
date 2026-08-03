@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://uuvc8mmqyepg"]
+
+[ext_resource type="Script" uid="uid://dkee6ptrs7gti" path="res://script/spike.gd" id="1_1sh8w"]
+[ext_resource type="Texture2D" uid="uid://dxpkftbq6pql1" path="res://asset/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="1_b7mqh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(29, 14)
+
+[node name="Spike" type="Area2D" unique_id=139149002]
+scale = Vector2(5, 5)
+script = ExtResource("1_1sh8w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1684841076]
+texture_filter = 1
+texture = ExtResource("1_b7mqh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=728252224]
+position = Vector2(-0.49999976, 9.333334)
+shape = SubResource("RectangleShape2D_g7b7a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bhea7mb1b5les"]
+
+[ext_resource type="Script" uid="uid://go5srxdvcr7i" path="res://script/bullet.gd" id="1_6rvho"]
+[ext_resource type="Texture2D" uid="uid://cj2h5t22gwnex" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/1.png" id="1_b108d"]
+[ext_resource type="Texture2D" uid="uid://dfltpjyo3yexc" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/2.png" id="2_6rvho"]
+[ext_resource type="Texture2D" uid="uid://mhdhho0j1lvc" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/3.png" id="3_hq84k"]
+[ext_resource type="Texture2D" uid="uid://q1cu56wjf7ao" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/4.png" id="4_lf3dr"]
+[ext_resource type="Texture2D" uid="uid://ftma415fn1cr" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/5.png" id="5_lwyu1"]
+[ext_resource type="Texture2D" uid="uid://bvgh3skq7v88d" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/6.png" id="6_my0ot"]
+[ext_resource type="Texture2D" uid="uid://b30nrdua485xv" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/7.png" id="7_pnx4y"]
+[ext_resource type="Texture2D" uid="uid://bb5odd8vn3028" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Ball Idle/1.png" id="8_5cr2l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7b7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b108d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6rvho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hq84k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lf3dr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lwyu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_my0ot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pnx4y")
+}],
+"loop": 0,
+"name": &"explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_5cr2l")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyc6d"]
+
+[node name="Bullet" type="Area2D" unique_id=1068488921]
+script = ExtResource("1_6rvho")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=602439292]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_g7b7a")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1443946165]
+shape = SubResource("CircleShape2D_gyc6d")

@@ -492,7 +492,7 @@ tile_set = SubResource("TileSet_g7b7a")
 [node name="door" parent="." unique_id=1834581121 instance=ExtResource("16_ofo8o")]
 position = Vector2(7978, 2720)
 scale = Vector2(1.5, 1.5)
-target_level = "uid://igoefsb87quv"
+target_level = "uid://c4h0ob7husisk"
 
 [node name="player" parent="." unique_id=123168238 instance=ExtResource("2_w0jk8")]
 position = Vector2(1271, 2255)
@@ -501,6 +501,10 @@ position = Vector2(1271, 2255)
 
 [node name="zone" parent="zone" unique_id=1833006299 instance=ExtResource("5_f2ga5")]
 position = Vector2(1620, 2287)
+apply_immediately = true
+
+[node name="zone7" parent="zone" unique_id=1724705251 instance=ExtResource("5_f2ga5")]
+position = Vector2(3397, 2096)
 apply_immediately = true
 
 [node name="zone2" parent="zone" unique_id=322297599 instance=ExtResource("5_f2ga5")]
