@@ -1,11 +1,12 @@
 extends Node
 
 ## ============================================================
-## GameManager (مع حماية get_tree)
+## GameManager (مع حماية get_tree ودعم الحوايا/Containers)
 ## ============================================================
 
 @export_category("Enemies & Player")
 @export var enemies: Array[Node] = []          
+@export var enemy_containers: Array[Node] = []  # حط هنا النود الأب اللي يجمع الأشواك أو الأعداء
 @export var player: Node2D                      
 @export var player_spawn_position: Vector2       
 @export var respawn_delay: float = 1.0           
@@ -21,9 +22,19 @@ func _ready() -> void:
 	if game_over_screen:
 		game_over_screen.hide()
 
-	for enemy in enemies:
+	# تجميع الأعداء المنفردين + جميع أطفال الحوايا (Containers)
+	var all_enemies: Array[Node] = enemies.duplicate()
+	
+	for container in enemy_containers:
+		if container:
+			for child in container.get_children():
+				all_enemies.append(child)
+
+	# ربط الإشارات لكل الأعداء
+	for enemy in all_enemies:
 		if enemy and enemy.has_signal("player_caught"):
-			enemy.player_caught.connect(_on_player_caught.bind(enemy))
+			if not enemy.player_caught.is_connected(_on_player_caught):
+				enemy.player_caught.connect(_on_player_caught.bind(enemy))
 
 
 func _on_player_caught(enemy: Node) -> void:

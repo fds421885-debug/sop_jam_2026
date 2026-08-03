@@ -19,12 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://tjfbbkj1f85r" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 02.png" id="8_r7hom"]
 [ext_resource type="Texture2D" uid="uid://cgyu088s4tjm5" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 03.png" id="9_mvfly"]
 [ext_resource type="Texture2D" uid="uid://dncsq5bg0arci" path="res://asset/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 04.png" id="10_st2mh"]
-[ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="17_r5xw6"]
 [ext_resource type="Texture2D" uid="uid://bt7km3ahmbvkr" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/4.png" id="18_mvfly"]
 [ext_resource type="Texture2D" uid="uid://bhqvj2ft1tv1k" path="res://asset/Wood and Paper UI/Sprites/Prefabs/6.png" id="18_st2mh"]
 [ext_resource type="Texture2D" uid="uid://ctw1vc7g6oeyr" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/2.png" id="19_st2mh"]
 [ext_resource type="Texture2D" uid="uid://b1qmqayj5soto" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/3.png" id="20_fpse3"]
+[ext_resource type="FontFile" uid="uid://dq7ilw5avqsnp" path="res://الخطوط/Solar6VF.ttf" id="20_laq0e"]
 [ext_resource type="Texture2D" uid="uid://dnqq574dhet5c" path="res://asset/Wood and Paper UI/Sprites/Sliders/2.png" id="22_00185"]
+[ext_resource type="PackedScene" uid="uid://dcfnjens7741c" path="res://scence/made_this_game.tscn" id="26_00185"]
+[ext_resource type="PackedScene" uid="uid://sbp04tujuhgp" path="res://scence/hello.tscn" id="27_laq0e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gyc6d"]
 animations = [{
@@ -380,9 +382,9 @@ texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("17_r5xw6")
+theme_override_fonts/font = ExtResource("20_laq0e")
 theme_override_font_sizes/font_size = 30
-text = "start game"
+text = "العب"
 flat = true
 
 [node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=791049664]
@@ -390,9 +392,9 @@ texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("17_r5xw6")
+theme_override_fonts/font = ExtResource("20_laq0e")
 theme_override_font_sizes/font_size = 30
-text = "Options"
+text = "الأعدادت"
 flat = true
 
 [node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=727878076]
@@ -400,9 +402,9 @@ texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("17_r5xw6")
+theme_override_fonts/font = ExtResource("20_laq0e")
 theme_override_font_sizes/font_size = 30
-text = "Exit"
+text = "خروج"
 flat = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1912060594]
@@ -434,9 +436,9 @@ offset_top = 50.0
 offset_right = -1.0
 offset_bottom = 105.5
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("17_r5xw6")
+theme_override_fonts/font = ExtResource("20_laq0e")
 theme_override_font_sizes/font_size = 30
-text = "Options"
+text = "الأعدادت"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -494,10 +496,10 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("17_r5xw6")
+theme_override_fonts/font = ExtResource("20_laq0e")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_vhfbf")
-text = "Back"
+text = "رجوع"
 flat = true
 
 [node name="HSlider" type="HSlider" parent="CanvasLayer/Panel" unique_id=1904719224]
@@ -526,6 +528,11 @@ parameters/looping = true
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1676646987]
 stream = ExtResource("4_uniqm")
 autoplay = true
+
+[node name="made_this_game" parent="." unique_id=1684058176 instance=ExtResource("26_00185")]
+visible = false
+
+[node name="hello" parent="." unique_id=726853498 instance=ExtResource("27_laq0e")]
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

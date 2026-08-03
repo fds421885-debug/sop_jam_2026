@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c7oiuw0agn74d"]
+
+[ext_resource type="Texture2D" uid="uid://buy5oo3km7qam" path="res://asset/Wood and Paper UI/Sprites/Prefabs/9.png" id="1_qy0xj"]
+[ext_resource type="FontFile" uid="uid://dq7ilw5avqsnp" path="res://الخطوط/Solar6VF.ttf" id="2_5rc25"]
+
+[node name="lern_1" type="Node2D" unique_id=1763810083]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1415324237]
+texture_filter = 1
+position = Vector2(590, 269)
+scale = Vector2(5.5644536, 4.8710938)
+texture = ExtResource("1_qy0xj")
+
+[node name="Label" type="Label" parent="." unique_id=1571380114]
+offset_left = -835.0
+offset_top = 148.0
+offset_right = -213.0
+offset_bottom = 388.0
+theme_override_colors/font_color = Color(0.2853998, 0.2853998, 0.28539976, 1)
+theme_override_fonts/font = ExtResource("2_5rc25")
+theme_override_font_sizes/font_size = 60
+text = " للطيران الهوائي 
+اضغط زر المسافة 
+                  مرتين"

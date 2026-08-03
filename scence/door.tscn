@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dd3ua364nafay"]
+
+[ext_resource type="Script" uid="uid://dlerlkerbnpcj" path="res://script/door.gd" id="1_bxv6l"]
+[ext_resource type="Texture2D" uid="uid://droj535bbu1kj" path="res://asset/Pirate Ship/Sprites/Decorations/Door/Opening/01.png" id="1_tqubh"]
+[ext_resource type="Texture2D" uid="uid://cy3f3aldn4fnl" path="res://asset/Pirate Ship/Sprites/Decorations/Door/Opening/02.png" id="2_bxv6l"]
+[ext_resource type="Texture2D" uid="uid://bc0ni1qi2yfh2" path="res://asset/Pirate Ship/Sprites/Decorations/Door/Opening/03.png" id="3_fvuhu"]
+[ext_resource type="Texture2D" uid="uid://ccwrkx7gyygvn" path="res://asset/Pirate Ship/Sprites/Decorations/Door/Opening/04.png" id="4_llut2"]
+[ext_resource type="Texture2D" uid="uid://cuhobldtjdb3k" path="res://asset/Pirate Ship/Sprites/Decorations/Door/Opening/05.png" id="5_bigmn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7b7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tqubh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tqubh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bxv6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fvuhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_llut2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bigmn")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc6d"]
+size = Vector2(78, 91)
+
+[node name="door" type="Area2D" unique_id=1834581121 node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("1_bxv6l")
+animated_sprite = NodePath("door_animation")
+
+[node name="door_animation" type="AnimatedSprite2D" parent="." unique_id=1704809865]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g7b7a")
+animation = &"open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=553206037]
+position = Vector2(0, 18.5)
+shape = SubResource("RectangleShape2D_gyc6d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

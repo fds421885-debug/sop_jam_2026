@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://rlgvctp06pr2"]
+
+[ext_resource type="Texture2D" uid="uid://buy5oo3km7qam" path="res://asset/Wood and Paper UI/Sprites/Prefabs/9.png" id="1_xilfr"]
+[ext_resource type="FontFile" uid="uid://dq7ilw5avqsnp" path="res://الخطوط/Solar6VF.ttf" id="2_qx3r6"]
+
+[node name="lern_1" type="Node2D" unique_id=1763810083]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1415324237]
+texture_filter = 1
+position = Vector2(590, 269)
+scale = Vector2(5.5644536, 4.8710938)
+texture = ExtResource("1_xilfr")
+
+[node name="Label" type="Label" parent="." unique_id=1571380114]
+offset_left = -845.0
+offset_top = 212.0
+offset_right = -223.0
+offset_bottom = 371.0
+theme_override_colors/font_color = Color(0.2853998, 0.2853998, 0.28539976, 1)
+theme_override_fonts/font = ExtResource("2_qx3r6")
+theme_override_font_sizes/font_size = 60
+text = "للدبل جمب أضغط زر
+ المسافة مرتين"

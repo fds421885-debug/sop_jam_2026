@@ -139,7 +139,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2peku"]
 radius = 48.5
-height = 147.0
+height = 130.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7b7a"]
 animations = [{
@@ -325,7 +325,7 @@ color = Color(0.49145234, 1.0874466, 0.9732144, 0.4745098)
 [node name="ShockwaveArea" type="Area2D" parent="." unique_id=1729424464]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockwaveArea" unique_id=2061618320]
-position = Vector2(-0.5, 0.5)
+position = Vector2(-2, 3)
 shape = SubResource("CapsuleShape2D_2peku")
 
 [node name="Sprite2D" type="Sprite2D" parent="ShockwaveArea" unique_id=253499436]
@@ -353,7 +353,7 @@ frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1011932830]
-position = Vector2(-0.5, 0.5)
+position = Vector2(-2, 3)
 shape = SubResource("CapsuleShape2D_2peku")
 
 [connection signal="body_entered" from="ShockwaveArea" to="." method="_on_shockwave_area_body_entered"]

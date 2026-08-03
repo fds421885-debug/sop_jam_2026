@@ -1,24 +1,23 @@
-[gd_scene format=3 uid="uid://du6ui527yq3nr"]
+[gd_scene format=3 uid="uid://btv1ovwvx23u0"]
 
-[ext_resource type="Texture2D" uid="uid://cu1a83xma201v" path="res://asset/Wood and Paper UI/Sprites/Prefabs/3.png" id="1_7da6b"]
-[ext_resource type="Script" uid="uid://cjoynek8b8fij" path="res://script/game_over_menu.gd" id="1_guf2b"]
-[ext_resource type="Script" uid="uid://rn7aineopryb" path="res://script/gameover.gd" id="1_pvpdi"]
-[ext_resource type="Texture2D" uid="uid://c35f5xq1g3of0" path="res://asset/Wood and Paper UI/Sprites/Prefabs/11.png" id="2_t0qdj"]
-[ext_resource type="Texture2D" uid="uid://bk50mppenrev6" path="res://asset/Wood and Paper UI/Sprites/Green Board/10.png" id="4_8jxp6"]
-[ext_resource type="Texture2D" uid="uid://c5hrvkist36bu" path="res://asset/Wood and Paper UI/Sprites/Green Board/11.png" id="5_wfn4q"]
-[ext_resource type="FontFile" uid="uid://dq7ilw5avqsnp" path="res://الخطوط/Solar6VF.ttf" id="5_xp4wv"]
-[ext_resource type="Texture2D" uid="uid://b3gdl4x5ko2gr" path="res://asset/Wood and Paper UI/Sprites/Green Board/12.png" id="6_fxx4m"]
-[ext_resource type="Texture2D" uid="uid://ctw1vc7g6oeyr" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/2.png" id="7_8jxp6"]
-[ext_resource type="Texture2D" uid="uid://b1qmqayj5soto" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/3.png" id="8_wfn4q"]
-[ext_resource type="Texture2D" uid="uid://bt7km3ahmbvkr" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/4.png" id="9_fxx4m"]
-[ext_resource type="Texture2D" uid="uid://dt1u67jbsow6m" path="res://asset/Wood and Paper UI/Sprites/Small Banner/7.png" id="10_ns30e"]
-[ext_resource type="Texture2D" uid="uid://d34dpx3bdhq3r" path="res://asset/Wood and Paper UI/Sprites/Small Banner/13.png" id="11_guf2b"]
-[ext_resource type="FontFile" uid="uid://c3ow2xtvrsmxf" path="res://الخطوط/Solar6VF.woff" id="12_3maxc"]
-[ext_resource type="Texture2D" uid="uid://cvw8grlllkh15" path="res://asset/Wood and Paper UI/Sprites/Small Banner/5.png" id="12_pvpdi"]
-[ext_resource type="FontFile" uid="uid://bxowwwhf7hhes" path="res://الخطوط/Solar6VF.woff2" id="16_xp4wv"]
+[ext_resource type="Script" uid="uid://rn7aineopryb" path="res://script/gameover.gd" id="1_b6a7d"]
+[ext_resource type="Script" uid="uid://cjoynek8b8fij" path="res://script/game_over_menu.gd" id="2_bt0l1"]
+[ext_resource type="Texture2D" uid="uid://bhqvj2ft1tv1k" path="res://asset/Wood and Paper UI/Sprites/Prefabs/6.png" id="3_b6a7d"]
+[ext_resource type="Texture2D" uid="uid://c35f5xq1g3of0" path="res://asset/Wood and Paper UI/Sprites/Prefabs/11.png" id="4_ilqij"]
+[ext_resource type="FontFile" uid="uid://dq7ilw5avqsnp" path="res://الخطوط/Solar6VF.ttf" id="5_bt0l1"]
+[ext_resource type="Texture2D" uid="uid://ce2r0x5hxgl6q" path="res://asset/Wood and Paper UI/Sprites/Yellow Board/10.png" id="6_bt0l1"]
+[ext_resource type="Texture2D" uid="uid://kxsmycwp8pix" path="res://asset/Wood and Paper UI/Sprites/Yellow Board/11.png" id="7_p65a2"]
+[ext_resource type="Texture2D" uid="uid://bjd8u0omu5oh7" path="res://asset/Wood and Paper UI/Sprites/Yellow Board/12.png" id="8_ilqij"]
+[ext_resource type="Texture2D" uid="uid://ctw1vc7g6oeyr" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/2.png" id="9_rvk6b"]
+[ext_resource type="Texture2D" uid="uid://b1qmqayj5soto" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/3.png" id="10_8x3j6"]
+[ext_resource type="Texture2D" uid="uid://bt7km3ahmbvkr" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/4.png" id="11_oem15"]
+[ext_resource type="Texture2D" uid="uid://dt1u67jbsow6m" path="res://asset/Wood and Paper UI/Sprites/Small Banner/7.png" id="12_btgak"]
+[ext_resource type="Texture2D" uid="uid://d34dpx3bdhq3r" path="res://asset/Wood and Paper UI/Sprites/Small Banner/13.png" id="13_oxqte"]
+[ext_resource type="Texture2D" uid="uid://cvw8grlllkh15" path="res://asset/Wood and Paper UI/Sprites/Small Banner/5.png" id="14_w2cec"]
+[ext_resource type="FontFile" uid="uid://bxowwwhf7hhes" path="res://الخطوط/Solar6VF.woff2" id="15_bt0l1"]
 
 [node name="gameover" type="CanvasLayer" unique_id=155855203 node_paths=PackedStringArray("play_button", "exit_button")]
-script = ExtResource("1_pvpdi")
+script = ExtResource("1_b6a7d")
 play_scene = "uid://bd7058b1ssfb3"
 exit_scene = "uid://igoefsb87quv"
 play_button = NodePath("panal/button/play")
@@ -29,7 +28,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_guf2b")
+script = ExtResource("2_bt0l1")
 play_scene = "uid://bd7058b1ssfb3"
 exit_scene = "uid://igoefsb87quv"
 play_button = NodePath("../panal/button/play")
@@ -48,13 +47,13 @@ color = Color(0, 0, 0, 0.374)
 texture_filter = 1
 position = Vector2(17.5818, 13.515671)
 scale = Vector2(0.06415227, 0.08541488)
-texture = ExtResource("1_7da6b")
+texture = ExtResource("3_b6a7d")
 
 [node name="Sprite2D2" type="Sprite2D" parent="GameOverMenu/ColorRect" unique_id=947608277]
 texture_filter = 1
 position = Vector2(17.5818, 13.515671)
 scale = Vector2(0.08231293, 0.12623657)
-texture = ExtResource("2_t0qdj")
+texture = ExtResource("4_ilqij")
 
 [node name="CenterContainer" type="CenterContainer" parent="GameOverMenu/ColorRect" unique_id=233489506]
 layout_mode = 0
@@ -64,14 +63,14 @@ offset_right = 41.56765
 offset_bottom = 39.080296
 
 [node name="Label" type="Label" parent="." unique_id=2065202498]
-offset_left = 457.0
-offset_top = 226.0
-offset_right = 716.0
-offset_bottom = 297.0
-theme_override_colors/font_color = Color(0.20368126, 0.20368126, 0.20368123, 1)
-theme_override_fonts/font = ExtResource("5_xp4wv")
-theme_override_font_sizes/font_size = 40
-text = "لقد خسرت"
+offset_left = 454.0
+offset_top = 205.0
+offset_right = 734.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0.48518425, 0.38051304, 0.37422958, 1)
+theme_override_fonts/font = ExtResource("5_bt0l1")
+theme_override_font_sizes/font_size = 53
+text = "شكرا لك"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1740850261]
 offset_left = 542.0
@@ -86,27 +85,27 @@ position = Vector2(508, 423)
 [node name="Sprite2D" type="Sprite2D" parent="panal" unique_id=498387639]
 position = Vector2(-80, 23)
 scale = Vector2(3, 3)
-texture = ExtResource("4_8jxp6")
+texture = ExtResource("6_bt0l1")
 
 [node name="Sprite2D2" type="Sprite2D" parent="panal" unique_id=26112789]
 position = Vector2(-2, 23)
 scale = Vector2(3, 3)
-texture = ExtResource("5_wfn4q")
+texture = ExtResource("7_p65a2")
 
 [node name="Sprite2D3" type="Sprite2D" parent="panal" unique_id=1431460164]
 position = Vector2(76, 23)
 scale = Vector2(3, 3)
-texture = ExtResource("5_wfn4q")
+texture = ExtResource("7_p65a2")
 
 [node name="Sprite2D4" type="Sprite2D" parent="panal" unique_id=779995561]
 position = Vector2(167, 23)
 scale = Vector2(3, 3)
-texture = ExtResource("5_wfn4q")
+texture = ExtResource("7_p65a2")
 
 [node name="Sprite2D5" type="Sprite2D" parent="panal" unique_id=1546787027]
 position = Vector2(259, 23)
 scale = Vector2(3, 3)
-texture = ExtResource("6_fxx4m")
+texture = ExtResource("8_ilqij")
 
 [node name="button" type="Node2D" parent="panal" unique_id=359889318]
 
@@ -118,15 +117,15 @@ scale = Vector2(3, 3)
 [node name="Sprite2D" type="Sprite2D" parent="panal/button/botton" unique_id=438299105]
 position = Vector2(-17.833336, 0)
 scale = Vector2(1.6904765, 1)
-texture = ExtResource("7_8jxp6")
+texture = ExtResource("9_rvk6b")
 
 [node name="Sprite2D2" type="Sprite2D" parent="panal/button/botton" unique_id=1153166825]
-texture = ExtResource("8_wfn4q")
+texture = ExtResource("10_8x3j6")
 
 [node name="Sprite2D3" type="Sprite2D" parent="panal/button/botton" unique_id=804100912]
 position = Vector2(24.5, 0)
 scale = Vector2(2.5, 1)
-texture = ExtResource("9_fxx4m")
+texture = ExtResource("11_oem15")
 
 [node name="play" type="Button" parent="panal/button" unique_id=1525814473]
 anchors_preset = 8
@@ -140,7 +139,7 @@ offset_right = 8.0
 offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("12_3maxc")
+theme_override_fonts/font = ExtResource("5_bt0l1")
 theme_override_font_sizes/font_size = 30
 text = "أعد اللعب"
 flat = true
@@ -155,23 +154,23 @@ scale = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="panal/button2/botton" unique_id=220888818]
 position = Vector2(36.000004, -21)
-texture = ExtResource("10_ns30e")
+texture = ExtResource("12_btgak")
 
 [node name="Sprite2D2" type="Sprite2D" parent="panal/button2/botton" unique_id=1891236921]
 position = Vector2(65.66667, -26)
-texture = ExtResource("11_guf2b")
+texture = ExtResource("13_oxqte")
 
 [node name="Sprite2D3" type="Sprite2D" parent="panal/button2/botton" unique_id=1327907919]
 position = Vector2(93.333, -26)
-texture = ExtResource("12_pvpdi")
+texture = ExtResource("14_w2cec")
 
 [node name="exit" type="Button" parent="panal/button2" unique_id=359909017]
-offset_left = -211.0
+offset_left = -205.0
 offset_top = -3.0
-offset_right = -107.0
+offset_right = -101.0
 offset_bottom = 44.0
 theme_override_colors/font_color = Color(0.2863073, 0.22828984, 0.21647638, 1)
-theme_override_fonts/font = ExtResource("16_xp4wv")
+theme_override_fonts/font = ExtResource("15_bt0l1")
 theme_override_font_sizes/font_size = 30
 text = "خروج"
 flat = true

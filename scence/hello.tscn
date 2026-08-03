@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://sbp04tujuhgp"]
+
+[ext_resource type="Texture2D" uid="uid://bhqvj2ft1tv1k" path="res://asset/Wood and Paper UI/Sprites/Prefabs/6.png" id="1_ce6qf"]
+[ext_resource type="Script" uid="uid://bf8wbii4sng4x" path="res://script/hello.gd" id="1_p8ubg"]
+[ext_resource type="FontFile" uid="uid://dq7ilw5avqsnp" path="res://الخطوط/Solar6VF.ttf" id="2_6bhws"]
+[ext_resource type="Texture2D" uid="uid://cfvrw41l8kcgy" path="res://asset/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/3.png" id="4_5l4n1"]
+[ext_resource type="Texture2D" uid="uid://cvtwtmj6x1m4j" path="res://asset/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons Cooldown/1.png" id="5_suoan"]
+
+[node name="hello" type="CanvasLayer" unique_id=726853498 node_paths=PackedStringArray("slides", "next_button", "prev_button", "done_button")]
+script = ExtResource("1_p8ubg")
+slides = [NodePath("CanvasLayer"), NodePath("CanvasLayer2"), NodePath("CanvasLayer3")]
+next_button = NodePath("Control/TextureButton")
+prev_button = NodePath("Control/TextureButton2")
+done_button = NodePath("Control/Button")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1328820043]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1775531631]
+texture_filter = 1
+position = Vector2(524, 318)
+scale = Vector2(5.546875, 5.15625)
+texture = ExtResource("1_ce6qf")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=711754115]
+offset_left = 343.0
+offset_top = 158.0
+offset_right = 1076.0
+offset_bottom = 407.0
+theme_override_fonts/font = ExtResource("2_6bhws")
+theme_override_font_sizes/font_size = 30
+text = "مرحبًا بك في Critical Shift!
+هدفك بسيط: الوصول إلى نهاية المرحلة قبل
+ أن تتجاوزك الكاميرا. 
+إذا خرجت خارج حدود الكاميرا، ستخسر.
+استخدم مهاراتك في الحركة،
+ وتجاوز العقبات،
+ واستمر في التقدم."
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1759603737]
+offset_left = 462.0
+offset_top = 36.0
+offset_right = 1195.0
+offset_bottom = 327.0
+theme_override_fonts/font = ExtResource("2_6bhws")
+theme_override_font_sizes/font_size = 70
+text = "مرحبًا بك"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1448937112]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2" unique_id=1514757183]
+texture_filter = 1
+position = Vector2(524, 318)
+scale = Vector2(5.546875, 5.15625)
+texture = ExtResource("1_ce6qf")
+
+[node name="Label" type="Label" parent="CanvasLayer2" unique_id=1861195257]
+offset_left = 343.0
+offset_top = 158.0
+offset_right = 1076.0
+offset_bottom = 407.0
+theme_override_fonts/font = ExtResource("2_6bhws")
+theme_override_font_sizes/font_size = 30
+text = "ستحصل على قدرة واحدة فقط في كل مرة.
+ستجد اسم القدرة والوقت المتبقي 
+لها في أعلى يسار الشاشة.
+كلما استخدمت القدرة، تصبح أقوى، 
+لكن في المقابل يقترب وقتها من النهاية.
+عند انتهاء الوقت، تصل القدرة إلى
+ النقطة الحرجة (Critical Point) وتختفي 
+"
+
+[node name="Label2" type="Label" parent="CanvasLayer2" unique_id=412177622]
+offset_left = 403.0
+offset_top = 45.0
+offset_right = 1136.0
+offset_bottom = 336.0
+theme_override_fonts/font = ExtResource("2_6bhws")
+theme_override_font_sizes/font_size = 70
+text = "نظام القدرات"
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=834229849]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer3" unique_id=550262308]
+texture_filter = 1
+position = Vector2(524, 318)
+scale = Vector2(5.546875, 5.15625)
+texture = ExtResource("1_ce6qf")
+
+[node name="Label" type="Label" parent="CanvasLayer3" unique_id=122009128]
+offset_left = 366.0
+offset_top = 150.0
+offset_right = 1099.0
+offset_bottom = 399.0
+theme_override_fonts/font = ExtResource("2_6bhws")
+theme_override_font_sizes/font_size = 30
+text = "راقب دائمًا الوقت المتبقي للقدرة.
+استخدم كل قدرة في المكان المناسب.
+جرّب القدرات المختلفة،
+ فلكل منها أسلوب لعب مميز.
+لا تتوقف طويلًا... واستمر في التقدم
+ حتى تصل إلى النهاية."
+
+[node name="Label2" type="Label" parent="CanvasLayer3" unique_id=985207086]
+offset_left = 403.0
+offset_top = 45.0
+offset_right = 1136.0
+offset_bottom = 336.0
+theme_override_fonts/font = ExtResource("2_6bhws")
+theme_override_font_sizes/font_size = 70
+text = "تلميحات"
+
+[node name="Control" type="CanvasLayer" parent="." unique_id=1287831756]
+
+[node name="TextureButton" type="TextureButton" parent="Control" unique_id=1641842305]
+offset_left = 807.0
+offset_top = 464.00003
+offset_right = 847.0
+offset_bottom = 504.00003
+scale = Vector2(3, 3)
+texture_normal = ExtResource("4_5l4n1")
+texture_pressed = ExtResource("5_suoan")
+
+[node name="TextureButton2" type="TextureButton" parent="Control" unique_id=1420559192]
+offset_left = 477.0
+offset_top = 457.00003
+offset_right = 517.0
+offset_bottom = 497.00003
+scale = Vector2(3, 3)
+texture_normal = ExtResource("4_5l4n1")
+texture_pressed = ExtResource("5_suoan")
+flip_h = true
+
+[node name="Button" type="Button" parent="Control" unique_id=878968369]
+offset_left = 590.0
+offset_top = 442.0
+offset_right = 712.0
+offset_bottom = 553.0
+theme_override_fonts/font = ExtResource("2_6bhws")
+theme_override_font_sizes/font_size = 80
+text = "تم"
+flat = true

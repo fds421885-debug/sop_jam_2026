@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bd6vyanklbt51"]
+
+[ext_resource type="Script" uid="uid://cu05cay3s0ov8" path="res://script/cannon.gd" id="1_d68cy"]
+[ext_resource type="Texture2D" uid="uid://3tbdn46kd76i" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Idle/1.png" id="1_n0ipt"]
+[ext_resource type="Texture2D" uid="uid://cwt3of3t5mgxd" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire/1.png" id="2_pgxa1"]
+[ext_resource type="PackedScene" uid="uid://bhea7mb1b5les" path="res://scence/bullet.tscn" id="2_ybp4q"]
+[ext_resource type="Texture2D" uid="uid://b08cg2oire6wi" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire/2.png" id="3_yc4ln"]
+[ext_resource type="Texture2D" uid="uid://c00wryjft2ffj" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire/3.png" id="4_m0jc7"]
+[ext_resource type="Texture2D" uid="uid://c0mgqy4vfvww1" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire/4.png" id="5_2up1w"]
+[ext_resource type="Texture2D" uid="uid://bpxqedgfy2605" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire/5.png" id="6_5hrrw"]
+[ext_resource type="Texture2D" uid="uid://dh12wc6n8orwe" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire/6.png" id="7_vpgig"]
+[ext_resource type="Texture2D" uid="uid://f7du5l06fkxa" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/1.png" id="9_ybp4q"]
+[ext_resource type="Texture2D" uid="uid://d1bc2hmntjmrq" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/2.png" id="10_u2u7a"]
+[ext_resource type="Texture2D" uid="uid://b4vvac3iumtk8" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/3.png" id="11_c03jf"]
+[ext_resource type="Texture2D" uid="uid://ww1akvsibid0" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/4.png" id="12_ka3py"]
+[ext_resource type="Texture2D" uid="uid://cphi30ae8j4jv" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/5.png" id="13_aj62x"]
+[ext_resource type="Texture2D" uid="uid://d2m2eqiec36lc" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/6.png" id="14_hyrsj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7b7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n0ipt")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pgxa1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yc4ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m0jc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2up1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5hrrw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vpgig")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 20.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d68cy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ybp4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u2u7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c03jf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ka3py")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_aj62x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hyrsj")
+}],
+"loop": 0,
+"name": &"flash",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(23.800003, 20)
+
+[node name="Cannon" type="Node2D" unique_id=618195157]
+scale = Vector2(5, 5)
+script = ExtResource("1_d68cy")
+bullet_scene = ExtResource("2_ybp4q")
+shoot_interval = 4.0
+invert_direction = true
+
+[node name="CannonSprite" type="AnimatedSprite2D" parent="." unique_id=514540561]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_g7b7a")
+animation = &"shoot"
+frame = 5
+frame_progress = 1.0
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1140469599]
+position = Vector2(-11, -1)
+
+[node name="MuzzleFlash" type="AnimatedSprite2D" parent="." unique_id=799182975]
+texture_filter = 1
+position = Vector2(-21, 0)
+sprite_frames = SubResource("SpriteFrames_d68cy")
+animation = &"flash"
+
+[node name="Timer" type="Timer" parent="." unique_id=541796508]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1605089419]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=376601364]
+position = Vector2(1.9000007, 0)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_g7b7a")
