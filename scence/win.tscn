@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cjoynek8b8fij" path="res://script/game_over_menu.gd" id="2_bt0l1"]
 [ext_resource type="Texture2D" uid="uid://bhqvj2ft1tv1k" path="res://asset/Wood and Paper UI/Sprites/Prefabs/6.png" id="3_b6a7d"]
 [ext_resource type="Texture2D" uid="uid://c35f5xq1g3of0" path="res://asset/Wood and Paper UI/Sprites/Prefabs/11.png" id="4_ilqij"]
-[ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="5_0li0h"]
+[ext_resource type="FontFile" uid="uid://dq7ilw5avqsnp" path="res://الخطوط/Solar6VF.ttf" id="5_bt0l1"]
 [ext_resource type="Texture2D" uid="uid://ce2r0x5hxgl6q" path="res://asset/Wood and Paper UI/Sprites/Yellow Board/10.png" id="6_bt0l1"]
 [ext_resource type="Texture2D" uid="uid://kxsmycwp8pix" path="res://asset/Wood and Paper UI/Sprites/Yellow Board/11.png" id="7_p65a2"]
 [ext_resource type="Texture2D" uid="uid://bjd8u0omu5oh7" path="res://asset/Wood and Paper UI/Sprites/Yellow Board/12.png" id="8_ilqij"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dt1u67jbsow6m" path="res://asset/Wood and Paper UI/Sprites/Small Banner/7.png" id="12_btgak"]
 [ext_resource type="Texture2D" uid="uid://d34dpx3bdhq3r" path="res://asset/Wood and Paper UI/Sprites/Small Banner/13.png" id="13_oxqte"]
 [ext_resource type="Texture2D" uid="uid://cvw8grlllkh15" path="res://asset/Wood and Paper UI/Sprites/Small Banner/5.png" id="14_w2cec"]
+[ext_resource type="FontFile" uid="uid://bxowwwhf7hhes" path="res://الخطوط/Solar6VF.woff2" id="15_bt0l1"]
 
 [node name="gameover" type="CanvasLayer" unique_id=155855203 node_paths=PackedStringArray("play_button", "exit_button")]
 script = ExtResource("1_b6a7d")
@@ -62,14 +63,14 @@ offset_right = 41.56765
 offset_bottom = 39.080296
 
 [node name="Label" type="Label" parent="." unique_id=2065202498]
-offset_left = 378.0
-offset_top = 207.0
-offset_right = 658.0
-offset_bottom = 274.0
+offset_left = 454.0
+offset_top = 205.0
+offset_right = 734.0
+offset_bottom = 302.0
 theme_override_colors/font_color = Color(0.48518425, 0.38051304, 0.37422958, 1)
-theme_override_fonts/font = ExtResource("5_0li0h")
-theme_override_font_sizes/font_size = 75
-text = "win    "
+theme_override_fonts/font = ExtResource("5_bt0l1")
+theme_override_font_sizes/font_size = 53
+text = "شكرا لك"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1740850261]
 offset_left = 542.0
@@ -138,9 +139,9 @@ offset_right = 8.0
 offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_0li0h")
+theme_override_fonts/font = ExtResource("5_bt0l1")
 theme_override_font_sizes/font_size = 30
-text = "play again"
+text = "أعد اللعب"
 flat = true
 
 [node name="button2" type="Node2D" parent="panal" unique_id=888308010]
@@ -164,14 +165,14 @@ position = Vector2(93.333, -26)
 texture = ExtResource("14_w2cec")
 
 [node name="exit" type="Button" parent="panal/button2" unique_id=359909017]
-offset_left = -210.0
-offset_top = 9.0
-offset_right = -106.0
-offset_bottom = 45.0
+offset_left = -205.0
+offset_top = -3.0
+offset_right = -101.0
+offset_bottom = 44.0
 theme_override_colors/font_color = Color(0.2863073, 0.22828984, 0.21647638, 1)
-theme_override_fonts/font = ExtResource("5_0li0h")
+theme_override_fonts/font = ExtResource("15_bt0l1")
 theme_override_font_sizes/font_size = 30
-text = "exit"
+text = "خروج"
 flat = true
 
 [connection signal="pressed" from="panal/button/play" to="." method="_on_play_pressed"]

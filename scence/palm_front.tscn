@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bwloehymmmp5d"]
+
+[ext_resource type="Script" uid="uid://qvpwtyossa2d" path="res://script/palm_front.gd" id="1_p3gs6"]
+[ext_resource type="Texture2D" uid="uid://c3mstam8ddmji" path="res://asset/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 01.png" id="5_cr8eq"]
+[ext_resource type="Texture2D" uid="uid://dmq0cplocdmqm" path="res://asset/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 02.png" id="6_hemxk"]
+[ext_resource type="Texture2D" uid="uid://bqrdi2j6mhfm1" path="res://asset/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 03.png" id="7_1hssg"]
+[ext_resource type="Texture2D" uid="uid://bpf7g7hvh4dpu" path="res://asset/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 04.png" id="8_a6h1u"]
+[ext_resource type="Texture2D" uid="uid://dj7us1n36lpbv" path="res://asset/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="9_fgobb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e35u1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cr8eq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hemxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1hssg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_a6h1u")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(34, 20)
+
+[node name="AnimatedSprite2D" type="StaticBody2D" unique_id=1265894759]
+texture_filter = 1
+script = ExtResource("1_p3gs6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=970603383]
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_e35u1")
+animation = &"new_animation"
+frame_progress = 0.9624062
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=948260632]
+position = Vector2(1, 30)
+texture = ExtResource("9_fgobb")
+region_enabled = true
+region_rect = Rect2(11, 0, 10, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124313611]
+position = Vector2(1, -21)
+shape = SubResource("RectangleShape2D_g7b7a")

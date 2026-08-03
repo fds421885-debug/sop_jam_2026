@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dw5a71acfum4o" path="res://asset/Wood and Paper UI/Sprites/Green Button/2.png" id="9_i7pfs"]
 [ext_resource type="Texture2D" uid="uid://uerjfy5kiu3k" path="res://asset/Wood and Paper UI/Sprites/Green Button/3.png" id="10_exm5o"]
 [ext_resource type="Texture2D" uid="uid://cinq0f7rkwhg2" path="res://asset/Wood and Paper UI/Sprites/Green Button/4.png" id="11_exm5o"]
+[ext_resource type="Texture2D" uid="uid://1uuoxulk65so" path="res://asset/Wood and Paper UI/Sprites/Small Banner/8.png" id="12_imaqs"]
+[ext_resource type="Texture2D" uid="uid://duo5srpwvqm1q" path="res://asset/Wood and Paper UI/Sprites/Small Banner/12.png" id="13_su3m6"]
 
 [node name="made_game" type="CanvasLayer" unique_id=1014652696]
 
@@ -80,8 +82,13 @@ position = Vector2(752.00006, 183)
 scale = Vector2(3, 3)
 texture = ExtResource("7_fynrx")
 
+[node name="Sprite2D4" type="Sprite2D" parent="programring" unique_id=1388581412]
+position = Vector2(663, 183)
+scale = Vector2(3, 3)
+texture = ExtResource("7_fynrx")
+
 [node name="Sprite2D3" type="Sprite2D" parent="programring" unique_id=1646063430]
-position = Vector2(657, 183)
+position = Vector2(591, 183)
 scale = Vector2(3, 3)
 texture = ExtResource("8_i7pfs")
 
@@ -92,7 +99,7 @@ offset_right = -669.0
 offset_bottom = 192.0
 theme_override_fonts/font = ExtResource("5_goahd")
 theme_override_font_sizes/font_size = 26
-text = "Programming"
+text = "Programming & UI"
 
 [node name="name" type="Sprite2D" parent="programring" unique_id=1842322916]
 position = Vector2(622, 224)
@@ -173,6 +180,27 @@ texture = ExtResource("10_exm5o")
 position = Vector2(50.000004, 0)
 texture = ExtResource("11_exm5o")
 
+[node name="name2" type="Sprite2D" parent="level_design" unique_id=1352875849]
+position = Vector2(623, 269)
+scale = Vector2(3, 3)
+texture = ExtResource("9_i7pfs")
+
+[node name="Sprite2D5" type="Sprite2D" parent="level_design/name2" unique_id=648926886]
+position = Vector2(13, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="level_design/name2" unique_id=1718176037]
+position = Vector2(26.333334, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D7" type="Sprite2D" parent="level_design/name2" unique_id=2055046205]
+position = Vector2(39.333336, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D8" type="Sprite2D" parent="level_design/name2" unique_id=1630442488]
+position = Vector2(50.000004, 0)
+texture = ExtResource("11_exm5o")
+
 [node name="Label2" type="Label" parent="level_design" unique_id=762035135]
 offset_left = -742.0
 offset_top = 211.0
@@ -182,60 +210,351 @@ theme_override_fonts/font = ExtResource("5_goahd")
 theme_override_font_sizes/font_size = 20
 text = "Abdullah"
 
-[node name="level_design2" type="Node2D" parent="." unique_id=66270343]
-texture_filter = 1
-position = Vector2(12, 178)
+[node name="Label3" type="Label" parent="level_design" unique_id=608352895]
+offset_left = -781.0
+offset_top = 257.0
+offset_right = -614.0
+offset_bottom = 280.0
+theme_override_fonts/font = ExtResource("5_goahd")
+theme_override_font_sizes/font_size = 20
+text = "Mohammad Montasser"
 
-[node name="Sprite2D" type="Sprite2D" parent="level_design2" unique_id=398478194]
+[node name="Audio & Sound" type="Node2D" parent="." unique_id=66270343]
+texture_filter = 1
+position = Vector2(-4, 221)
+
+[node name="Sprite2D" type="Sprite2D" parent="Audio & Sound" unique_id=398478194]
 position = Vector2(845, 183)
 scale = Vector2(3, 3)
 texture = ExtResource("6_ixyl7")
 
-[node name="Sprite2D2" type="Sprite2D" parent="level_design2" unique_id=524010]
+[node name="Sprite2D2" type="Sprite2D" parent="Audio & Sound" unique_id=524010]
 position = Vector2(752.00006, 183)
 scale = Vector2(3, 3)
 texture = ExtResource("7_fynrx")
 
-[node name="Sprite2D3" type="Sprite2D" parent="level_design2" unique_id=1453171309]
+[node name="Sprite2D3" type="Sprite2D" parent="Audio & Sound" unique_id=1453171309]
 position = Vector2(657, 183)
 scale = Vector2(3, 3)
 texture = ExtResource("8_i7pfs")
 
-[node name="Label" type="Label" parent="level_design2" unique_id=398790964]
-offset_left = -804.0
-offset_top = 169.0
-offset_right = -669.0
-offset_bottom = 192.0
+[node name="Label" type="Label" parent="Audio & Sound" unique_id=398790964]
+offset_left = -818.0
+offset_top = 170.0
+offset_right = -664.0
+offset_bottom = 193.0
 theme_override_fonts/font = ExtResource("5_goahd")
 theme_override_font_sizes/font_size = 26
-text = "Sound Design"
+text = "Audio & Sound"
 
-[node name="name" type="Sprite2D" parent="level_design2" unique_id=1386679796]
+[node name="name" type="Sprite2D" parent="Audio & Sound" unique_id=1386679796]
 position = Vector2(622, 224)
 scale = Vector2(3, 3)
 texture = ExtResource("9_i7pfs")
 
-[node name="Sprite2D5" type="Sprite2D" parent="level_design2/name" unique_id=901368492]
+[node name="Sprite2D5" type="Sprite2D" parent="Audio & Sound/name" unique_id=901368492]
 position = Vector2(13, 0)
 texture = ExtResource("10_exm5o")
 
-[node name="Sprite2D6" type="Sprite2D" parent="level_design2/name" unique_id=386821090]
+[node name="Sprite2D6" type="Sprite2D" parent="Audio & Sound/name" unique_id=386821090]
 position = Vector2(26.333334, 0)
 texture = ExtResource("10_exm5o")
 
-[node name="Sprite2D7" type="Sprite2D" parent="level_design2/name" unique_id=1141932498]
+[node name="Sprite2D7" type="Sprite2D" parent="Audio & Sound/name" unique_id=1141932498]
 position = Vector2(39.333336, 0)
 texture = ExtResource("10_exm5o")
 
-[node name="Sprite2D8" type="Sprite2D" parent="level_design2/name" unique_id=1083378864]
+[node name="Sprite2D8" type="Sprite2D" parent="Audio & Sound/name" unique_id=1083378864]
 position = Vector2(50.000004, 0)
 texture = ExtResource("11_exm5o")
 
-[node name="Label2" type="Label" parent="level_design2" unique_id=476373282]
-offset_left = -742.0
-offset_top = 211.0
-offset_right = -575.0
-offset_bottom = 234.0
+[node name="Label2" type="Label" parent="Audio & Sound" unique_id=476373282]
+offset_left = -766.0
+offset_top = 212.0
+offset_right = -599.0
+offset_bottom = 235.0
 theme_override_fonts/font = ExtResource("5_goahd")
 theme_override_font_sizes/font_size = 20
-text = "Abdullah"
+text = "Patrick John"
+
+[node name="art" type="Node2D" parent="." unique_id=1535167089]
+texture_filter = 1
+position = Vector2(398, 165)
+
+[node name="back" type="Sprite2D" parent="art" unique_id=1421106983]
+position = Vector2(-76, 16)
+scale = Vector2(3, 3)
+texture = ExtResource("12_imaqs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="art/back" unique_id=112418109]
+position = Vector2(30.333334, 0)
+texture = ExtResource("7_fynrx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="art/back" unique_id=859374167]
+position = Vector2(60.333336, 0)
+texture = ExtResource("13_su3m6")
+
+[node name="Label" type="Label" parent="art" unique_id=541699814]
+offset_left = -97.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("5_goahd")
+theme_override_font_sizes/font_size = 23
+text = "Art & Graphics"
+
+[node name="name" type="Sprite2D" parent="art" unique_id=2052041396]
+position = Vector2(-1, 58)
+scale = Vector2(3, 3)
+texture = ExtResource("9_i7pfs")
+
+[node name="Sprite2D5" type="Sprite2D" parent="art/name" unique_id=1825059281]
+position = Vector2(13, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="art/name" unique_id=1102705703]
+position = Vector2(26.333334, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D7" type="Sprite2D" parent="art/name" unique_id=259142239]
+position = Vector2(39.333336, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D8" type="Sprite2D" parent="art/name" unique_id=800559665]
+position = Vector2(50.000004, 0)
+texture = ExtResource("11_exm5o")
+
+[node name="Label2" type="Label" parent="art" unique_id=1786432943]
+offset_left = -124.0
+offset_top = 44.0
+offset_right = 23.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("5_goahd")
+theme_override_font_sizes/font_size = 23
+text = "Pixel Frog"
+
+[node name="art2" type="Node2D" parent="." unique_id=1645060111]
+texture_filter = 1
+position = Vector2(399, 251)
+
+[node name="back" type="Sprite2D" parent="art2" unique_id=422082149]
+position = Vector2(-76, 16)
+scale = Vector2(3, 3)
+texture = ExtResource("12_imaqs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="art2/back" unique_id=1300918025]
+position = Vector2(30.333334, 0)
+texture = ExtResource("7_fynrx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="art2/back" unique_id=1748912989]
+position = Vector2(60.333336, 0)
+texture = ExtResource("13_su3m6")
+
+[node name="Label" type="Label" parent="art2" unique_id=827661573]
+offset_left = -54.0
+offset_top = 1.0
+offset_right = 93.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("5_goahd")
+theme_override_font_sizes/font_size = 23
+text = "Judges"
+
+[node name="button" type="Node2D" parent="art2" unique_id=320860098]
+position = Vector2(-1, -6)
+
+[node name="name" type="Sprite2D" parent="art2/button" unique_id=182896866]
+position = Vector2(-1, 54)
+scale = Vector2(2, 2)
+texture = ExtResource("9_i7pfs")
+
+[node name="Sprite2D5" type="Sprite2D" parent="art2/button/name" unique_id=186030758]
+position = Vector2(13, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="art2/button/name" unique_id=725698305]
+position = Vector2(26.333334, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D7" type="Sprite2D" parent="art2/button/name" unique_id=145365874]
+position = Vector2(39.333336, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D8" type="Sprite2D" parent="art2/button/name" unique_id=815367839]
+position = Vector2(50.000004, 0)
+texture = ExtResource("11_exm5o")
+
+[node name="Label2" type="Label" parent="art2/button" unique_id=61595260]
+offset_left = -95.0
+offset_top = 43.0
+offset_right = 52.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("5_goahd")
+theme_override_font_sizes/font_size = 18
+text = "Anas Alsahli"
+
+[node name="button3" type="Node2D" parent="art2" unique_id=1856308619]
+position = Vector2(-2, 55)
+
+[node name="name" type="Sprite2D" parent="art2/button3" unique_id=1856920261]
+position = Vector2(-1, 54)
+scale = Vector2(2, 2)
+texture = ExtResource("9_i7pfs")
+
+[node name="Sprite2D5" type="Sprite2D" parent="art2/button3/name" unique_id=1395133932]
+position = Vector2(13, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="art2/button3/name" unique_id=1102132430]
+position = Vector2(26.333334, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D7" type="Sprite2D" parent="art2/button3/name" unique_id=96778583]
+position = Vector2(39.333336, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D8" type="Sprite2D" parent="art2/button3/name" unique_id=959861363]
+position = Vector2(50.000004, 0)
+texture = ExtResource("11_exm5o")
+
+[node name="Label2" type="Label" parent="art2/button3" unique_id=378522246]
+offset_left = -99.0
+offset_top = 43.0
+offset_right = 48.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("5_goahd")
+theme_override_font_sizes/font_size = 18
+text = "m. bin Khaled"
+
+[node name="button2" type="Node2D" parent="art2" unique_id=587857825]
+position = Vector2(-2, 24)
+
+[node name="name" type="Sprite2D" parent="art2/button2" unique_id=1817993423]
+position = Vector2(-1, 54)
+scale = Vector2(2, 2)
+texture = ExtResource("9_i7pfs")
+
+[node name="Sprite2D5" type="Sprite2D" parent="art2/button2/name" unique_id=1462821934]
+position = Vector2(13, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="art2/button2/name" unique_id=113367191]
+position = Vector2(26.333334, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D7" type="Sprite2D" parent="art2/button2/name" unique_id=818340496]
+position = Vector2(39.333336, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D8" type="Sprite2D" parent="art2/button2/name" unique_id=1384632325]
+position = Vector2(50.000004, 0)
+texture = ExtResource("11_exm5o")
+
+[node name="Label2" type="Label" parent="art2/button2" unique_id=795281755]
+offset_left = -66.0
+offset_top = 43.0
+offset_right = 81.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("5_goahd")
+theme_override_font_sizes/font_size = 18
+text = "Sop"
+
+[node name="button4" type="Node2D" parent="art2" unique_id=643339504]
+position = Vector2(-1, 87)
+
+[node name="name" type="Sprite2D" parent="art2/button4" unique_id=869088460]
+position = Vector2(-1, 54)
+scale = Vector2(2, 2)
+texture = ExtResource("9_i7pfs")
+
+[node name="Sprite2D5" type="Sprite2D" parent="art2/button4/name" unique_id=1540737886]
+position = Vector2(13, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="art2/button4/name" unique_id=738601962]
+position = Vector2(26.333334, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D7" type="Sprite2D" parent="art2/button4/name" unique_id=1205992019]
+position = Vector2(39.333336, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D8" type="Sprite2D" parent="art2/button4/name" unique_id=344668448]
+position = Vector2(50.000004, 0)
+texture = ExtResource("11_exm5o")
+
+[node name="Label2" type="Label" parent="art2/button4" unique_id=651866459]
+offset_left = -88.0
+offset_top = 43.0
+offset_right = 59.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("5_goahd")
+theme_override_font_sizes/font_size = 18
+text = "A. Helwany"
+
+[node name="button5" type="Node2D" parent="art2" unique_id=1435868993]
+position = Vector2(-2, 118)
+
+[node name="name" type="Sprite2D" parent="art2/button5" unique_id=1758996015]
+position = Vector2(-1, 54)
+scale = Vector2(2, 2)
+texture = ExtResource("9_i7pfs")
+
+[node name="Sprite2D5" type="Sprite2D" parent="art2/button5/name" unique_id=330324064]
+position = Vector2(13, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="art2/button5/name" unique_id=101397696]
+position = Vector2(26.333334, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D7" type="Sprite2D" parent="art2/button5/name" unique_id=1879310714]
+position = Vector2(39.333336, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D8" type="Sprite2D" parent="art2/button5/name" unique_id=1991786047]
+position = Vector2(50.000004, 0)
+texture = ExtResource("11_exm5o")
+
+[node name="Label2" type="Label" parent="art2/button5" unique_id=1333498275]
+offset_left = -109.0
+offset_top = 43.0
+offset_right = 38.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("5_goahd")
+theme_override_font_sizes/font_size = 18
+text = "Mahmoud Ziater"
+
+[node name="button6" type="Node2D" parent="art2" unique_id=1184389179]
+position = Vector2(-1, 148)
+
+[node name="name" type="Sprite2D" parent="art2/button6" unique_id=997063285]
+position = Vector2(-1, 54)
+scale = Vector2(2, 2)
+texture = ExtResource("9_i7pfs")
+
+[node name="Sprite2D5" type="Sprite2D" parent="art2/button6/name" unique_id=2041042349]
+position = Vector2(13, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="art2/button6/name" unique_id=1072594010]
+position = Vector2(26.333334, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D7" type="Sprite2D" parent="art2/button6/name" unique_id=1452776395]
+position = Vector2(39.333336, 0)
+texture = ExtResource("10_exm5o")
+
+[node name="Sprite2D8" type="Sprite2D" parent="art2/button6/name" unique_id=435238167]
+position = Vector2(50.000004, 0)
+texture = ExtResource("11_exm5o")
+
+[node name="Label2" type="Label" parent="art2/button6" unique_id=1723158034]
+offset_left = -86.0
+offset_top = 43.0
+offset_right = 61.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("5_goahd")
+theme_override_font_sizes/font_size = 18
+text = "Osama Deeb"
+
+[node name="credits" type="Node2D" parent="." unique_id=1421558906]

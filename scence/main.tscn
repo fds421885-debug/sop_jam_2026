@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://ctw1vc7g6oeyr" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/2.png" id="19_st2mh"]
 [ext_resource type="Texture2D" uid="uid://b1qmqayj5soto" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/3.png" id="20_fpse3"]
 [ext_resource type="Texture2D" uid="uid://dnqq574dhet5c" path="res://asset/Wood and Paper UI/Sprites/Sliders/2.png" id="22_00185"]
+[ext_resource type="PackedScene" uid="uid://dcfnjens7741c" path="res://scence/made_this_game.tscn" id="26_00185"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gyc6d"]
 animations = [{
@@ -526,6 +527,8 @@ parameters/looping = true
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1676646987]
 stream = ExtResource("4_uniqm")
 autoplay = true
+
+[node name="made_this_game" parent="." unique_id=1684058176 instance=ExtResource("26_00185")]
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
