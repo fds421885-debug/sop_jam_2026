@@ -34,10 +34,10 @@ offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="made_game/Control" unique_id=959200284]
 layout_mode = 0
-offset_left = -370.0
-offset_top = -289.0
-offset_right = 1590.0
-offset_bottom = 1164.0
+offset_left = -87.0
+offset_top = -222.0
+offset_right = 1873.0
+offset_bottom = 1231.0
 color = Color(0, 0, 0, 0.31100002)
 
 [node name="back_ground" type="Sprite2D" parent="made_game/Control" unique_id=1095355508]
@@ -83,30 +83,30 @@ text = "Credits"
 texture_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="made_game/programring" unique_id=1776688491]
-position = Vector2(845, 183)
+position = Vector2(845, 155)
 scale = Vector2(3, 3)
 texture = ExtResource("6_v28n5")
 
 [node name="Sprite2D2" type="Sprite2D" parent="made_game/programring" unique_id=148441274]
-position = Vector2(752.00006, 183)
+position = Vector2(752.00006, 155)
 scale = Vector2(3, 3)
 texture = ExtResource("7_txmtr")
 
 [node name="Sprite2D4" type="Sprite2D" parent="made_game/programring" unique_id=1388581412]
-position = Vector2(663, 183)
+position = Vector2(663, 155)
 scale = Vector2(3, 3)
 texture = ExtResource("7_txmtr")
 
 [node name="Sprite2D3" type="Sprite2D" parent="made_game/programring" unique_id=1646063430]
-position = Vector2(591, 183)
+position = Vector2(591, 155)
 scale = Vector2(3, 3)
 texture = ExtResource("8_je5j5")
 
 [node name="Label" type="Label" parent="made_game/programring" unique_id=1656868663]
-offset_left = -804.0
-offset_top = 169.0
-offset_right = -669.0
-offset_bottom = 192.0
+offset_left = -806.0
+offset_top = 141.0
+offset_right = -608.0
+offset_bottom = 164.0
 theme_override_fonts/font = ExtResource("5_wepbx")
 theme_override_font_sizes/font_size = 26
 text = "Programming & UI"
@@ -129,6 +129,27 @@ position = Vector2(39.333336, 0)
 texture = ExtResource("10_mcgx6")
 
 [node name="Sprite2D8" type="Sprite2D" parent="made_game/programring/name" unique_id=2144964819]
+position = Vector2(50.000004, 0)
+texture = ExtResource("11_ca7jx")
+
+[node name="name2" type="Sprite2D" parent="made_game/programring" unique_id=1262786804]
+position = Vector2(622, 185.00002)
+scale = Vector2(3, 3)
+texture = ExtResource("9_gawjq")
+
+[node name="Sprite2D5" type="Sprite2D" parent="made_game/programring/name2" unique_id=1614866818]
+position = Vector2(13, 0)
+texture = ExtResource("10_mcgx6")
+
+[node name="Sprite2D6" type="Sprite2D" parent="made_game/programring/name2" unique_id=890733313]
+position = Vector2(26.333334, 0)
+texture = ExtResource("10_mcgx6")
+
+[node name="Sprite2D7" type="Sprite2D" parent="made_game/programring/name2" unique_id=1147764355]
+position = Vector2(39.333336, 0)
+texture = ExtResource("10_mcgx6")
+
+[node name="Sprite2D8" type="Sprite2D" parent="made_game/programring/name2" unique_id=403840759]
 position = Vector2(50.000004, 0)
 texture = ExtResource("11_ca7jx")
 
@@ -159,6 +180,17 @@ texture = ExtResource("7_txmtr")
 position = Vector2(657, 183)
 scale = Vector2(3, 3)
 texture = ExtResource("8_je5j5")
+
+[node name="Label4" type="Label" parent="made_game/level_design" unique_id=364642333]
+offset_left = -781.0
+offset_top = 78.0
+offset_right = -614.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("5_wepbx")
+theme_override_font_sizes/font_size = 20
+text = "abdullh"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="made_game/level_design" unique_id=857872124]
 offset_left = -804.0

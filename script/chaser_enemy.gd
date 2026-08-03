@@ -481,7 +481,7 @@ func _on_catch_area_body_entered(body: Node) -> void:
 		return
 	if body == player or body.is_in_group("player"):
 		_trigger_catch()
-
+		$"../AudioStreamPlayer2".play()
 
 func _trigger_catch() -> void:
 	if current_state == State.CATCH:

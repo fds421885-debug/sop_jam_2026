@@ -18,12 +18,12 @@ extends CanvasLayer # أو CanvasLayer حسب النود الرئيسية عند
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
 	if play_button:
 		play_button.pressed.connect(_on_play_pressed)
 	if exit_button:
 		exit_button.pressed.connect(_on_exit_pressed)
-
+	$"../AudioStreamPlayer".play()
+	$"../AudioStreamPlayer2".play()
 
 func _on_play_pressed() -> void:
 	if not get_tree():

@@ -4,13 +4,16 @@ extends Control
 
 @export var panel: Panel 
 @onready var audio_stream_player_2: AudioStreamPlayer = $AudioStreamPlayer2
+@onready var label: Label = $CanvasLayer/Panel/Label
+@onready var hello: CanvasLayer = $hello
 
 func _on_button_pressed() -> void:
 	$AudioStreamPlayer2.play()
-	get_tree().change_scene_to_file("res://scence/level_11.tscn")
+	get_tree().change_scene_to_file("res://scence/test_fixed.tscn")
 
 
 func _ready() -> void:
+	label.visible = true
 	panel.visible = false
 	get_tree().paused = false
 	BOX.visible = true
@@ -36,3 +39,4 @@ func _on_button_3_pressed() -> void:
 
 func _on_button_4_pressed() -> void:
 	_ready()
+	$AudioStreamPlayer2.play()

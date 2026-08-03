@@ -7,5 +7,6 @@ func _process(delta):
 	position += direction * -speed * delta
 
 func _on_body_entered(body):
+	queue_free()
 	if body.name == "player":
 		get_tree().reload_current_scene()

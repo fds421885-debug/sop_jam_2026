@@ -13,7 +13,5 @@ func _ready():
 
 	# إظهار الماوس عشان اللاعب يقدر يضغط
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	$"../AudioStreamPlayer".play()
-	$"../AudioStreamPlayer2".play()
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scence/test_fixed.tscn")

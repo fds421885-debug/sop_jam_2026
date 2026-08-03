@@ -272,6 +272,7 @@ func _trigger_loss() -> void:
 	player_left_behind.emit()
 	gameover.visible = true
 	get_tree().paused = true
+	$"../AudioStreamPlayer2".play()
 
 
 ## نادِها من GameManager بعد إعادة اللاعب لبداية جديدة (Respawn / مرحلة جديدة)

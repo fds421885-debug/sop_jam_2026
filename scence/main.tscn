@@ -181,6 +181,8 @@ script = ExtResource("1_7essg")
 BOX = NodePath("CanvasLayer/VBoxContainer")
 panel = NodePath("CanvasLayer/Panel")
 
+[node name="hello" parent="." unique_id=726853498 instance=ExtResource("27_laq0e")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=992301372]
 
 [node name="Parallax2D" type="Parallax2D" parent="CanvasLayer" unique_id=679266207]
@@ -531,8 +533,6 @@ autoplay = true
 
 [node name="made_this_game" parent="." unique_id=1684058176 instance=ExtResource("26_00185")]
 visible = false
-
-[node name="hello" parent="." unique_id=726853498 instance=ExtResource("27_laq0e")]
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

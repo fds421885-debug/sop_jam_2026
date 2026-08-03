@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://bf22r60wp3iyr"]
 
 [ext_resource type="Script" path="res://win.gd" id="1_cenvs"]
 [ext_resource type="Script" path="res://game_over_menu2.gd" id="2_cenvs"]
+=======
+[gd_scene format=3 uid="uid://b0rxtg8q0muon"]
+
+[ext_resource type="Script" uid="uid://cvgvrehr74gu3" path="res://win.gd" id="1_cenvs"]
+[ext_resource type="Script" uid="uid://cofcfm355emwd" path="res://game_over_menu2.gd" id="2_cenvs"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://cu1a83xma201v" path="res://asset/Wood and Paper UI/Sprites/Prefabs/3.png" id="3_toolk"]
 [ext_resource type="Texture2D" uid="uid://c35f5xq1g3of0" path="res://asset/Wood and Paper UI/Sprites/Prefabs/11.png" id="4_7wvmo"]
 [ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="5_7278n"]
@@ -14,8 +21,13 @@
 [ext_resource type="Texture2D" uid="uid://dt1u67jbsow6m" path="res://asset/Wood and Paper UI/Sprites/Small Banner/7.png" id="12_pjuhg"]
 [ext_resource type="Texture2D" uid="uid://d34dpx3bdhq3r" path="res://asset/Wood and Paper UI/Sprites/Small Banner/13.png" id="13_pug7l"]
 [ext_resource type="Texture2D" uid="uid://cvw8grlllkh15" path="res://asset/Wood and Paper UI/Sprites/Small Banner/5.png" id="14_uxgii"]
+<<<<<<< Updated upstream
 [ext_resource type="AudioStream" path="res://270333__littlerobotsoundfactory__jingle_win_00.wav" id="15_4oewu"]
 [ext_resource type="AudioStream" path="res://Concrete Boots.mp3" id="16_toolk"]
+=======
+[ext_resource type="AudioStream" uid="uid://civsjh8vt0cv5" path="res://270333__littlerobotsoundfactory__jingle_win_00.wav" id="15_4oewu"]
+[ext_resource type="AudioStream" uid="uid://bf0utwutidqiu" path="res://Concrete Boots.mp3" id="16_toolk"]
+>>>>>>> Stashed changes
 
 [node name="win" type="CanvasLayer" unique_id=155855203]
 script = ExtResource("1_cenvs")

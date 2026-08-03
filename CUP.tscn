@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://ckuomjt6jfvik"]
 
 [ext_resource type="Texture2D" path="res://End (Pressed) (64x64).png" id="1_ldrth"]
 [ext_resource type="Script" path="res://cup.gd" id="1_p1awi"]
+=======
+[gd_scene format=3 uid="uid://ch06lbvucpxa3"]
+
+[ext_resource type="Texture2D" uid="uid://c5pbnf2h5f4lr" path="res://End (Pressed) (64x64).png" id="1_ldrth"]
+[ext_resource type="Script" uid="uid://cjkt76s6m5qb7" path="res://cup.gd" id="1_p1awi"]
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1awi"]
 atlas = ExtResource("1_ldrth")
