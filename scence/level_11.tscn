@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://domboatc6m2sh" path="res://script/gamemanger.gd" id="14_8h38v"]
 [ext_resource type="PackedScene" uid="uid://du6ui527yq3nr" path="res://scence/gameover.tscn" id="15_7rx3k"]
 [ext_resource type="PackedScene" uid="uid://dd3ua364nafay" path="res://scence/door.tscn" id="16_ofo8o"]
+[ext_resource type="AudioStream" uid="uid://bied2itrm2nhf" path="res://Concrete Boots (1).mp3" id="17_kf7cs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w0jk8"]
 texture = ExtResource("1_iv2np")
@@ -580,3 +581,8 @@ process_mode = 3
 physics_interpolation_mode = 1
 auto_translate_mode = 1
 play_scene = "uid://s65tnhyog5hq"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=303672588]
+stream = ExtResource("17_kf7cs")
+autoplay = true
+parameters/looping = true

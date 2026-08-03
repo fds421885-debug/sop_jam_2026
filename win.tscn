@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://bf22r60wp3iyr"]
+
+[ext_resource type="Script" path="res://win.gd" id="1_cenvs"]
+[ext_resource type="Script" path="res://game_over_menu2.gd" id="2_cenvs"]
+[ext_resource type="Texture2D" uid="uid://cu1a83xma201v" path="res://asset/Wood and Paper UI/Sprites/Prefabs/3.png" id="3_toolk"]
+[ext_resource type="Texture2D" uid="uid://c35f5xq1g3of0" path="res://asset/Wood and Paper UI/Sprites/Prefabs/11.png" id="4_7wvmo"]
+[ext_resource type="FontFile" uid="uid://ccxe0pjpty6jx" path="res://BoldPixels.ttf" id="5_7278n"]
+[ext_resource type="Texture2D" uid="uid://bk50mppenrev6" path="res://asset/Wood and Paper UI/Sprites/Green Board/10.png" id="6_dmhp5"]
+[ext_resource type="Texture2D" uid="uid://c5hrvkist36bu" path="res://asset/Wood and Paper UI/Sprites/Green Board/11.png" id="7_2xgxw"]
+[ext_resource type="Texture2D" uid="uid://b3gdl4x5ko2gr" path="res://asset/Wood and Paper UI/Sprites/Green Board/12.png" id="8_qynjx"]
+[ext_resource type="Texture2D" uid="uid://ctw1vc7g6oeyr" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/2.png" id="9_06sxk"]
+[ext_resource type="Texture2D" uid="uid://b1qmqayj5soto" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/3.png" id="10_7ifsv"]
+[ext_resource type="Texture2D" uid="uid://bt7km3ahmbvkr" path="res://asset/Wood and Paper UI/Sprites/Yellow Button/4.png" id="11_8ypsn"]
+[ext_resource type="Texture2D" uid="uid://dt1u67jbsow6m" path="res://asset/Wood and Paper UI/Sprites/Small Banner/7.png" id="12_pjuhg"]
+[ext_resource type="Texture2D" uid="uid://d34dpx3bdhq3r" path="res://asset/Wood and Paper UI/Sprites/Small Banner/13.png" id="13_pug7l"]
+[ext_resource type="Texture2D" uid="uid://cvw8grlllkh15" path="res://asset/Wood and Paper UI/Sprites/Small Banner/5.png" id="14_uxgii"]
+[ext_resource type="AudioStream" path="res://270333__littlerobotsoundfactory__jingle_win_00.wav" id="15_4oewu"]
+[ext_resource type="AudioStream" path="res://Concrete Boots.mp3" id="16_toolk"]
+
+[node name="win" type="CanvasLayer" unique_id=155855203]
+script = ExtResource("1_cenvs")
+
+[node name="GameOverMenu" type="Control" parent="." unique_id=943624290 node_paths=PackedStringArray("play_button", "exit_button")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_cenvs")
+exit_scene = "uid://igoefsb87quv"
+play_button = NodePath("../panal/button/play")
+exit_button = NodePath("../panal/button2/exit")
+
+[node name="ColorRect" type="ColorRect" parent="GameOverMenu" unique_id=547181549]
+layout_mode = 0
+offset_left = 1240.0
+offset_top = -89.0
+offset_right = 1280.0
+offset_bottom = -49.0
+scale = Vector2(41.46334, 25.00801)
+color = Color(0, 0, 0, 0.374)
+
+[node name="Sprite2D" type="Sprite2D" parent="GameOverMenu/ColorRect" unique_id=660169874]
+texture_filter = 1
+position = Vector2(17.5818, 13.515671)
+scale = Vector2(0.06415227, 0.08541488)
+texture = ExtResource("3_toolk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="GameOverMenu/ColorRect" unique_id=947608277]
+texture_filter = 1
+position = Vector2(17.5818, 13.515671)
+scale = Vector2(0.08231293, 0.12623657)
+texture = ExtResource("4_7wvmo")
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverMenu/ColorRect" unique_id=233489506]
+layout_mode = 0
+offset_left = 1.0611801
+offset_top = -0.71976936
+offset_right = 41.06118
+offset_bottom = 39.28023
+
+[node name="Label" type="Label" parent="." unique_id=2065202498]
+texture_filter = 1
+offset_left = 398.0
+offset_top = 216.0
+offset_right = 699.0
+offset_bottom = 290.0
+theme_override_colors/font_color = Color(0.20368126, 0.20368126, 0.20368123, 1)
+theme_override_fonts/font = ExtResource("5_7278n")
+theme_override_font_sizes/font_size = 41
+text = "أنت فزت"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1740850261]
+offset_left = 542.0
+offset_top = 453.0
+offset_right = 582.0
+offset_bottom = 493.0
+
+[node name="panal" type="Node2D" parent="." unique_id=961013283]
+texture_filter = 1
+position = Vector2(508, 423)
+
+[node name="Sprite2D" type="Sprite2D" parent="panal" unique_id=498387639]
+position = Vector2(-80, 23)
+scale = Vector2(3, 3)
+texture = ExtResource("6_dmhp5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="panal" unique_id=26112789]
+position = Vector2(-2, 23)
+scale = Vector2(3, 3)
+texture = ExtResource("7_2xgxw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="panal" unique_id=1431460164]
+position = Vector2(76, 23)
+scale = Vector2(3, 3)
+texture = ExtResource("7_2xgxw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="panal" unique_id=779995561]
+position = Vector2(167, 23)
+scale = Vector2(3, 3)
+texture = ExtResource("7_2xgxw")
+
+[node name="Sprite2D5" type="Sprite2D" parent="panal" unique_id=1546787027]
+position = Vector2(259, 23)
+scale = Vector2(3, 3)
+texture = ExtResource("8_qynjx")
+
+[node name="button" type="Node2D" parent="panal" unique_id=359889318]
+
+[node name="botton" type="Node2D" parent="panal/button" unique_id=349785604]
+texture_filter = 1
+position = Vector2(70, 22)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="panal/button/botton" unique_id=438299105]
+position = Vector2(-17.833336, 0)
+scale = Vector2(1.6904765, 1)
+texture = ExtResource("9_06sxk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="panal/button/botton" unique_id=1153166825]
+texture = ExtResource("10_7ifsv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="panal/button/botton" unique_id=804100912]
+position = Vector2(24.5, 0)
+scale = Vector2(2.5, 1)
+texture = ExtResource("11_8ypsn")
+
+[node name="play" type="Button" parent="panal/button" unique_id=1525814473]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -5.0
+offset_right = 8.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_7278n")
+theme_override_font_sizes/font_size = 20
+text = "القائمه الرئيسيه"
+flat = true
+
+[node name="button2" type="Node2D" parent="panal" unique_id=888308010]
+position = Vector2(228, -12)
+
+[node name="botton" type="Node2D" parent="panal/button2" unique_id=939537149]
+texture_filter = 1
+position = Vector2(-32, 108)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="panal/button2/botton" unique_id=220888818]
+position = Vector2(36.000004, -21)
+texture = ExtResource("12_pjuhg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="panal/button2/botton" unique_id=1891236921]
+position = Vector2(65.66667, -26)
+texture = ExtResource("13_pug7l")
+
+[node name="Sprite2D3" type="Sprite2D" parent="panal/button2/botton" unique_id=1327907919]
+position = Vector2(93.333, -26)
+texture = ExtResource("14_uxgii")
+
+[node name="exit" type="Button" parent="panal/button2" unique_id=359909017]
+offset_left = -210.0
+offset_top = 9.0
+offset_right = -106.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0.2863073, 0.22828984, 0.21647638, 1)
+theme_override_fonts/font = ExtResource("5_7278n")
+theme_override_font_sizes/font_size = 30
+text = "exit"
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=380899570]
+stream = ExtResource("15_4oewu")
+volume_db = -19.537
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1749451932]
+stream = ExtResource("16_toolk")
+volume_db = -28.563
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="panal/button/play" to="." method="_on_play_pressed"]

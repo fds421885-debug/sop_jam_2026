@@ -16,6 +16,8 @@
 [ext_resource type="FontFile" uid="uid://c3ow2xtvrsmxf" path="res://الخطوط/Solar6VF.woff" id="12_3maxc"]
 [ext_resource type="Texture2D" uid="uid://cvw8grlllkh15" path="res://asset/Wood and Paper UI/Sprites/Small Banner/5.png" id="12_pvpdi"]
 [ext_resource type="FontFile" uid="uid://bxowwwhf7hhes" path="res://الخطوط/Solar6VF.woff2" id="16_xp4wv"]
+[ext_resource type="AudioStream" uid="uid://hmkt7a87ntxd" path="res://253174__suntemple__retro-you-lose-sfx (1).wav" id="17_3maxc"]
+[ext_resource type="AudioStream" uid="uid://bied2itrm2nhf" path="res://Concrete Boots (1).mp3" id="18_jq3qo"]
 
 [node name="gameover" type="CanvasLayer" unique_id=155855203 node_paths=PackedStringArray("play_button", "exit_button")]
 script = ExtResource("1_pvpdi")
@@ -175,5 +177,14 @@ theme_override_fonts/font = ExtResource("16_xp4wv")
 theme_override_font_sizes/font_size = 30
 text = "خروج"
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1780521846]
+stream = ExtResource("17_3maxc")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1597341078]
+stream = ExtResource("18_jq3qo")
+volume_db = -9.625
+autoplay = true
 
 [connection signal="pressed" from="panal/button/play" to="." method="_on_play_pressed"]

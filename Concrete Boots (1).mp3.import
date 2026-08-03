@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bied2itrm2nhf"
+path="res://.godot/imported/Concrete Boots (1).mp3-5a083f2a059610a12c74df5813304433.mp3str"
+
+[deps]
+
+source_file="res://Concrete Boots (1).mp3"
+dest_files=["res://.godot/imported/Concrete Boots (1).mp3-5a083f2a059610a12c74df5813304433.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

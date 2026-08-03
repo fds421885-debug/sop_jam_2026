@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://d2m2eqiec36lc" path="res://asset/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/6.png" id="27_u7ewa"]
 [ext_resource type="PackedScene" uid="uid://fklxymo8krgj" path="res://scence/zone.tscn" id="28_3kohg"]
 [ext_resource type="PackedScene" uid="uid://b6my8t8wgniug" path="res://scence/door_win.tscn" id="29_1n5m0"]
+[ext_resource type="AudioStream" uid="uid://bied2itrm2nhf" path="res://Concrete Boots (1).mp3" id="31_gkqp4"]
 [ext_resource type="FontFile" uid="uid://dq7ilw5avqsnp" path="res://الخطوط/Solar6VF.ttf" id="31_plji3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w0jk8"]
@@ -976,3 +977,8 @@ text = "المرحلة الثانية"
 
 [node name="zone2" parent="." unique_id=453382376 instance=ExtResource("28_3kohg")]
 position = Vector2(10800, -3343)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1188108801]
+stream = ExtResource("31_gkqp4")
+autoplay = true
+parameters/looping = true
